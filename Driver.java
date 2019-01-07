@@ -414,9 +414,10 @@ public class Driver {
 				//end game if player occupies end goal space
 		    if (map[playerCharacter.yPlayerVal]
 		    	   [playerCharacter.xPlayerVal].roomID == 3) {
-		        File endSong = new File("/home/grant_haataja/Downloads/Civil");
+		        File endSong = new File("/home/grant/Documents/undClasses"
+		        						+ "/Civil");
 		        System.out.println("Pizza time!"); //FIXME  
-		        endSong.open();	//FIXME
+		        //endSong.open();	//FIXME
 				System.exit(0);
 	      }
 		}
