@@ -1,0 +1,98 @@
+CSci-230           	Syllabus
+
+INSTRUCTOR: Ron Marsh
+     phone: 777-4013
+     email: rmarsh@cs.und.edu
+       url: http://rmarsh.cs.und.edu
+    office: 366 B Upson II 
+     Hours: MWF 9:00-11:00 and by appointment
+   
+    GRADER: Md Nural Amin
+     email: m.amin@und.edu
+    office: Harrington Hall 120D
+Office Hrs: TR 1:00-3:00
+
+MATERIALS:
+1) TEXTS:    Memory as a Programming Concept in C and C++ (Franek) 
+             System Programming with C and Unix (Hoover)
+
+2) HARDWARE: TBD
+
+3) SOFTWARE: gcc on Linux Mint machines (Leonard Hall 110 and 112). You may 
+             develop programs using other computers, but all labs and 
+             homeworks must compile and run properly on Linux Mint!
+
+4) ERRATA:   http://wiki.cs.und.edu/
+
+PURPOSE: This class will be an introduction low level and advanced C 
+         programming. The goal for this course is for the student to become 
+         proficient in memory management, using pointers, compiling and 
+         linking, and the development of libraries. 
+
+LEARNING OUTCOMES:
+At the end of this class, students will be able to:
+1) Write a program in C that uses dynamic memory and pointer-based data 
+   structures.
+2) Write and use Makefiles.
+3) Create and use static, shared, and dynamic libraries.
+4) Understand code optimization.
+5) Understand buffer overflows and code injection.
+
+READING OUTLINE:
+Week  Material       		 Chapter(s):  Franek		Hoover
+
+1	Introduction				1 		1
+2,3,4   C Programming                           3,5,6,7		2,3 
+5	Source to Executable			2 		6
+6 	Pointers				3		4
+7	Dynamic Memory				4		4
+         
+        Mid-term
+
+8, 9	Linked Lists				9
+10	Memory Leaks				10
+11	GCC Compiler & Optimizations		NA		6
+12	GCC Library management			NA		8
+
+	Final Exam				
+
+GENERAL:
+
+1) Exams will only be given at the scheduled times unless prior arrangements 
+   have been made. 
+
+2) Regular attendance is expected and students are responsible for any/all 
+   material covered in class.
+
+3) All assignments are due on the assigned dates (by midnight). No 
+   late assignments are accepted without prior written approval. 
+
+4) Grading: 1 midterm,    100 points.
+            1 final,      100 points.
+            Homework,     10+ points each. 
+	      Quizes,     5   points each.
+
+            A=100-90%, B=89-80%, C=79-70%, D=69-60%, F=59-0%. 
+                                  
+5) Plagiarism: You are expected to write your own assignments. In any/all cases 
+   of plagiarism the grade for that assignment will be zero for all persons 
+   involved. However, I do encourage students to discuss and work together on 
+   labs and assignments. But, do not copy solutions, programs, or code fragments 
+   from other students. USE OF MY SOLUTION IS ALSO PLAGIARISM!!! All cases of 
+   plagiarism will be reported to the Dean of students.
+
+6) If you plan to request disability accommodations in this course, you are 
+   expected to register with Disability Services for Students, McCannel Hall, Rm 190, 
+   777-3425 v/tty, dss@und.edu, www.und.edu/dept/dss.
+
+7) If you have emergency medical information to share with me, or if you need special 
+   arrangements in case the building must be evacuated, please make an appointment
+   with me as soon as possible. My office hours are indicated as above.
+
+8) To insure that I receive any emails you send, make sure the subject line
+   starts with "CSci-230".
+
+9) Disclaimer: This syllabus is intended to suggest the outline of the course; 
+   it is not absolute. Changes to the syllabus will be announced in class.  
+
+Copyright © Ronald Marsh, 2017
