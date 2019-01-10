@@ -6,4 +6,4 @@
 # All content is available for reference
 # Do not copy any of this content for school-related projects
 
-# Yeet
+# YEET
