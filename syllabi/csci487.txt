@@ -1,0 +1,93 @@
+                          UNIVERSITY OF NORTH DAKOTA 
+            School of Electrical Engineering and Computer Sciences
+   Course Syllabus	Spring 2019
+                        Csci 487  -  Penetration Testing
+
+Course Description. Students will be introduced to the cyber security practices of penetration testing and ethical hacking. Students will learn tools and techniques that are used by industry professionals. This course will cover the stages of a penetration test including: Planning, Reconnaissance, Scanning, Exploitation, Post Exploitation and Reporting. Students will learn how to identify common vulnerabilities, exploit those vulnerabilities and make recommendations for remediation. 
+Text Book: The recommended book for this course is: Penetration Testing A Hands-On Introduction to Hacking by Georgia Weidman
+Lead Instructor: James Maguire, james.maguire@highpointnetworks.com 
+Co-Instructor and Facilitator: Dr. Prakash Ranganathan, SEECS
+Pre-requisites: None, some programming knowledge will be beneficial. 
+Course Objectives. This course teaches students the principles and techniques used by security professionals to conduct penetration tests. 
+ Students will learn about the entire process of a penetration test including the following stages: planning, reconnaissance, scanning, exploitation, post exploitation and reporting (1). 
+ Students will learn then gain skills, knowledge and techniques to perform each stage of the penetration test from (1) and synthesize them to conduct a penetration test (2).
+ Student will learn new tools to solve various stages of penetration tests (1). 
+ Students will understand the ethics, and computing responsibilities without intruding any networks, or systems (4). 
+ Students will integrate the Pen test skills in to a project-based learning (2) (5).
+The following is a list of ABET's (1) through (7) outcome criteria adopted by the department (effective spring 2018): 
+(1) An ability to identify, formulate, and solve complex engineering problems by applying principles of engineering, science, and mathematics.
+(2) An ability to apply engineering design to produce solutions that meet specified needs with consideration of public health, safety, and welfare, as well as global, cultural, social, environmental, and economic factors.
+(3) An ability to communicate effectively with a range of audiences.
+(4) An ability to recognize ethical and professional responsibilities in engineering situations and make informed judgments, which must consider the impact of engineering solutions in global, economic, environmental, and societal contexts.
+
+(5) An ability to function effectively on a team whose members together provide leadership, create a collaborative and inclusive environment, establish goals, plan tasks, and meet objectives.
+(6) An ability to develop and conduct appropriate experimentation, analyze and interpret data, and use engineering judgment to draw conclusions.
+(7) An ability to acquire and apply new cyber security knowledge as needed, using appropriate
+Learning strategies.
+                        Tentative Schedule 
+ Week 1: Introduction to class
+ Week 2: Penetration test planning, scoping and reporting
+ Week 3: Installing and using Kali Linux
+ Week 4: Windows for Penetration Testers: Test 1
+ Week 5: Reconnaissance and Open Source Intelligence Gathering (OSINT)
+ Week 6: Port Scanning
+ Week 7: Vulnerability scanning
+ Week 8: Using Metasploit to launch Exploits; Test 2
+ Week 9: Password Attacks and Password cracking
+ Week 10: Exploits Continued 
+ Week 11: Post Exploitation
+ Week 12:  Pivoting and Lateral Movement: Test 3
+ Week 13: Wireless Testing
+ Week 14: Web Application Testing
+ Week 15: Web Application Exploits
+ Week 16: Penetration test considerations
+Final Exam (Dates will be announced later)
+Disclaimer: All the information provided in this course is for educational purposes only. The information on this course should only be used to enhance the security for your computer systems and not for causing malicious or damaging attacks. The word "Hacking" that is used on this course should be regarded as "Ethical Hacking" only. You as students should not misuse this information to gain unauthorized access into computer systems. Also be aware, performing hack attempts on computers that you do not own, without written permission from owners, is illegal. It is mandatory to seek advice from Instructors, if you have any questions before choosing your project.
+Project: Students will need to develop a project, and write a short report 4-6 pages on topics related to pen testing, and skills gained from the class. Students can send their 1-page project proposal by March 15[th] 2019 to both Prof. James and Ranganathan for approval. Project reports should follow ACM Template: https://www.acm.org/binaries/content/assets/publications/article-templates/pubform.docx 
+No proctoring is needed for any tests or exams. Time limit will be imposed for exams.
+
+
+
+Grading Distribution:
+Test 1  -  10%; 
+Test 2  -  10%; 
+Test 3  -  10%; 
+Exercises: 10% 
+Final Exam  -  30% 
+Project  -  25%
+
+It is the responsibility of each student to contact the instructor if he or she is uncertain about his or her standing in the course and about his or her potential for receiving a failing grade. Final grades will be computed on the following scale: 
+
+                                     Mark
+                                  Percentage
+                                       A
+                                [90%  -  100%]
+                                       B
+                                 [80%  -  90%)
+                                       C
+                                 [65%  -  80%)
+                                       D
+                                 [50%  -  65%)
+                                       F
+                                 [0%  -  50%)
+
+DSS STATEMENT: If you have emergency medical information to share with the instructor, if you need special arrangements in case the building must be evacuated, or if you need accommodations in this course because of a disability, please make an appointment with me. My office location and contact information are given in this syllabus. 
+The following is UND's Policy. UND recognizes its responsibility for making reasonable accommodations/ adjustments to ensure there is no discrimination on the basis of disability, as established under Section 504 of the Rehabilitation Act and the Americans with Disabilities Act. Disability Services for Students (DSS) assists students by arranging disability accommodations, collaborating with faculty on providing accommodations, and consulting with UND personnel about making all UND programs and services accessible. Students planning to use accommodations register with DSS and submit current documentation of disability. DSS will verify their eligibility and identify the accommodations they will be authorized to use on a semester by semester basis. For more information, contact DSS located at 190 Mc Cannel Hall, Phone: (701)-777-3425, or check the DSS web site for more details and procedures at: http://www.und.edu/dept/dss/.
+ACADEMIC HONESTY: We expect complete academic honesty as specified by the University Of North Dakota Code Of Student Life. We expect all students to be aware of these issues and the possible consequences. Students will receive no credit for any assignment/exam completed under the context of scholastic dishonesty. Additionally, other disciplinary actions may be taken, including but not limited to suspension from the University. A written record of any scholastic dishonesty will be kept in the student's academic file housed in the Department of Electrical Engineering.
+As stated on the Registrar's website:
+Students are expected to maintain scholastic honesty. Scholastic dishonesty includes but is not limited to cheating on a test, plagiarism, and collusion.
+A. Cheating on a test includes, but is not restricted to:
+ Copying from another's test.
+ Processing or using material during a test not authorized by the person giving the test.
+ Collaborating with or seeking aid from another student during a test without authority.
+ Knowingly using, buying, selling, stealing, transporting, or soliciting in whole or in part the contents of an un-administered test.
+ Substituting for another student or permitting another student to substitute for oneself to take a test.
+ Bribing another person to obtain an un-administered test or information about an un-administered test.
+ Last but not least: The 2[nd] paragraph under "Important Notes"
+
+B. Plagiarism means the appropriation, buying, receiving as a gift, or obtaining by any means another person's work and the unacknowledged submission or incorporation of it in one's own work. This includes appropriation of another person's work by the use of computers or any electronic means.
+C. Collusion means the unauthorized collaboration with another person in preparing written work offered for credit.
+For detailed policy statements and procedures dealing with scholastic dishonesty, see the Code of Student Life, Appendix IIIa, at:
+http://und.edu/student-affairs/code-of-student-life/_files/codepdfs/appendix/iiia/iiia-3.pdf. 
+
+            *****END OF SYLLABUS******
