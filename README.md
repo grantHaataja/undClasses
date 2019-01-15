@@ -7,3 +7,8 @@
 # Do not copy any of this content for school-related projects
 
 # YEET
+
+#Links:
+
+* [Linux Command Line Tutorial](http://linuxcommand.org/lc3_learning_the_shell.php)
+
