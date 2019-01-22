@@ -1,0 +1,139 @@
+\documentclass[11pt,final,twoside]{article}  % long article!
+% for equations, fonts and symbols
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+% for inline fractions, not actually needed at this time
+% \usepackage{xfrac}
+% set margins
+\usepackage[top=20mm,
+inner=20mm,
+outer=30mm,
+bottom=20mm,
+marginparwidth=23mm,
+marginparsep=4mm]{geometry}
+% for fancy text
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage[pdftex]{graphicx}
+% for forcing figures to go where i want them
+% \usepackage{float}
+% links within text
+\usepackage{hyperref}
+% for the wrapfigure environment
+\usepackage{wrapfig}
+% for indexes
+\usepackage{imakeidx}
+% custom footer text
+\usepackage{fancyhdr}
+% conditional draft functionality
+\usepackage{ifdraft}
+% how many pages
+\usepackage{lastpage}
+
+% if in draft mode, show frames
+\ifdraft{\usepackage{showframe}}{}
+
+\title{}  % TODO: Insert title
+\author{Michael Turnbull\\
+    \texttt{michael.turnbull@und.edu}}
+\date{\today}
+
+% penalty for breaking mid-footnote
+\interfootnotelinepenalty=1500
+% penalty for hyphenating a word
+\hyphenpenalty=200
+% the penalty for breaking a page after a line within a paragraph
+\linepenalty=10
+% the penalty for line breaking at an automatically inserted hyphen
+\hyphenpenalty=2000
+% the penalty for line breaking at an explicit hyphen
+\exhyphenpenalty=2000
+% the penalty for breaking a line at a binary operator
+\binoppenalty=700
+% the penalty for breaking a line at a relation
+\relpenalty=500
+% extra penalty for breaking after first line of a paragraph
+\clubpenalty=500
+% extra penalty for breaking before last line of a paragraph
+\widowpenalty=150
+% extra penalty for breaking before last line before a display math
+\displaywidowpenalty=500
+% extra penalty for page breaking after a hyphenated line
+\brokenpenalty=2000
+% penalty for breaking before a display
+\predisplaypenalty=10000
+% penalty for breaking after a display
+\postdisplaypenalty=0
+% penalty for splitting an insertion
+\floatingpenalty=20000
+
+% set the paragraph line-skip size
+% \setlength{\parskip}{4mm}
+\linespread{0.8}
+
+% setup hyperlinks
+\hypersetup{colorlinks=True,
+    linktocpage=False,
+    final}
+
+% enable indexing
+\makeindex[intoc]
+
+% smart notes
+\def\noteson{%
+    \gdef\note##1{\mbox{}\marginpar[##1]{##1}}}
+\def\notesoff{\gdef\note##1{}}
+\ifdraft{\noteson}{\notesoff}
+
+% show keys if draft mode
+\ifdraft{\usepackage{showkeys,todonotes,url}\renewcommand*{%
+        \showkeyslabelformat}[1]{\fbox{\vbox{\hsize=1.1cm\normalfont\footnotesize\url{%
+                    #1}\par}}}}{}
+
+% smart indexing
+\newcommand{\indexit}[2]{\index{\lowercase{#2}}#1} % is this actually used?
+
+% un-numbered sectioning
+\newcommand{\unsection}[1]{\section*{#1}\addcontentsline{toc}{section}{#1}}
+
+% header-footer text
+% TODO: Configure header/footer text
+\pagestyle{fancy}
+\fancyhead{Michael Turnbull CSCI242 Homework 1}
+\fancyhead[RO,LE]{\bfseries  }
+\fancyfoot{}
+\fancyfoot[RO,LE]{Page \thepage~of {\hypersetup{linkcolor=black}
+        \pageref{LastPage}}} 
+\fancyfoot[CO,CE]{\hyperlink{tableofcontents}{Back to table of contents}}
+
+\begin{document}
+    \maketitle
+    
+    \ifdraft{%
+        \begin{center}
+            {\Huge\color{blue}\textbf{DRAFT}}
+    \end{center}}{}
+
+\begin{enumerate}
+    \item For each of the following $f(n)$ derive the lowest Big-Oh $O(g(n))$ inequality and state whether it will be true for all values of $n$.
+    \begin{enumerate}
+        \item $f(n) = 8 + n^3 + 25n \in$ \framebox{$34*O(n^3) \forall n \geq 1$}
+        \item $f(n) = 5n + n^2 + 25n\log{n} \in$ \framebox{$6*O(n^2) \forall n \geq 1$}
+        \item $f(n) = 1 + n^2 \in$ \framebox{$2*O(n^2) \forall n \geq 1$}
+        \item $f(n) = 2*n + n^2 + 5n^3 \in$ \framebox{$8*O(n^3) \forall n \geq 1$}
+        \item $f(n) = n^3 \in$ \framebox{$O(n^3) \forall n$}
+        \item $f(n) = n^{10} - 4 \in$ \framebox{$O(n^{10}) \forall n$}
+    \end{enumerate}
+    \item For each of the following $f(n)$ derive the largest Big-Omega $\Omega(g(n))$ inequality and state whether it will be true for all values of $n$.
+    \begin{enumerate}
+        \item $f(n) = n^3 + 25 \in$ \framebox{$\Omega(n^3) \forall n$}
+        \item $f(n) = 5n \in$ \framebox{$\Omega(n) \forall n \geq 0$}
+        \item $f(n) = 100n + n^2 \in$ \framebox{$\Omega(n^2) \forall n \geq 0$}
+        \item $f(n) = 5n^3 \in$ \framebox{$\Omega(n^3) \forall n \geq 0$}
+        \item $f(n) = n^2 + 3 \in$ \framebox{$\Omega(n^2) \forall n$}
+        \item $f(n) = n\log{n} \in$ \framebox{$\Omega(n\log{n}) \forall n$}
+    \end{enumerate}
+\end{enumerate}
+
+\end{document}
