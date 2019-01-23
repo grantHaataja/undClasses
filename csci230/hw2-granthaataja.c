@@ -6,7 +6,14 @@
 
 //Functions
 int getData(void) {
-	//open file and such
+	//create structure
+	
+	//open file
+	FILE *stream;
+	stream = fopen("hw2.data", "r");
+	if(stream == NULL) exit(0); //file not opened
+	//print input file to screen FIXME
+	
 	
 }
 
