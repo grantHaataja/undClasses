@@ -5,16 +5,25 @@
 #include<stdlib.h>
 
 //Functions
-int getData(void) {
+struct getData(void) {
 	//create structure
+	struct data {
+		char model[42];
+		float engine;
+		int cost;
+		char color[42];
+	} datum[100];
 	
 	//open file
 	FILE *stream;
 	stream = fopen("hw2.data", "r");
 	if(stream == NULL) exit(0); //file not opened
-	//print input file to screen FIXME
-	
-	
+	//scan in data from file
+	for(int i=0; i < 8; i++) {
+		fscanf("%s %f %d %s",&datum[i]);
+		fprintf("%s %f %d %s",&datum[i]);
+	}
+	return datum;
 }
 
 
@@ -29,6 +38,8 @@ int main(void) {
 		printf("4. Sort data by the int value & print low to high\n");
 		printf("5. Exit\n\n");
 		
+		//scan in data from file
+		getData();
 		//get input from the user
 		scanf("%d", &userChoice);				
 		//do task
