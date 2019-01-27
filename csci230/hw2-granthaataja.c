@@ -54,7 +54,7 @@ void swap(int i, int j) {
 }
 
 //partitions array using last element as pivot, moving smaller elements left
-int partition(int start, int end) {
+int floatPartition(int start, int end) {
 	int pivot = datum[end].engine; //set last element as pivot
 	int i = (start - 1); //index of smaller element
 	for(int j = start; j < end; j++) {
@@ -72,16 +72,37 @@ int partition(int start, int end) {
 void floatSort(int start, int end) {
 	if(start < end) {
 		//partition index
-		int partIndex = partition(start, end);
+		int partIndex = floatPartition(start, end);
 		//separately sort elements before and after partition
 		floatSort(start, partIndex - 1);
 		floatSort(partIndex + 1, end);
 	}
 }
 
+//partitions array using last element as pivot, moving smaller elements left
+int intPartition(int start, int end) {
+	int pivot = datum[end].cost; //set last element as pivot
+	int i = (start - 1); //index of smaller element
+	for(int j = start; j < end; j++) {
+		//if current element is less than or equal to pivot
+		if(datum[j].cost <= pivot) {
+			i++; //increment index of smaller element
+			swap(i,j);
+		}
+	}
+	swap(i+1, end);
+	return (i+1);
+}
+
 //quickSort data by int
-void intSort(int size) {
-	
+void intSort(int start, int end) {
+	if(start < end) {
+		//partition index
+		int partIndex = intPartition(start, end);
+		//separately sort elements before and after partition
+		intSort(start, partIndex - 1);
+		intSort(partIndex + 1, end);
+	}
 }
 
 //print data from high to low
@@ -135,7 +156,7 @@ int main(void) {
 				fileLines = fileSize();
 				datum = calloc(fileLines, sizeof(remember));
 				getData(fileLines);
-				intSort(fileLines);
+				intSort(0, fileLines-1);
 				highToLow(fileLines);
 				free(datum);
 				break;
@@ -143,7 +164,7 @@ int main(void) {
 				fileLines = fileSize();
 				datum = calloc(fileLines, sizeof(remember));
 				getData(fileLines);
-				intSort(fileLines);
+				intSort(0, fileLines-1);
 				lowToHigh(fileLines);
 				free(datum);
 				break;
