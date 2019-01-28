@@ -53,29 +53,14 @@ void swap(int i, int j) {
 	datum[j] = remember;
 }
 
-//partitions array using last element as pivot, moving smaller elements left
-int floatPartition(int start, int end) {
-	int pivot = datum[end].engine; //set last element as pivot
-	int i = (start - 1); //index of smaller element
-	for(int j = start; j < end; j++) {
-		//if current element is less than or equal to pivot
-		if(datum[j].engine <= pivot) {
-			i++; //increment index of smaller element
-			swap(i,j);
+//bubbleSort data by float
+void floatSort(int size) {
+	for(int i = 0; i < size-1; i++) {
+		for(int j = 0; j < size-i-1; j++) {
+			if(datum[j].engine > datum[j+1].engine) {
+				swap(j, j+1);
+			}
 		}
-	}
-	swap(i+1, end);
-	return (i+1);
-}
-
-//quickSort data by float
-void floatSort(int start, int end) {
-	if(start < end) {
-		//partition index
-		int partIndex = floatPartition(start, end);
-		//separately sort elements before and after partition
-		floatSort(start, partIndex - 1);
-		floatSort(partIndex + 1, end);
 	}
 }
 
@@ -140,7 +125,7 @@ int main(void) {
 				fileLines = fileSize();
 				datum = calloc(fileLines, sizeof(remember));
 				getData(fileLines);
-				floatSort(0, fileLines-1);
+				floatSort(fileLines);
 				highToLow(fileLines);
 				free(datum);
 				break;
@@ -148,7 +133,7 @@ int main(void) {
 				fileLines = fileSize();
 				datum = calloc(fileLines, sizeof(remember));
 				getData(fileLines);
-				floatSort(0, fileLines-1);
+				floatSort(fileLines);
 				lowToHigh(fileLines);
 				free(datum);
 				break;
@@ -171,10 +156,10 @@ int main(void) {
 			case '5':
 				exit(0);
 				break;
-			/*default: 
+			default: 
 				printf("Unknown command, please enter an integer");
 				printf(" between 1 and 5, inclusive.\n\n");
-				break;*/
+				break;
 		}
 	}
 }
