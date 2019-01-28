@@ -106,19 +106,24 @@ void lowToHigh(int size) {
 	}
 }
 
+//print user menu
+void printMenu(void) {
+	printf("\n1. Sort data by the float value & print high to low\n");
+	printf("2. Sort data by the float value & print low to high\n");
+	printf("3. Sort data by the int value & print high to low\n");
+	printf("4. Sort data by the int value & print low to high\n");
+	printf("5. Exit\n\n");	
+}
+
 //Main Routine
-int main(void) {
+int main(void) {	
 	char userChoice = '0';
 	int fileLines = 0;
 	//print out the menu
 	while(1) {
-		printf("\n1. Sort data by the float value & print high to low\n");
-		printf("2. Sort data by the float value & print low to high\n");
-		printf("3. Sort data by the int value & print high to low\n");
-		printf("4. Sort data by the int value & print low to high\n");
-		printf("5. Exit\n\n");
+		printMenu();
 		//get input from the user
-		scanf("%c", &userChoice);				
+		scanf(" %c", &userChoice);
 		//do task
 		switch(userChoice) {
 			case '1': 
@@ -161,5 +166,5 @@ int main(void) {
 				printf(" between 1 and 5, inclusive.\n\n");
 				break;
 		}
-	}
+	} 
 }
