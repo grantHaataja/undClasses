@@ -1,0 +1,39 @@
+\documentclass[11pt,final,twoside]{article} %setup
+%set margins and load symbols and such
+\usepackage[top=20mm,inner=20mm,outer=30mm,bottom=20mm,
+marginparwidth=23mm,marginparsep=4mm]{geometry}
+%header of document
+\title{CSci242, Spring 2019\\
+	\texttt{Assignment 2}}
+\author{Grant Haataja}
+\date{\today}
+%set paragraph spacing
+\linespread{0.8}
+
+%make stuff happen
+\begin{document}
+	\maketitle
+
+\begin{enumerate}
+	\item For each of the following $f(n)$ functions derive the lowest Big Oh, $O(g(n))$, inequality, and constants $c$ and $n_0$ values for which the inequality will be true:
+	\begin{enumerate}
+		\item $f(n) = 8 + n^3 + 25n \leq 34 * n^3$ $\forall n \geq 1$
+		\framebox{$f(n) = O(n^3)$}
+		\item $f(n) = 5n + n^2 + 25n\log n \leq 6 * n^2$ $\forall n \geq 1$ \framebox{$f(n) = O(n^2)$}
+		\item $f(n) = 1 + n^2 \leq 2 * n^2$ $\forall n \geq 1$ \framebox{$f(n) = O(n^2)$}
+		\item $2n + n^2 + 5n^3 \leq 8 * n^3$ $\forall n \geq 1$ \framebox {$f(n) = O(n^3)$}
+		\item $n^3 \leq 1 * n^3$ $\forall n$ \framebox{$f(n) = O(n^3)$}
+		\item $n^{10} - 4 \leq 1 * n^{10} $ $\forall n$ \framebox{$f(n) = O(n^{10})$}\\\\\\	
+	\end{enumerate}
+	\item For each of the following $f(n)$ functions derive the largest Big Omega, $\Omega(g(n))$, inequality, and constants $c$ and $n_0$ values for which the inequality will be true:
+	\begin{enumerate}
+		\item $f(n) = n^3 + 2 \geq 1 * n^3$ $\forall n$ \framebox{$f(n) = \Omega(n^3)$}
+		\item $f(n) = 5n \geq 1 * n$ $\forall n$ \framebox{$f(n) = \Omega(n)$}
+		\item $f(n) = 100n + n^2 \geq 1 * n^2$ $\forall n \geq 0$ \framebox{$f(n) = \Omega(n^2)$}
+		\item $f(n) = 5n^3 \geq 1 * n^3$ $\forall n$ \framebox{$f(n) = \Omega(n^3)$}
+		\item $n^2 + 3 \geq 1 * n^2$ $\forall n$ \framebox{$f(n) = \Omega(n^2)$}
+		\item $n\log n \geq 1 * n\log n$ $ \forall n$ \framebox{$f(n) = \Omega(n\log n)$}
+	\end{enumerate}
+\end{enumerate}
+	
+\end{document}
