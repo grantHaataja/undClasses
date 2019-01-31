@@ -10,7 +10,7 @@
 //open files and check length of files
 int fileOpen(char fileName[20]) {
 	int lines = 0;
-	char dummy[20];
+	char dummy[50];
 	while (1) {
 		//printf("Enter a text file name: ");
 		//scanf(" %s", fileName);
@@ -23,7 +23,7 @@ int fileOpen(char fileName[20]) {
 				fscanf(stream,"%s", dummy);
 				lines++;
 			}
-			return lines;
+			return lines - 1;
 		}
 	}
 }
@@ -54,7 +54,9 @@ void getData(int lines0, int lines1, int lines2, char fileName0[20],
 		//parse through file1 and cat contents to array "words"
 		for (j = lines0; j < lines0 + lines1; j++) {
 			words[j] = (char *) calloc(50, sizeof(char));
-			fscanf(stream1, " %s", words[j]);
+			//if (!feof(stream1)) {
+				fscanf(stream1, " %s", words[j]);
+			//}
 		}
 	}
 	fclose(stream1);	
