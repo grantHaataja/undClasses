@@ -1,4 +1,5 @@
 //Grant Haataja
+//CSCI230: Assignment 2
 
 //Includes
 #include<stdio.h>
