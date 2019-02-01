@@ -10,10 +10,10 @@
 //open files and check length of files
 int fileOpen(char fileName[20]) {
 	int lines = 0;
-	char dummy[50];
+	char dummy[60];
 	while (1) {
-		//printf("Enter a text file name: ");
-		//scanf(" %s", fileName);
+		printf("Enter a text file name: ");
+		scanf(" %s", fileName);
 		FILE *stream = fopen(fileName,"r");
 		if (stream == NULL) {
 			printf("File not found...\n");
@@ -40,7 +40,7 @@ void getData(int lines0, int lines1, int lines2, char fileName0[20],
 	else {
 		//parse through file0 and cat contents to array "words"
 		for (i = 0; i < lines0; i++) {
-			words[i] = (char *) calloc(50, sizeof(char));
+			words[i] = (char *) calloc(52, sizeof(char));
 			fscanf(stream0, " %s", words[i]);
 		}
 	}
@@ -53,10 +53,8 @@ void getData(int lines0, int lines1, int lines2, char fileName0[20],
 	else {
 		//parse through file1 and cat contents to array "words"
 		for (j = lines0; j < lines0 + lines1; j++) {
-			words[j] = (char *) calloc(50, sizeof(char));
-			//if (!feof(stream1)) {
-				fscanf(stream1, " %s", words[j]);
-			//}
+			words[j] = (char *) calloc(52, sizeof(char));
+			fscanf(stream1, " %s", words[j]);
 		}
 	}
 	fclose(stream1);	
@@ -68,7 +66,7 @@ void getData(int lines0, int lines1, int lines2, char fileName0[20],
 	else {
 		//parse through file2 and cat contents to array "words"
 		for (int k = lines0 + lines1; k < lines0 + lines1 + lines2; k++) {
-			words[k] = (char *) calloc(50, sizeof(char));
+			words[k] = (char *) calloc(52, sizeof(char));
 			fscanf(stream2, " %s", words[k]);
 		}
 	}
@@ -81,7 +79,7 @@ void sort(char **words, int totalLines) {
 		for (int j = 0; j < totalLines - i - 1; j++) {
 			if (strcmp(words[j], words[j+1]) > 0) {
 				char *temp;
-				temp = (char *) calloc(50, sizeof(char));
+				temp = (char *) calloc(52, sizeof(char));
 				strcpy(temp, words[j]);
 				strcpy(words[j], words[j+1]);
 				strcpy(words[j+1], temp);
@@ -94,7 +92,7 @@ void sort(char **words, int totalLines) {
 void write(char **words, int totalLines) {
 	FILE *stream = fopen("words.txt", "w");
 	for (int i = 0; i < totalLines; i++) {
-		fprintf(stream, " %s\n", words[i]);
+		fprintf(stream, "%s\n", words[i]);
 	}
 	fclose(stream);
 }
@@ -111,19 +109,15 @@ int main(void) {
 	char file2[] = "american2.txt";
 	//ask user to input names of files
 	printf("Enter 3 file names to be merged and sorted: \n");
-	printf("First file name: ");
-	scanf(" %s", file0);
-	printf("Second file name: ");
-	scanf(" %s", file1);
-	printf("Third file name: ");
-	scanf(" %s", file2);	
 	//first count total number of lines in all 3 files
 	lines0 = fileOpen(file0);
 	lines1 = fileOpen(file1);
 	lines2 = fileOpen(file2);
 	totalLines = lines0 + lines1 + lines2;
+	printf("%d\n\n", totalLines); //FIXME delete
 	//allocate memory for first dimension of array (number of words)
-	words = (char **) calloc(totalLines+1, sizeof(char*));
+	words = (char **) malloc(sizeof(char*));
+	//words = (char **) calloc(totalLines + 1, sizeof(char*));
 	//call function to allocate memory for second dimension (size of each word)
 	getData(lines0, lines1, lines2, file0, file1, file2, words);
 	
@@ -131,6 +125,7 @@ int main(void) {
 	sort(words, totalLines);
 	//call function to print sorted word list to output file
 	write(words, totalLines);
+	//free allocated memory for array of words
 	free(words);
 }
 
