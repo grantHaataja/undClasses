@@ -109,6 +109,14 @@ int main(void) {
 	char file0[] = "american0.txt";
 	char file1[] = "american1.txt";
 	char file2[] = "american2.txt";
+	//ask user to input names of files
+	printf("Enter 3 file names to be merged and sorted: \n");
+	printf("First file name: ");
+	scanf(" %s", file0);
+	printf("Second file name: ");
+	scanf(" %s", file1);
+	printf("Third file name: ");
+	scanf(" %s", file2);	
 	//first count total number of lines in all 3 files
 	lines0 = fileOpen(file0);
 	lines1 = fileOpen(file1);
