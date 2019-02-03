@@ -97,6 +97,13 @@ void write(char **words, int totalLines) {
 	fclose(stream);
 }
 
+//free memory for the length of each word in array of words
+void freeWords(char **words, int totalLines) {
+	for (int i = 0; i < totalLines; i++) {
+		free(words[i]);
+	}
+}
+
 //Main Routine
 int main(void) {
 	char **words;
@@ -124,6 +131,8 @@ int main(void) {
 	sort(words, totalLines);
 	//call function to print sorted word list to output file
 	write(words, totalLines);
+	//free allocated memory for length of words from array of words
+	freeWords(words, totalLines);
 	//free allocated memory for array of words
 	free(words);
 }
