@@ -107,7 +107,6 @@ int main(void) {
 	char file0[60];
 	char file1[60];
 	char file2[60];
-	
 	//ask user to input names of files
 	printf("Enter 3 file names to be merged and sorted: \n");
 	//first count total number of lines in all 3 files
@@ -117,13 +116,10 @@ int main(void) {
 	//strcpy(fileName, "american2.txt");
 	lines2 = fileOpen(file2);
 	totalLines = lines0 + lines1 + lines2;
-	printf("%d\n\n", totalLines); //FIXME delete
 	//allocate memory for first dimension of array (number of words)
 	words = (char **) malloc(sizeof(char*) * (totalLines + 1));
-	//words = (char **) calloc(totalLines + 1, sizeof(char*));
 	//call function to allocate memory for second dimension (size of each word)
 	getData(lines0, lines1, lines2, file0, file1, file2, words);
-	
 	//call function to sort array alphabetically
 	sort(words, totalLines);
 	//call function to print sorted word list to output file
