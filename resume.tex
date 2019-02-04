@@ -1,0 +1,100 @@
+\documentclass{article}
+
+%call packages
+\usepackage{titlesec}
+\usepackage{titling}
+\usepackage[margin=1.2in]{geometry}
+\usepackage{hyperref}
+
+
+%format titles for sections, no numbers and no indentation
+\titleformat{\section}
+{\huge\bfseries}
+{}
+{0em}
+{}[\titlerule]
+
+
+%format titles for subsections, bullet points and 0.3 indentation
+\titleformat{\subsection}[runin]
+{\bfseries\large}
+{$\bullet$}
+{0.3em}
+{}
+
+%format titles for subsubsections, bullet points and 0.3 indentation
+\titleformat{\subsubsection}
+{\bfseries\large}
+{$\bullet$}
+{0.3em}
+{}
+
+%format maketitle command
+\renewcommand{\maketitle}{
+\begin{center}
+{\huge\bfseries
+\theauthor}
+
+\vspace{0.5em}
+
+grant.haataja@und.edu
+
+701-580-6305
+
+\url{https://www.linkedin.com/in/grant-haataja-40526a144/}
+
+\url{https://und.joinhandshake.com/users/10782099}
+
+\url{https://github.com/grantHaataja?tab=repositories}
+
+\end{center}
+}
+
+
+
+
+\begin{document}
+\title{R\'esum\'e}
+\author{Grant Haataja}
+\maketitle
+
+\section{Education}
+
+\subsection{University of North Dakota:}
+Junior year double major in Computer Science and Mathematics with cumulative GPA of 3.8
+
+\subsection{Williston State College:}
+Associate's Degree in Science with High Honors
+
+\subsection{High School:}
+Home-schooled, graduated at age 16 with 3.9 GPA
+
+\section{Leadership Experience}
+
+\subsection{Leadership:}
+Software Development team co-lead for Advanced Rocketry Club
+
+\subsection{Volunteering:}
+Alerus Center - Fight the Frost 
+
+\section{Work Experience}
+
+\subsubsection{Helix Wine \& Bites (01/18/19 - Current)} 
+\textbf{Bartender/Server:} Providing exceptional food and drink service to customers
+
+\subsubsection{UND Math Department (11/26/19 - Current)}
+\textbf{Math Tutor:} Helping students learn math concepts such as college algebra, calculus, discrete math, differential equations, set theory and logic, and abstract algebra
+
+\subsubsection{Advanced Engineering and Environmental Services (05/11/17 - 11/18/19)}
+\textbf{Engineering Assistant:} Writing daily reports, taking construction photos, GPS data collection and organization, coordinating with contractor and client for smooth project development
+
+\section{Skills}
+
+\subsection{Technical Skills:}
+Java, C, Python, Bash, {\LaTeX}, GitHub, Linux CLI
+
+\subsection{General Skills:}
+Customer service, communication, teamwork, organization skills
+
+
+\end{document}
