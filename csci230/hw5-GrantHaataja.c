@@ -6,13 +6,13 @@
 #include <string.h>
 
 //Structure
-struct _data {                                 
+struct data {                                 
 	char *name;
 	long number;
 };
 
 //vector function
-char * vector(char *fileName, int count) {
+char *vector(char *fileName, int count) {
 	char * ptr;
 	//allocate memory for any string
 	ptr = (char*) calloc(count+1, sizeof(char));
@@ -24,8 +24,10 @@ char * vector(char *fileName, int count) {
 //function to open the file/stream and count how many lines it contains
 int SCAN(char *fileName, FILE *(*stream)) {
 	int size = 0;
-	char *temp;
-	printf("Just to check, fileName is %s\n",fileName); //FIXME
+	char *line = NULL;
+	size_t length = 0;
+	//to store number of characters in each line	
+	ssize_t read = 0;
 	//check if file is valid
 	if ((*stream = fopen(fileName, "r")) == NULL) {
 		printf("\nFile not found...\n");
@@ -33,41 +35,29 @@ int SCAN(char *fileName, FILE *(*stream)) {
 		return 0;
 	}
 	else {
-		printf("YAY!\n"); //FIXME
-		
+		while ((read = getline(&line, &length, *stream)) != -1) {
+			size++;
+		}
 		return size;
 	}
-	//*stream = fopen(fileName, "r");
-	printf("\n???\n"); //FIXME
-		
-		/*else {
-			while (1) {
-				if (feof(*stream)) {
-					break;
-				}
-				fscanf(*stream, "%s", temp);
-				size++;
-			}
-		return size;
-		printf("SCAN function successful"); //FIXME delete
-		}*/
-
 }
 
 //function to create a dynamic array of length 'size' and store data in struct
-struct _data *LOAD(FILE *stream, int size) {
-
+struct data *LOAD(FILE *stream, int size) {
+	char *line = NULL;
+	size_t length = 0;
+	ssize_t read = 0;
 
 }
 
 //function to find the name we are searching for 
-void SEARCH(struct _data *BlackBox, char *name, int size) {
+void SEARCH(struct data *BlackBox, char *name, int size) {
 
 
 }
 
 //function to free all dynamic memory allocated in this program
-void FREE(struct _data *BlackBox, int size) {
+void FREE(struct data *BlackBox, int size) {
 
 
 }
@@ -78,9 +68,9 @@ int main(int argc, char **argv) {
 	char *fileName;
 	//fileName = "hw5.data";
 	int size = 0; //number of lines in file
-	FILE *fstream; //declare file/stream
+	//declare file/stream
+	FILE *fstream;
 	//get user-entered file name and dynamically allocate memory for fileName
-	//loop until user enters a valid file name
 	while (1) {
 		int i = 0;
 		int count = 1;		
@@ -92,6 +82,7 @@ int main(int argc, char **argv) {
 			fileName[i] = getchar();		  	
 			//check to break
 			if (fileName[i] == '\n') {
+				fileName[i] = '\0';
 				break;
 			}	
 			//call vector function to allocate memory
@@ -100,11 +91,12 @@ int main(int argc, char **argv) {
 			count = strlen(fileName) + 1;
 			i++;
 		}
-	printf("\nfile name is %s \n", fileName); //FIXME
-	//call function to count lines in file
-	size = SCAN(fileName, &fstream);
+		//call function to count lines in file
+		if ((size = SCAN(fileName, &fstream)) != 0) {
+			break;
+		}	
 	}
-
+	printf("File is %d lines.", size);
 
 	printf("\nProgram Complete\n"); //FIXME delete
 
