@@ -47,7 +47,19 @@ struct data *LOAD(FILE *stream, int size) {
 	char *line = NULL;
 	size_t length = 0;
 	ssize_t read = 0;
+	struct data *BlackBox;
+	BlackBox = calloc(size, sizeof(char)); //FIXME
+	//rewind stream to start at the beginning of file
+	rewind(stream);
+	for (int i = 0; i < size; i++) {
+		//read = getline(&line, &length, stream);
+		fscanf(stream, "%s %f", BlackBox[i].name, &BlackBox[i].number);
+		//BlackBox[i] = line;
+		printf("\n%s %f\n", BlackBox[i].name, BlackBox[i].number);
+		//TODO fix code to store data properly in structure
+	}
 
+	return BlackBox;
 }
 
 //function to find the name we are searching for 
@@ -68,6 +80,7 @@ int main(int argc, char **argv) {
 	char *fileName;
 	//fileName = "hw5.data";
 	int size = 0; //number of lines in file
+	struct data *BlackBox;
 	//declare file/stream
 	FILE *fstream;
 	//get user-entered file name and dynamically allocate memory for fileName
@@ -97,6 +110,9 @@ int main(int argc, char **argv) {
 		}	
 	}
 	printf("File is %d lines.", size);
+
+	//call function to store data in structure
+	BlackBox = LOAD(fstream, size);
 
 	printf("\nProgram Complete\n"); //FIXME delete
 
