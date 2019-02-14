@@ -45,20 +45,22 @@ int SCAN(char *fileName, FILE *(*stream)) {
 }
 
 //function to create a dynamic array of length 'size' and store data in struct
-struct _data *LOAD(FILE *stream, int size) {
+struct _data *LOAD(FILE *stream, int size, char *fileName) {
 	char *line = NULL; //hold each individual line of file
 	size_t length = 0;
 	ssize_t read = 0;
 	struct _data *BlackBox;
-	BlackBox = calloc(size, sizeof(struct _data)); //FIXME ??
-	//if (BlackBox == NULL) printf("\nFAIL\n"); //FIXME delete
+	BlackBox = (struct _data*) calloc(size, sizeof(struct _data)); //FIXME ??
 	//if (BlackBox != NULL) printf("\nSUCCESS\n"); //FIXME delete
 	//rewind stream to start at the beginning of file
-	rewind(stream);
+	 rewind(stream);
 	for (int i = 0; i < size; i++) {
 		read = getline(&line, &length, stream);
 		line = strtok(line, " ,\n");
-		BlackBox[i].name = line;
+		//allocate memory for each name in the struct
+		BlackBox[i].name = (char*) calloc(strlen(line), sizeof(char));
+		//copy each name into the struct
+		strncpy(BlackBox[i].name, line, (int) strlen(line));
 		line = strtok(NULL, " ");
 		BlackBox[i].number = atol(line);
 		//printf("%s %ld\n", BlackBox[i].name, BlackBox[i].number); //FIXME delete
@@ -76,6 +78,7 @@ void SEARCH(struct _data *BlackBox, char *name, int size) {
 			//print the found name for case 3
 			printf("\nThe name %s was found at the %d entry.\n", name, i+1);
 			found = 1;
+			break;
 		}
 	}
 	if (found == 0) {
@@ -84,15 +87,21 @@ void SEARCH(struct _data *BlackBox, char *name, int size) {
 }
 
 //function to free all dynamic memory allocated in this program
-void FREE(struct _data *BlackBox, int size) {
+void FREE(struct _data *BlackBox, int size, char *fileName) {
 	//should free 4 things in this function including loop for BlackBlox
 	for (int i = 0; i < size; i++) {
-		printf("\nName that we're trying to free is %s.\n",BlackBox[i].name);
-		printf("Name that we're trying to free is at memory location: %p\n", &BlackBox[i].name);
+		//printf("\nName that we're trying to free is %s.\n",BlackBox[i].name);
+		//printf("Name that we're trying to free is at memory location: %p\n", &BlackBox[i].name);
 		free(BlackBox[i].name);
-		//free(BlackBox[i].number);
 	}
-
+	//free number of listings in BlackBox
+	free(BlackBox);
+	//free user-entered file name
+	free(fileName);
+	//free pointer from vector function? TODO
+	
+	//close file
+	//fclose(stream);
 }
 
 //Main
@@ -130,11 +139,8 @@ int main(int argc, char **argv) {
 			break;
 		}	
 	}
-	//printf("File is %d lines.", size); //FIXME delete
-
 	//call function to store data in structure
-	BlackBox = LOAD(fstream, size);
-	
+	BlackBox = LOAD(fstream, size, fileName);
 	//make sure user entered a name
 	if (argc <= 1) {
 		printf("\nYou must include a name to search for.\n");
@@ -144,7 +150,11 @@ int main(int argc, char **argv) {
 	SEARCH(BlackBox, *(argv+1), size);
 
 	//call function to free memory
-	//FREE(BlackBox, size);
+	FREE(BlackBox, size, fileName);
+
+
+	//close file
+	//fclose(fstream);	
 
 	//printf("\nProgram Complete\n"); //FIXME delete
 
