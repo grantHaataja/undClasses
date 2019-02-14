@@ -37,8 +37,9 @@ int SCAN(char *fileName, FILE *(*stream)) {
 	else {
 		while ((read = getline(&line, &length, *stream)) != -1) {
 			size++;
-			//free(line); //TODO WHY??
 		}
+		//free dynamically allocated line variable and return number of lines
+		free(line);
 		return size;
 	}
 }
@@ -50,8 +51,8 @@ struct _data *LOAD(FILE *stream, int size) {
 	ssize_t read = 0;
 	struct _data *BlackBox;
 	BlackBox = calloc(size, sizeof(struct _data)); //FIXME ??
-	if (BlackBox == NULL) printf("\nFAIL\n"); //FIXME delete
-	if (BlackBox != NULL) printf("\nSUCCESS\n"); //FIXME delete
+	//if (BlackBox == NULL) printf("\nFAIL\n"); //FIXME delete
+	//if (BlackBox != NULL) printf("\nSUCCESS\n"); //FIXME delete
 	//rewind stream to start at the beginning of file
 	rewind(stream);
 	for (int i = 0; i < size; i++) {
@@ -60,7 +61,7 @@ struct _data *LOAD(FILE *stream, int size) {
 		BlackBox[i].name = line;
 		line = strtok(NULL, " ");
 		BlackBox[i].number = atol(line);
-		printf("%s %ld\n", BlackBox[i].name, BlackBox[i].number); //FIXME delete
+		//printf("%s %ld\n", BlackBox[i].name, BlackBox[i].number); //FIXME delete
 	}
 	return BlackBox;
 }
@@ -73,18 +74,24 @@ void SEARCH(struct _data *BlackBox, char *name, int size) {
 	for (int i = 0; i < size; i++) {
 		if (strcmp(BlackBox[i].name, name) == 0) {
 			//print the found name for case 3
-			printf("\nThe name was found at the %d entry.", i+1);
+			printf("\nThe name %s was found at the %d entry.\n", name, i+1);
 			found = 1;
 		}
 	}
 	if (found == 0) {
-		printf("\nThe name was NOT found.");
+		printf("\nThe name was NOT found.\n");
 	}
 }
 
 //function to free all dynamic memory allocated in this program
 void FREE(struct _data *BlackBox, int size) {
-
+	//should free 4 things in this function including loop for BlackBlox
+	for (int i = 0; i < size; i++) {
+		printf("\nName that we're trying to free is %s.\n",BlackBox[i].name);
+		printf("Name that we're trying to free is at memory location: %p\n", &BlackBox[i].name);
+		free(BlackBox[i].name);
+		//free(BlackBox[i].number);
+	}
 
 }
 
@@ -123,36 +130,23 @@ int main(int argc, char **argv) {
 			break;
 		}	
 	}
-	printf("File is %d lines.", size); //FIXME delete
+	//printf("File is %d lines.", size); //FIXME delete
 
 	//call function to store data in structure
 	BlackBox = LOAD(fstream, size);
 	
-	//allocate memory for argv
-	//argv = calloc(size, sizeof(int));
-	printf("%s",argv);
-	printf("\nargc is %d\n",argc);
-	char *name;
-	//name = calloc(size, sizeof(char));
-	//name = *argv;
-	//printf("name is %s\n",name);
-	
 	//make sure user entered a name
 	if (argc <= 1) {
-		printf("You must include a name to search for.\n");
-		exit(0);
-	}
-	//loop through user-entered names and store them in an array
-	for (int i = 0; i < argc-1; i++) {
-		printf("\nI'm in the loop\n");
-		//name[i] = calloc(
-		name[i] = *argv[i+1];
-		printf("entered name: %s\n",name[i]);
+		printf("\nYou must include a name to search for.\n");
+		return 0;
 	}
 	//call function to search for user-entered name
-	//SEARCH(BlackBox, name, size);
+	SEARCH(BlackBox, *(argv+1), size);
 
-	printf("\nProgram Complete\n"); //FIXME delete
+	//call function to free memory
+	//FREE(BlackBox, size);
+
+	//printf("\nProgram Complete\n"); //FIXME delete
 
 	return 0;
 }
