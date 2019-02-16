@@ -50,8 +50,7 @@ struct _data *LOAD(FILE *stream, int size, char *fileName) {
 	size_t length = 0;
 	ssize_t read = 0;
 	struct _data *BlackBox;
-	BlackBox = (struct _data*) calloc(size, sizeof(struct _data)); //FIXME ??
-	//if (BlackBox != NULL) printf("\nSUCCESS\n"); //FIXME delete
+	BlackBox = (struct _data*) calloc(size, sizeof(struct _data));
 	//rewind stream to start at the beginning of file
 	 rewind(stream);
 	for (int i = 0; i < size; i++) {
@@ -63,7 +62,6 @@ struct _data *LOAD(FILE *stream, int size, char *fileName) {
 		strncpy(BlackBox[i].name, line, (int) strlen(line));
 		line = strtok(NULL, " ");
 		BlackBox[i].number = atol(line);
-		//printf("%s %ld\n", BlackBox[i].name, BlackBox[i].number); //FIXME delete
 	}
 	return BlackBox;
 }
@@ -90,18 +88,12 @@ void SEARCH(struct _data *BlackBox, char *name, int size) {
 void FREE(struct _data *BlackBox, int size, char *fileName) {
 	//should free 4 things in this function including loop for BlackBlox
 	for (int i = 0; i < size; i++) {
-		//printf("\nName that we're trying to free is %s.\n",BlackBox[i].name);
-		//printf("Name that we're trying to free is at memory location: %p\n", &BlackBox[i].name);
 		free(BlackBox[i].name);
 	}
 	//free number of listings in BlackBox
 	free(BlackBox);
 	//free user-entered file name
 	free(fileName);
-	//free pointer from vector function? TODO
-	
-	//close file
-	//fclose(stream);
 }
 
 //Main
@@ -148,15 +140,8 @@ int main(int argc, char **argv) {
 	}
 	//call function to search for user-entered name
 	SEARCH(BlackBox, *(argv+1), size);
-
 	//call function to free memory
 	FREE(BlackBox, size, fileName);
-
-
-	//close file
-	//fclose(fstream);	
-
-	//printf("\nProgram Complete\n"); //FIXME delete
 
 	return 0;
 }
