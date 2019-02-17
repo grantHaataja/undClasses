@@ -23,7 +23,9 @@ char *vector(char *fileName, int count) {
 
 //function to open the file/stream and count how many lines it contains
 int SCAN(char *fileName, FILE *(*stream)) {
+	//variable for number of lines
 	int size = 0;
+	//string variable to hold each individual line
 	char *line = NULL;
 	size_t length = 0;
 	//to store number of characters in each line	
@@ -36,6 +38,7 @@ int SCAN(char *fileName, FILE *(*stream)) {
 	}
 	else {
 		while ((read = getline(&line, &length, *stream)) != -1) {
+			//increment size to count number of lines
 			size++;
 		}
 		//free dynamically allocated line variable and return number of lines
@@ -46,22 +49,34 @@ int SCAN(char *fileName, FILE *(*stream)) {
 
 //function to create a dynamic array of length 'size' and store data in struct
 struct _data *LOAD(FILE *stream, int size, char *fileName) {
-	char *line = NULL; //hold each individual line of file
+	//hold each individual line of file
+	char *line = NULL;
 	size_t length = 0;
+	//to store number of characters in each line
 	ssize_t read = 0;
+	//string variable to hold name from each line and copy it to BlackBox
+	char *first;
+	//string variable to hold number from each line and convert it to long
+	char *second;
+	//declare structure BlackBox
 	struct _data *BlackBox;
+	//allocate memory for structure equal to number of lines in file
 	BlackBox = (struct _data*) calloc(size, sizeof(struct _data));
 	//rewind stream to start at the beginning of file
-	 rewind(stream);
+	rewind(stream);
 	for (int i = 0; i < size; i++) {
+		//scan in each line of the file individually 
 		read = getline(&line, &length, stream);
-		line = strtok(line, " ,\n");
+		//use deliminator to get the name from the line and assign to 'first'
+		first = strtok(line, " ,\n");
 		//allocate memory for each name in the struct
-		BlackBox[i].name = (char*) calloc(strlen(line), sizeof(char));
+		BlackBox[i].name = (char*) calloc(strlen(first), sizeof(char));
 		//copy each name into the struct
-		strncpy(BlackBox[i].name, line, (int) strlen(line));
-		line = strtok(NULL, " ");
-		BlackBox[i].number = atol(line);
+		strncpy(BlackBox[i].name, first, (int) strlen(first));
+		//use deliminator to get the number from the line and assign to 'second'
+		second = strtok(NULL, " ");
+		//convert string to long and store in struct
+		BlackBox[i].number = atol(second);
 	}
 	return BlackBox;
 }
@@ -86,7 +101,7 @@ void SEARCH(struct _data *BlackBox, char *name, int size) {
 
 //function to free all dynamic memory allocated in this program
 void FREE(struct _data *BlackBox, int size, char *fileName) {
-	//should free 4 things in this function including loop for BlackBlox
+	//loop through BlackBox and free each dynamically-allocated name
 	for (int i = 0; i < size; i++) {
 		free(BlackBox[i].name);
 	}
@@ -111,7 +126,7 @@ int main(int argc, char **argv) {
 		int count = 1;		
 		printf("Enter a data file to search from: ");
 		//allocate memory for fileName
-		fileName = calloc(2, sizeof(char)); 
+		fileName = (char *) calloc(2, sizeof(char)); 
 		while (1) {
 			//get character one at a time
 			fileName[i] = getchar();		  	
@@ -133,6 +148,8 @@ int main(int argc, char **argv) {
 	}
 	//call function to store data in structure
 	BlackBox = LOAD(fstream, size, fileName);
+	//close file
+	fclose(fstream);
 	//make sure user entered a name
 	if (argc <= 1) {
 		printf("\nYou must include a name to search for.\n");
