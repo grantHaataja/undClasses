@@ -1,0 +1,13 @@
+\beamer@sectionintoc {1}{What is a Hash Function?}{3}{0}{1}
+\beamer@subsectionintoc {1}{1}{Definition of a Hash Function}{3}{0}{1}
+\beamer@subsectionintoc {1}{2}{Requirements of Hash Functions}{4}{0}{1}
+\beamer@sectionintoc {2}{How do Hash Functions Work?}{5}{0}{2}
+\beamer@sectionintoc {3}{Uses of Cryptographic Hash Functions}{6}{0}{3}
+\beamer@sectionintoc {4}{Types of Cryptographic Hash Functions}{7}{0}{4}
+\beamer@sectionintoc {5}{Hashing in Cybersecurity}{8}{0}{5}
+\beamer@subsectionintoc {5}{1}{MD5 (Message Digest Algorithm 5)}{8}{0}{5}
+\beamer@subsectionintoc {5}{2}{SHA-256 (Secure Hashing Algorithm)}{9}{0}{5}
+\beamer@sectionintoc {6}{Hashing vs Encryption}{10}{0}{6}
+\beamer@subsectionintoc {6}{1}{Benefits of Hashing}{10}{0}{6}
+\beamer@subsectionintoc {6}{2}{Downfalls of Hashing}{11}{0}{6}
+\beamer@sectionintoc {7}{Hash Function Implementation}{12}{0}{7}

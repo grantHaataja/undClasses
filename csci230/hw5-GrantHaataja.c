@@ -98,10 +98,6 @@ void FREE(struct _data *BlackBox, int size, char *fileName) {
 	free(BlackBox);
 	//free user-entered file name
 	free(fileName);
-	//free pointer from vector function? TODO
-	
-	//close file
-	//fclose(stream);
 }
 
 //Main
@@ -148,15 +144,11 @@ int main(int argc, char **argv) {
 	}
 	//call function to search for user-entered name
 	SEARCH(BlackBox, *(argv+1), size);
-
 	//call function to free memory
 	FREE(BlackBox, size, fileName);
 
-
 	//close file
-	//fclose(fstream);	
-
-	//printf("\nProgram Complete\n"); //FIXME delete
-
+	fcloseall();
+	//fclose(fstream);
 	return 0;
 }

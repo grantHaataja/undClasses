@@ -9,7 +9,7 @@
 	%\setbeamertemplate{caption}[numbered]
 }
 
-\title{Hash Functions}
+\title{Cryptographic Hash Functions}
 \author{Grant Haataja}
 \date{\today}
 
@@ -20,19 +20,161 @@
 	\titlepage
 \end{frame}	
 
-%second frame for main points
+%second frame for table of contents
 \begin{frame}
-	\frametitle{Introduction}
+\frametitle{Introduction}
+	\tableofcontents
+\end{frame}
+
+%define outline for slides
+\section{What is a Hash Function?}
+
+\subsection{Definition of a Hash Function}
+\begin{frame}
+\frametitle{Definition of a Hash Function}
+	A hash function is a mathematical algorithm that takes input of arbitrary length and maps it through a series of transformations to a string of fixed length.
+\end{frame}
+
+\subsection{Requirements of Hash Functions}
+\begin{frame}
+\frametitle{Requirements of Hash Functions}
 	\begin{itemize}
-		\item What is a hash function?
-		\item How do hash functions work?
-		\item Uses of hash functions
-		\item Types of hash functions
-		\item Hashing in cyber security 
-		\item Hashing vs encryption 
-		\item Hash function demonstration
+		\item Computationally efficient
+		\item Pre-Image Resistance 
+		\item Deterministic  
+		\item Collision Resistance
+		\item Outputs should have the appearance of complete randomness
+	\end{itemize}
+\end{frame}
+
+\section{How do Hash Functions Work?}
+
+\begin{frame}
+\frametitle{How do Hash Functions Work?}
+	\begin{itemize}
+		\item Hash functions take an input of any size and go through a series of steps to change it into something theoretically unrecognizable to the original message
+		\item The output of a hash function is commonly referred to as a \textit{digest}
+	\end{itemize}
+	\vspace{.1in}
+	A hash function can be as simple as $$\vspace{.3in}f(x) = x\mod7.$$ \vspace{-.5in}
+	
+	Then any input could be converted into a decimal number and sent through the function. For example, consider the input: "Message". If we apply the standard conversion from letters to numbers, (A $\rightarrow$ 1,B $\rightarrow$ 2,...,Z $\rightarrow$ 26), "Message" becomes 13 5 18 18 1 7 5. Then, we take it as the number 1,351,818,175 and send it through the function, giving $$f(1351818175) = 1351818175 \mod 7 = 1$$.
+\end{frame}
+
+\section{Uses of Cryptographic Hash Functions}
+
+\begin{frame}
+\frametitle{Uses of Cryptographic Hash Functions}
+	\begin{itemize}
+		\item Verification of files or messages
+		\item Password protection
+		\item file or object identifier over file-sharing networks
+		\item Bitcoin mining
+		\item Bitcoin creation of addresses
 		
 	\end{itemize}
 \end{frame}
-	
+
+\section{Types of Cryptographic Hash Functions}
+
+\begin{frame}
+\frametitle{Types of Cryptographic Hash Functions}
+	\begin{itemize}
+		\item MD4 (Message Digest Algorithm )
+		\item MD5 
+		\item SHA-1 (Secure Hashing Algorithm)
+		\item SHA-2
+		\item SHA-3 
+		\item RIPEMD-160 
+		\item CryptoNight
+		\item PBKDF2
+		\item bcrypt
+		\item Argon2
+	\end{itemize}
+\end{frame}
+
+\section{Hashing in Cybersecurity}
+
+\subsection{MD5 (Message Digest Algorithm 5)}
+\begin{frame}
+\frametitle{MD5 (Message Digest Algorithm 5)}
+	\begin{itemize}
+		\item 128-bit hash
+		\item Created in 1991 by Ronald Rivest as a replacement for MD4
+		\item Collision resistance broken in 2004 after roughly $2^{21}$ hashes, reportedly taking only an hour to complete
+		\item Still used widely but no longer secure for sensitive data
+		\item Common passwords can be found by typing their hashes into Google search
+		\item *insert example of message and output*
+	\end{itemize}
+\end{frame}
+
+\subsection{SHA-256 (Secure Hashing Algorithm)}
+\begin{frame}
+\frametitle{SHA-256 (Secure Hashing Algorithm)}
+	\begin{itemize}
+		\item 256-bit hash
+		\item Designed by the NSA as part of the SHA-2 set in 2001
+		\item Collision resistance hasn't been fully broken yet
+		\item Most commonly used and trusted hashing algorithm currently, although industry is in the process of switching to SHA-3
+		\item *insert example of message and output*
+	\end{itemize}
+\end{frame}
+
+\section{Hashing vs Encryption}
+
+\subsection{Benefits of Hashing}
+\begin{frame}
+\frametitle{Benefits of Hashing}
+
+\end{frame}
+
+
+\subsection{Downfalls of Hashing}
+\begin{frame}
+\frametitle{Downfalls of Hashing}
+
+\end{frame}
+
+\section{Hash Function Implementation}
+
+\begin{frame}
+\frametitle{MD5 Implementation}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Sources}
+\begin{thebibliography}{}
+	\beamertemplatebookbibitems
+	\bibitem{Practical Cryptography Website}
+	\url{http://practicalcryptography.com/hashes/md5-hash/}
+	\bibitem{Tutorials Point Website}
+	\url{https://www.tutorialspoint.com/cryptography/cryptography_hash_functions.htm}
+	\bibitem{Cryptographic Hash Functions Explained: A Beginner's Guide}
+	\url{https://komodoplatform.com/cryptographic-hash-function/}
+	\bibitem{Cryptographic Hash Functions}
+	\url{http://alexander.holbreich.org/cryptographic-hash-functions/}
+	\bibitem{Blockgeeks Website}
+	\url{https://blockgeeks.com/guides/cryptographic-hash-functions/}
+\end{thebibliography}
+\end{frame}
+
+
+
+%\begin{frame}
+%	\frametitle{Introduction}
+%	\begin{itemize}
+%		\item What is a hash function?
+%		\item How do hash functions work?
+%		\item Uses of hash functions
+%		\item Types of hash functions
+%		\item Hashing in cyber security 
+%		\item Hashing vs encryption 
+%		\item Hash function demonstration
+%		
+%	\end{itemize}
+%\end{frame}
+
+
+
 \end{document}
