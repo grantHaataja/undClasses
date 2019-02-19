@@ -104,7 +104,6 @@
 		\item Collision resistance broken in 2004 after roughly $2^{21}$ hashes, reportedly taking only an hour to complete
 		\item Still used widely but no longer secure for sensitive data
 		\item Common passwords can be found by typing their hashes into Google search
-		\item *insert example of message and output*
 	\end{itemize}
 \end{frame}
 
@@ -116,23 +115,41 @@
 		\item Designed by the NSA as part of the SHA-2 set in 2001
 		\item Collision resistance hasn't been fully broken yet
 		\item Most commonly used and trusted hashing algorithm currently, although industry is in the process of switching to SHA-3
-		\item *insert example of message and output*
 	\end{itemize}
 \end{frame}
 
-\section{Hashing vs Encryption}
+\section{Hashing Examples}
 
-\subsection{Benefits of Hashing}
 \begin{frame}
-\frametitle{Benefits of Hashing}
-
+\frametitle{Hashing Examples}
+	\begin{itemize}
+		\item We have the message "Hashing is a secure way to store passwords, change my mind".
+		\item MD5: b30d5d9bc11f392daa4950be13d35106
+		\item SHA-256: a1b196e3e571170f5111c9f0058d20cc4761546468fbe6bdc16f2663f6096e7a
+		\item Now we will remove the comma from the message and hash "Hashing is a secure way to store passwords change my mind".
+		\item MD5: 91a6526d84520f2aad7f25116880d4e9
+		\item SHA-256 7809dace6f2004d72611a4a59f2d6fa5d2ab0307c2b7de741b86779275681a5b
+	\end{itemize}
 \end{frame}
 
+\section{Pros and Cons of Hashing}
 
-\subsection{Downfalls of Hashing}
 \begin{frame}
-\frametitle{Downfalls of Hashing}
-
+\frametitle{Pros and Cons of Hashing}
+	\begin{itemize}
+		\item PROS
+		\begin{itemize}
+			\item Portable and easy for storing
+			\item Simple and fairly secure way to store sensitive data to be used for verification, as long as the hashes are salted
+			\item Does not require any key for verification 
+		\end{itemize}
+		\item CONS
+		\begin{itemize}
+			\item Cannot be used to send messages, since there is no way to reverse secure hashes
+			\item Unsalted hashes can become security risks   
+		\end{itemize}
+		
+	\end{itemize}
 \end{frame}
 
 \section{Hash Function Implementation}
