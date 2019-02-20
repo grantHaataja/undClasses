@@ -1,0 +1,39 @@
+//Grant Haataja
+//Assignment 6: Makefile
+
+//define compiler variable
+compiler = gcc
+
+//all: clean_hw6 clean_o
+
+//remove .o files
+clean_o: 
+	-rm *.o
+	
+//remove old executable code file
+clean_hw6:
+	rm hw6
+	
+clean: clean_o clean_hw6
+
+hw6-A-GrantHaataja.o: 
+	$(compiler) -c hw6-A-GrantHaataja.c
+	
+hw6-B-GrantHaataja.o:
+	$(compiler) -c hw6-B-GrantHaataja.c
+	
+hw6-C-GrantHaataja.o:
+	$(compiler) -c hw6-C-GrantHaataja.c
+	
+hw6-D-GrantHaataja.o:
+	$(compiler) -c hw6-D-GrantHaataja.c
+	
+hw6-GrantHaataja.o:
+	$(compiler) -c hw6-GrantHaataja.c
+	
+all: hw6-A-GrantHaataja.o hw6-B-GrantHaataja.o hw6-C-GrantHaataja.o hw6-D-GrantHaataja.o
+	$(compiler) hw6-A-GrantHaataja.o hw6-B-GrantHaataja.o hw6-C-GrantHaataja.o hw6-D-GrantHaataja.o hw6-GrantHaataja.c -o hw6
+	
+tar: clean
+	-rm *.tar*
+	tar -cvf hw6-GrantHaataja.tar
