@@ -1,39 +1,42 @@
-//Grant Haataja
-//Assignment 6: Makefile
+#Grant Haataja
+#Assignment 6: Makefile
 
-//define compiler variable
-compiler = gcc
+#define COMPILER variable
+COMPILER = gcc
 
-//all: clean_hw6 clean_o
+#define COMPILER FLAGS
+FLAGS = -c -Wall
 
-//remove .o files
-clean_o: 
-	-rm *.o
-	
-//remove old executable code file
-clean_hw6:
-	rm hw6
-	
-clean: clean_o clean_hw6
+#define object files
+OBJECTS = hw6-A-GrantHaataja.o hw6-B-GrantHaataja.o hw6-C-GrantHaataja.o hw6-D-GrantHaataja.o hw6-GrantHaataja.o
 
-hw6-A-GrantHaataja.o: 
-	$(compiler) -c hw6-A-GrantHaataja.c
-	
-hw6-B-GrantHaataja.o:
-	$(compiler) -c hw6-B-GrantHaataja.c
-	
-hw6-C-GrantHaataja.o:
-	$(compiler) -c hw6-C-GrantHaataja.c
-	
-hw6-D-GrantHaataja.o:
-	$(compiler) -c hw6-D-GrantHaataja.c
-	
-hw6-GrantHaataja.o:
-	$(compiler) -c hw6-GrantHaataja.c
-	
-all: hw6-A-GrantHaataja.o hw6-B-GrantHaataja.o hw6-C-GrantHaataja.o hw6-D-GrantHaataja.o
-	$(compiler) hw6-A-GrantHaataja.o hw6-B-GrantHaataja.o hw6-C-GrantHaataja.o hw6-D-GrantHaataja.o hw6-GrantHaataja.c -o hw6
-	
+#define TARGET output filename
+TARGET = hw6
+
+all: $(TARGET)
+
+$(TARGET): $(OBJECTS)
+	$(COMPILER) $(FLAGS) -o $(TARGET) $(OBJECTS)
+
+#clean up the mess
+clean:
+	rm -f $(OBJECTS) $(TARGET)
+
+hw6-A-GrantHaataja.o: hw6-A-GrantHaataja.c hw6-A-GrantHaataja.h
+	$(COMPILER) $(FLAGS) hw6-A-GrantHaataja.c
+
+hw6-B-GrantHaataja.o: hw6-B-GrantHaataja.c hw6-B-GrantHaataja.h
+	$(COMPILER) $(FLAGS) hw6-B-GrantHaataja.c
+
+hw6-C-GrantHaataja.o: hw6-C-GrantHaataja.c hw6-C-GrantHaataja.h
+	$(COMPILER) $(FLAGS) hw6-C-GrantHaataja.c
+
+hw6-D-GrantHaataja.o: hw6-D-GrantHaataja.c hw6-D-GrantHaataja.h
+	$(COMPILER) $(FLAGS) hw6-D-GrantHaataja.c
+
+hw6-GrantHaataja.o: hw6-A-GrantHaataja.o hw6-B-GrantHaataja.o hw6-C-GrantHaataja.o hw6-D-GrantHaataja.o
+	$(COMPILER) $(FLAGS) hw6-GrantHaataja.c
+
 tar: clean
 	-rm *.tar*
 	tar -cvf hw6-GrantHaataja.tar

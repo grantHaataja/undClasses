@@ -4,6 +4,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+//Structure
+struct _data {                                 
+	char *name;
+	long number;
+};
+
 //function to find the name we are searching for 
 void SEARCH(struct _data *BlackBox, char *name, int size) {
 	//boolean variable to check if name was not found for case 2

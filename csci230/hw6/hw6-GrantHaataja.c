@@ -10,12 +10,6 @@
 #include "hw6-C-GrantHaataja.h"
 #include "hw6-D-GrantHaataja.h"
 
-/*//Structure
-struct _data {                                 
-	char *name;
-	long number;
-};*/
-
 //Main
 int main(int argc, char **argv) {
 	//define name of file containing the information used in this program

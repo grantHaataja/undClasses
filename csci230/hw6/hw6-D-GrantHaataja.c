@@ -4,6 +4,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+//Structure
+struct _data {                                 
+	char *name;
+	long number;
+};
+
 //function to free all dynamic memory allocated in this program
 void FREE(struct _data *BlackBox, int size, char *fileName) {
 	//loop through BlackBox and free each dynamically-allocated name
