@@ -16,7 +16,7 @@ TARGET = hw6
 all: $(TARGET)
 
 $(TARGET): $(OBJECTS)
-	$(COMPILER) $(FLAGS) -o $(TARGET) $(OBJECTS)
+	$(COMPILER) -Wall -o $(TARGET) $(OBJECTS)
 
 #clean up the mess
 clean:
