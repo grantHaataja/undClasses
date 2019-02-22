@@ -20,7 +20,7 @@ $(TARGET): $(OBJECTS)
 
 #clean up the mess
 clean:
-	rm -f $(OBJECTS) $(TARGET)
+	rm -f $(OBJECTS) $(TARGET) *.tar*
 
 hw6-A-GrantHaataja.o: hw6-A-GrantHaataja.c hw6-A-GrantHaataja.h
 	$(COMPILER) $(FLAGS) hw6-A-GrantHaataja.c
@@ -37,6 +37,7 @@ hw6-D-GrantHaataja.o: hw6-D-GrantHaataja.c hw6-D-GrantHaataja.h
 hw6-GrantHaataja.o: hw6-A-GrantHaataja.o hw6-B-GrantHaataja.o hw6-C-GrantHaataja.o hw6-D-GrantHaataja.o
 	$(COMPILER) $(FLAGS) hw6-GrantHaataja.c
 
-tar: clean
-	-rm *.tar*
-	tar -cvf hw6-GrantHaataja.tar
+#make a zip of all the contents of the folder
+targz:
+	rm -f *.tar*
+	tar -czvf hw6-GrantHaataja.tar.gz *.c *.h Makefile* hw6 *.data

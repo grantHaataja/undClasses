@@ -19,5 +19,5 @@ void FREE(struct _data *BlackBox, int size, char *fileName) {
 	//free number of listings in BlackBox
 	free(BlackBox);
 	//free user-entered file name
-	free(fileName);
+	//free(fileName);
 }
