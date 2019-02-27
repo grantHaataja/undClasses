@@ -19,32 +19,33 @@ struct node {
 int main(void) {
 	//declare nodes
 	struct node *head = NULL;
-	//struct node *current = NULL;
-	struct node *nodes[11];
+	struct node *current = NULL;
 	
 	//allocate memory in heap for all nodes
 	head = (struct node*) malloc(sizeof(struct node));
-	//current = (struct node*) malloc(sizeof(struct node));
-	//second = (struct node*) malloc(sizeof(struct node));
+	current = (struct node*) malloc(sizeof(struct node));
 	
 	//initialize head
 	head->data = 0;
 	//point head to first
-	head->next = nodes[0];
+	//head->next = current;
+	current = head;
 	
 	//populate linked list with 0 to 9
 	for (int i = 0; i < 10; i++) {
-			printf("Starting loop\n");
-			nodes[i] = (struct node*) malloc(sizeof(struct node));
-			nodes[i]->data = i;
-			if (i < 9) {
-				nodes[i]->next = nodes[i+1];
-			}
-			else {
-				nodes[i+1] = NULL;
-				nodes[i]->next = nodes[i+1];
-			}
-			printf("%d\n", nodes[i]->data);
+		printf("i = %d\n",i);
+		current->data = i;
+		printf("current->data = %d\n",current->data);
+		current->next = (struct node*) malloc(sizeof(struct node));		
+		if (current->next == NULL)
+			printf("current->next = NULL");
+		current = current->next;
+	}
+	
+	//display results with the following code from hw7.txt
+	while (current) {
+		printf("%d\n", current->data);
+		current = current->next;
 	}
 
 }
