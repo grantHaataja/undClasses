@@ -5,48 +5,66 @@
 #include<stdio.h>
 
 //structure for linked list
-struct node {
+typedef struct node {
 	int  data;
 	struct node *next;
-};
+}link;
 
 //search function for linked list
-//link *searchList(int value, link *head) {
-
-//}
+link *searchList(int value, link *head) {
+	while (head != NULL) {
+		if (head->data == value) {
+			return head;
+		}
+		head = head->next;
+	}
+	return NULL;
+}
 
 //Main
 int main(void) {
 	//declare nodes
 	struct node *head = NULL;
 	struct node *current = NULL;
-	
-	//allocate memory in heap for all nodes
-	head = (struct node*) malloc(sizeof(struct node));
-	current = (struct node*) malloc(sizeof(struct node));
-	
-	//initialize head
-	head->data = 0;
-	//point head to first
-	//head->next = current;
-	current = head;
+	int search = 0;
 	
 	//populate linked list with 0 to 9
-	for (int i = 0; i < 10; i++) {
-		printf("i = %d\n",i);
+	for (int i = 9; i >= 0; i--) {
+		//declare memory space for a new node in the heap
+		current = (struct node*) malloc(sizeof(struct node));
+		//set data value for node to i (starting with 9)
 		current->data = i;
-		printf("current->data = %d\n",current->data);
-		current->next = (struct node*) malloc(sizeof(struct node));		
-		if (current->next == NULL)
-			printf("current->next = NULL");
-		current = current->next;
+		//set next node to head as we traverse downward through links
+		current->next = head;
+		//assign current to head and repeat process
+		head = current;
+		//we end with the head as the current node, with value of 0
 	}
-	
 	//display results with the following code from hw7.txt
 	while (current) {
 		printf("%d\n", current->data);
 		current = current->next;
 	}
+	
+	//prompt user to search for a value
+	printf("Enter a value to search for: ");
+	scanf("%d", &search);
+	if (searchList(search, head) == NULL) {
+		printf("Value not found. Exitting program...\n");
+	}
+	else {
+		printf("[%d %d]\n", search, searchList(search, head)->data);
+	}
 
+	//free all nodes
+	while (current) {
+		free(current);
+		//free(head);
+		current = current->next;
+		//head = head->next;		
+	}
+	free(head); //TODO check if this is a problem on mint
+	
+	return 0;
 }
 
