@@ -1,0 +1,67 @@
+
+Warning: Pycurl is not compiled against Openssl. Wfuzz might not work correctly when fuzzing SSL sites. Check Wfuzz's documentation for more information.
+
+
+[92m*******************************************************************
+*                                                                 *
+* | |_| |__   ___    /\  /\__ _ _ ____   _____  ___| |_ ___ _ __  *
+* | __| '_ \ / _ \  / /_/ / _` | '__\ \ / / _ \/ __| __/ _ \ '__| *
+* | |_| | | |  __/ / __  / (_| | |   \ V /  __/\__ \ ||  __/ |    *
+*  \__|_| |_|\___| \/ /_/ \__,_|_|    \_/ \___||___/\__\___|_|    *
+*                                                                 *
+* theHarvester Ver. 3.0.6                                         *
+* Coded by Christian Martorella                                   *
+* Edge-Security Research                                          *
+* cmartorella@edge-security.com                                   *
+*******************************************************************[94m
+
+
+found supported engines
+[-] Starting harvesting process for domain: und.edu
+
+[-] Searching in Google:
+	Searching 0 results...
+	Searching 100 results...
+	Searching 200 results...
+	Searching 300 results...
+	Searching 400 results...
+	Searching 500 results...
+
+[1;32;40mHarvesting results
+No IP addresses found
+
+
+[+] Emails found:
+------------------
+UND.info@email.und.edu
+mwh@und.edu
+matlyn.tschider@my.und.edu
+nathan.kaeding@und.edu
+kristine.sande@med.und.edu
+[1;33;40m 
+[+] Hosts found in search engines:
+------------------------------------
+
+Total hosts: 19
+
+[94m[-] Resolving hostnames IPs...[1;33;40m 
+ 
+.und.edu:empty
+Blackboard.und.edu:34.195.41.36
+aero.und.edu:134.129.212.120
+avit.und.edu:134.129.212.121
+blackboard.und.edu:52.70.125.189
+blogs.und.edu:134.129.134.238
+email.und.edu:65.55.171.161
+engineering.und.edu:134.129.183.70
+engr.und.edu:empty
+info.und.edu:52.204.0.250
+library.und.edu:134.129.183.73
+med.und.edu:134.129.183.70
+media.aero.und.edu:134.129.212.38
+my.und.edu:134.129.183.73
+sems1.cs.und.edu:empty
+www.med.und.edu:134.129.183.70
+www.sems.und.edu:empty
+www.und.edu:134.129.183.70
+www1.und.edu:134.129.183.73
