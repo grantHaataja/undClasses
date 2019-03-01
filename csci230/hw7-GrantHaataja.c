@@ -65,7 +65,7 @@ int main(void) {
 		current = current->next;
 		//head = head->next;	
 	}
-	free(head); //TODO check if this is a problem on mint
+	free(head);
 	//set nodes to null to hide the evidence
 	current = NULL;
 	head = NULL;
