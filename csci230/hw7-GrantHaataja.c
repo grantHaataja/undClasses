@@ -49,9 +49,11 @@ int main(void) {
 	//prompt user to search for a value
 	printf("Enter a value to search for: ");
 	scanf("%d", &search);
+	//sanity check
 	if (searchList(search, head) == NULL) {
 		printf("Value not found. Exitting program...\n");
 	}
+	//search for value and print it
 	else {
 		printf("[%d %d]\n", search, searchList(search, head)->data);
 	}
@@ -61,9 +63,12 @@ int main(void) {
 		free(current);
 		//free(head);
 		current = current->next;
-		//head = head->next;		
+		//head = head->next;	
 	}
 	free(head); //TODO check if this is a problem on mint
+	//set nodes to null to hide the evidence
+	current = NULL;
+	head = NULL;
 	
 	return 0;
 }
