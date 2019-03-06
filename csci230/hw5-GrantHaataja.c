@@ -65,6 +65,8 @@ struct _data *LOAD(FILE *stream, int size, char *fileName) {
 	//rewind stream to start at the beginning of file
 	rewind(stream);
 	for (int i = 0; i < size; i++) {
+		//initialize line before reading each line of file into it
+		line = NULL;
 		//scan in each line of the file individually 
 		read = getline(&line, &length, stream);
 		//use deliminator to get the name from the line and assign to 'first'
@@ -77,6 +79,8 @@ struct _data *LOAD(FILE *stream, int size, char *fileName) {
 		second = strtok(NULL, " ");
 		//convert string to long and store in struct
 		BlackBox[i].number = atol(second);
+		//free line after using it so we can iterate again
+		free(line);
 	}
 	return BlackBox;
 }
