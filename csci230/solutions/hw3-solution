@@ -1,0 +1,92 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main(void) {
+int   i, j;
+int   cnt0, cnt1, cnt2, total;
+char  word[50];
+FILE *data;
+char **words;
+
+    // Determine size of american0.txt.
+    data = fopen("./american0.txt", "r");
+    cnt0 = 0; 
+    while (1) {
+       fscanf(data, "%s", word);
+       if (feof(data)) break;
+       cnt0++;
+    } 
+    fclose(data);
+
+    // Determine size of american1.txt.
+    data = fopen("./american1.txt", "r");
+    cnt1 = 0; 
+    while (1) {
+       fscanf(data, "%s", word);
+       if (feof(data)) break;
+       cnt1++;
+    } 
+    fclose(data);
+
+    // Determine size of american2.txt.
+    data = fopen("./american2.txt", "r");
+    cnt2 = 0; 
+    while (1) {
+       fscanf(data, "%s", word);
+       if (feof(data)) break;
+       cnt2++;
+    } 
+    fclose(data);
+
+    // Create dynamic array for words.
+    total = cnt0 + cnt1+ cnt2;
+    words = calloc(total, sizeof(*words));
+    for (i = 0; i < total; i++) {
+        words[i] = calloc(50, sizeof(char));
+    }
+
+    // Populate dynamic array from three files.
+    j = 0;
+    data = fopen("./american0.txt", "r");
+    for (i = 0; i < cnt0; i++) {
+       fscanf(data, "%s", words[j++]);
+    } 
+    fclose(data);
+    data = fopen("./american1.txt", "r");
+    for (i = 0; i < cnt1; i++) {
+       fscanf(data, "%s", words[j++]);
+    } 
+    fclose(data);
+    data = fopen("./american2.txt", "r");
+    for (i = 0; i < cnt2; i++) {
+       fscanf(data, "%s", words[j++]);
+    } 
+    fclose(data);
+
+    // Sort list.
+    for (i = 0; i < total; i++) {
+        for (j = 0; j < total-1; j++) {
+            if (strcmp(words[j], words[j+1]) > 0) {
+               strcpy(word, words[j+1]);
+               strcpy(words[j+1], words[j]);
+               strcpy(words[j], word);
+            }
+        }
+    }
+
+    // Save result.
+    data = fopen("./words.txt", "w");
+    for (i = 0; i < total; i++) {
+        fprintf(data, "%s\n", words[i]);
+    }
+    fclose(data);
+
+    // Free dynamic array for words.
+    for (i = 0; i < total; i++) {
+        free(words[i]);
+    }
+    free(words);
+
+    return 0;
+}

@@ -1,0 +1,117 @@
+/*****************************************************/
+/* HW5                                               */
+/*****************************************************/
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <string.h>
+
+struct _data {					// Define the structure (nothing is global here).
+   char *name;
+   long number;
+}; 
+
+/*****************************************************/
+/* See how big the file is.                          */
+/*****************************************************/
+int SCAN(FILE *(*stream)) {			// We want to pass stream by reference (a pointer to a pointer).
+int size = 0;
+size_t chrCount;
+char *text;
+   // Open the file and make sure it was opened.
+   if ((*stream = fopen("./hw5.data", "r")) == NULL) {
+      printf("ERROR - Could not open hw5.data file.\n");
+      exit(0);
+   }
+   // Use getline to read in a full line of data/text.
+   while (1) {
+      getline(&text, &chrCount, *stream);	// getline expects 3 pointer arguments.
+      if (feof(*stream)) break;
+      size++;
+   }
+   return size;
+}
+
+/*****************************************************/
+/* Load the file.                                    */
+/*****************************************************/
+struct _data *LOAD(FILE *stream, int size) {	// Here we can just pass stream by value (we're not changing it).
+int i;
+size_t chrCount;
+char *text, *phone, *name;
+struct _data *BlackBox;
+   // Allocate memory for array of struct.
+   if ((BlackBox = (struct _data*)calloc(size, sizeof(struct _data))) == NULL) {
+      printf("ERROR - Could not allocate memory.\n");
+      exit(0);
+   }
+   // Rewind the file.
+   rewind(stream);
+   // Use getline to read in ALL of the data/text.
+   for (i = 0; i < size; i++) {
+      getline(&text, &chrCount, stream);
+      name  = strtok(text, " ");		// strtok extracts all characters to " ".
+      phone = strtok(NULL, "\n");		// strtok extracts all characters to "\n".
+      // Allocate memory for name part of struct.
+      if ((BlackBox[i].name = (char*)calloc(strlen(name), sizeof(char))) == NULL) {
+         printf("ERROR - Could not allocate memory.\n");
+         exit(0);
+      }
+      strcpy(BlackBox[i].name, name);		// copy name into struct.
+      BlackBox[i].number = atol(phone);		// we want number as an long integer.
+   }
+   fclose(stream);
+   return BlackBox;				// Return pointer to dynamic array.
+}
+
+/*****************************************************/
+/* Search for name.                                  */
+/*****************************************************/
+void SEARCH(struct _data *BlackBox, char *name, int size) {
+int i;
+int found = 0;
+   printf("*******************************************\n");
+   for (i = 0; i < size; i++) {
+       if (!strcmp(name, BlackBox[i].name)) {
+          printf("The name was found at the %d entry.\n", i);
+          found = 1;
+          break;
+       }
+   } 
+   if (found == 0) {
+      printf("The name was NOT found.\n");
+   }
+   printf("*******************************************\n");
+}
+
+/*****************************************************/
+/* Free memory.                                      */
+/*****************************************************/
+void FREE(struct _data *BlackBox, int size) {
+int i;
+   for (i = 0; i < size; i++) {
+       free(BlackBox[i].name);
+   } 
+   free(BlackBox);
+   BlackBox = NULL;
+}
+
+/*****************************************************/
+/* Main                                              */
+/*****************************************************/
+int main(int argv, char **argc) {
+int size;
+FILE *stream;
+struct _data *BlackBox;
+    if (argv == 1) {
+       printf("*******************************************\n");
+       printf("* You must include a name to search for.  *\n");
+       printf("*******************************************\n");
+    }
+    if (argv == 2) {
+       size = SCAN(&stream);
+       BlackBox = LOAD(stream, size);
+       SEARCH(BlackBox, argc[1], size);
+   }
+}
+

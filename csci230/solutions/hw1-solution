@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int main(void) {
+int    month;
+double r = 0.25; 
+double B = 2000.0;
+double P, I;
+double sum;
+
+   printf("Enter monthly payment: ");
+   scanf("%lf", &P);
+   printf("\n");
+   printf("r = %5.2lf\n", r);
+   printf("B = %5.2lf\n", B);
+   printf("P = %5.2lf\n", P);
+   printf("\n");
+   month = 1;
+   r     = r/12.0;
+   I     = r * B;
+   sum   = I;
+   while (1) {
+      printf("%d %5.2lf %5.2lf\n", month, I, B);
+      B = B - P + I;
+      I = r * B;
+      month++;
+      sum += I;
+      if (B < 0.0) break;
+   }
+   printf("\n");
+   printf("Total interest paid: %5.2lf\n", sum);
+}
+

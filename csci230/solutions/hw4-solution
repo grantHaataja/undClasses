@@ -1,0 +1,56 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+char *vector(char array[], int *length) {
+char *temp;
+    // Make new dynamic array.
+    temp = calloc(*length+10, sizeof(char));
+    // Copy data to new array.	
+    memcpy(temp, array, *length);
+    // Increment & record new length.		
+    *length+=10;	
+    // Free old array.			
+    free(array);
+    // Return new array.				
+    return temp;				
+}
+
+int main(void) {
+int  i, j;
+int  base = 10;
+char *array;
+char *output;
+char text[] = "HW 4 input: ";
+
+    // Initialize the array to hold 10 characters.
+    array = calloc(base, sizeof(char));
+
+    // Prompt for input.
+    printf("Enter characters: ");
+    j = 0;
+    for (i = 0; ; i++) {
+       array[i] = getchar();
+       j++;
+       if (j == 10) {
+          j = 0; 
+          // Adjust vector length.
+          array = vector(array, &base);		
+       }
+       if (array[i] == '\n') break;		// Return detected.
+    }
+
+    // Append string terminator.
+    array[i] = '\0';
+
+    // Prepare output.
+    output = calloc(strlen(text)+strlen(array), sizeof(char));
+    strcpy(output, text);
+    strcat(output, array);
+    printf("%s\n", output);
+
+    // Free dynamic memory.
+    free(output);
+    free(array);
+    return 1;
+}

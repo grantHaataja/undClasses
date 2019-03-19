@@ -1,0 +1,77 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node {
+   int  data;
+   struct node *next;
+};
+
+typedef struct node link;
+
+/********************************************************/
+/* SEARCH LINKED-LIST.                                  */
+/********************************************************/
+link *searchList(int value, link *head) {
+   link *current;
+   current = head;
+   while (current) {
+      if (current->data == value) return current;
+      current = current->next ;
+   }
+   return current;
+}
+
+/********************************************************/
+/* MAIN                                                 */
+/********************************************************/
+int main(void) {
+   int i;
+   int search;
+   link *current, *head, *tail, *previous;
+
+   // Initialize head & tails.
+   head = NULL;
+   tail = head;
+
+   // Insert data.
+   for (i = 0; i < 10; i++) {
+
+       // Make a new link.
+       current = (link *)malloc(sizeof(link));
+
+       if (head == tail) {
+          current->data = i;
+          current->next = tail;   
+          head          = current;
+          previous      = head;
+       } else {
+          current->data = i;
+          current->next = tail;
+          previous->next= current;   
+          previous      = current;
+       }
+   }
+
+   // Print data.
+   current = head;
+   while (current) {
+      printf("%d\n", current->data);
+      current = current->next ;
+   }
+
+   // Search for data.
+   printf("Enter value to search for ");
+   scanf("%d", &search);
+   printf("[%d %d]\n", search, searchList(search, head)->data);
+
+   // Free data.
+   current = head;
+   while (current) {
+      previous = current;
+      current  = current->next ;
+      free(previous);
+   }
+   head = NULL;
+
+   return 0;
+}
