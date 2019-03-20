@@ -1,0 +1,126 @@
+\documentclass{article}
+
+\usepackage{mathtools}
+\usepackage[top=20mm,inner=20mm,outer=30mm,bottom=20mm,
+marginparwidth=23mm,marginparsep=4mm]{geometry}
+%header of document
+\title{Cryptographic Hash Functions}
+\author{Grant Haataja}
+\date{\today}
+%set paragraph spacing
+\linespread{1.5}
+
+\begin{document}
+	\maketitle	
+%table of contents
+	\tableofcontents
+	
+	%start the hack
+Hash functions are an important facet of cybersecurity.  
+
+
+
+	A hash function is a mathematical algorithm that takes input of arbitrary length and maps it through a series of transformations to a string of fixed length.
+
+{Requirements of Hash Functions}
+		Computationally efficient
+		Pre-Image Resistance 
+		Deterministic  
+		Collision Resistance
+		Outputs should have the appearance of complete randomness
+
+{How do Hash Functions Work?}
+		Hash functions take an input of any size and go through a series of steps to change it into something theoretically unrecognizable to the original message
+		The output of a hash function is commonly referred to as a \textit{digest}.
+	
+	A hash function can be as simple as $$f(x) = x\mod7.$$
+		
+	Then any input could be converted into a decimal number and sent through the function. For example, consider the input: "Message". If we apply the standard conversion from letters to numbers, (A $\rightarrow$ 1,B $\rightarrow$ 2,...,Z $\rightarrow$ 26), "Message" becomes 13 5 18 18 1 7 5. Then, we take it as the number 1,351,818,175 and send it through the function, giving $$f(1351818175) = 1351818175 \mod 7 = 1$$.
+
+{Uses of Cryptographic Hash Functions}
+	\begin{itemize}
+		\item Verification of files or messages
+		\item Password protection
+		\item file or object identifier over file-sharing networks
+		\item Bitcoin mining
+		\item Bitcoin creation of addresses\newline
+		
+	\end{itemize}
+
+{Types of Cryptographic Hash Functions}
+	\begin{itemize}
+		\item MD4 (Message Digest Algorithm )
+		\item MD5 
+		\item SHA-1 (Secure Hashing Algorithm)
+		\item SHA-2
+		\item SHA-3 
+		\item RIPEMD-160 
+		\item CryptoNight
+		\item PBKDF2
+		\item bcrypt
+		\item Argon2\newline
+	\end{itemize}
+
+{MD5 (Message Digest Algorithm 5)}
+	\begin{itemize}
+		\item 128-bit hash
+		\item Created in 1991 by Ronald Rivest as a replacement for MD4
+		\item Collision resistance broken in 2004 after roughly $2^{21}$ hashes, reportedly taking only an hour to complete
+		\item Still used widely but no longer secure for sensitive data
+		\item Common passwords can be found by typing their hashes into Google search\newline
+	\end{itemize}
+
+{SHA-256 (Secure Hashing Algorithm)}
+	\begin{itemize}
+		\item 256-bit hash
+		\item Designed by the NSA as part of the SHA-2 set in 2001
+		\item Collision resistance hasn't been fully broken yet
+		\item Most commonly used and trusted hashing algorithm currently, although industry is in the process of switching to SHA-3\newline
+	\end{itemize}
+
+{Hashing Examples}
+	\begin{itemize}
+		\item We have the message "Hashing is a secure way to store passwords, change my mind".
+		\item MD5: b30d5d9bc11f392daa4950be13d35106
+		\item SHA-256: a1b196e3e571170f5111c9f0058d20cc4761546468fbe6bdc16f2663f6096e7a
+		\item Now we will remove the comma from the message and hash "Hashing is a secure way to store passwords change my mind".
+		\item MD5: 91a6526d84520f2aad7f25116880d4e9
+		\item SHA-256 7809dace6f2004d72611a4a59f2d6fa5d2ab0307c2b7de741b86779275681a5b\newline
+	\end{itemize}
+
+{Pros and Cons of Hashing}
+	\begin{itemize}
+		\item PROS
+		\begin{itemize}
+			\item Portable and easy for storing
+			\item Simple and fairly secure way to store sensitive data to be used for verification, as long as the hashes are salted
+			\item Does not require any key for verification 
+		\end{itemize}
+		\item CONS
+		\begin{itemize}
+			\item Cannot be used to send messages, since there is no way to reverse secure hashes
+			\item Unsalted hashes can become security risks   \newline
+		\end{itemize}
+		
+	\end{itemize}
+
+{Sources}
+\begin{thebibliography}{}
+	\bibitem{Cryptographic Hash Functions Explained: A Beginner's Guide}
+	Daniel. (2018, December 03). Cryptographic Hash Functions Explained: A Beginner's Guide. Retrieved from {https://komodoplatform.com/cryptographic-hash-function/}
+	
+	\bibitem{Tutorials Point Website}
+%	Tutorialspoint.com. (2019). Cryptography Hash functions. Retrieved from https://www.tutorialspoint.com/cryptography/cryptography_hash_functions.htm
+	
+	\bibitem{Practical Cryptography Website}	
+%	Lyons, J. (2012). MD5 Hash. Retrieved from \url{http://practicalcryptography.com/hashes/md5-hash/}
+	
+	\bibitem{Cryptographic Hash Functions}
+%	Holbreich, A. (2016, November 01). Cryptographic Hash Functions. Retrieved from \url{http://alexander.holbreich.org/cryptographic-hash-functions/}	
+	
+	\bibitem{Blockgeeks Website}
+	Mikoss, I. (2019). The In's and Outs of Cryptographic Hash Functions (Blockgeek's Guide).
+%	Retrieved from \url{https://blockgeeks.com/guides/cryptographic-hash-functions/}
+\end{thebibliography}
+
+\end{document}
