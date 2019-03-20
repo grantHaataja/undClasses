@@ -125,6 +125,45 @@ struct codex* load(struct codex *head, struct codex *current, int size, FILE *st
 	return head;
 }
 
+//function to traverse the codex and compare each word to the input
+char* replace(char *key, struct codex *currentx) {
+	//traverse through the codex linked list and compare the key to each word
+	while (currentx->next) {
+		if (strncmp(key, currentx->word1, strlen(currentx->word1)) == 0) {
+			printf("We got a hit\n");
+			return currentx->word2;
+		}
+	}
+	printf(".\n");
+	return key;
+}
+
+void fixPoem(struct node *head, struct codex *headx) {
+	int changed = 0;
+	struct node *data = head;
+	struct codex *codex = headx;
+
+	while(data->word != NULL) {
+		printf("Where do we seg fault?\n");
+		changed = 0; 
+		codex = headx;
+		printf("Where do we seg fault?\n");
+		//go through the codex to replace words
+		while(codex->word1 != NULL && changed == 0) {
+			if(strcmp(codex->word1, data->word) == 0) {
+				printf("%s will be replaced by %s\n",data->word, codex->word2);
+				free(data->word);
+				data->word = NULL;
+				data->word = calloc(strlen(codex->word2),sizeof(char));
+				strncpy(data->word, codex->word2, strlen(codex->word2));
+				changed = 1;
+			}
+			codex = codex->next;
+		}
+		data = data->next;
+	}
+}
+
 int main(void) {
 	//declare nodes
 	struct node *head = NULL;
@@ -138,6 +177,7 @@ int main(void) {
 	FILE *cstream;
 	int dataSize = 0;
 	int codexSize = 0;
+	char *temp;
 	
 	//count the number of lines in the data file
 	dataSize = countLines(dataFile, &dstream);
@@ -151,16 +191,34 @@ int main(void) {
 	//populate codex from the file
 	currentx = load(headx, currentx, codexSize, cstream, codexFile);
 
+	int i = 1;
+	//traverse the poem linked list and replace words
+	/*while (current->next) {
+		temp = replace(current->word, currentx);
+		if (strncmp(current->word, temp, strlen(current->word)) != 0) {
+			printf("%s will be replaced with %s\n",current->word,temp);
+			//free memory for current word to replace it
+			free(current->word);
+			current->word = NULL;
+			//allocate memory to store the correct word instead
+			current->word = calloc(strlen(temp), sizeof(char));
+			//copy the correct word into current->word
+			strncpy(current->word, temp, strlen(temp));
+		}
+		current = current->next;
+		currentx->next = headx;	
+	}*/
+	
+	fixPoem(head, headx);
+	
+	printf("Did it work?\n");
 	//display results for checking purposes
 	while (current->next) {
 		printf("%s\n", current->word);
 		current = current->next;
 	}
-	//display results for checking purposes
-	while (currentx->next) {
-		printf("%s %s\n", currentx->word1,currentx->word2);
-		currentx = currentx->next;
-	}
+	
+	
 	
 
 }
