@@ -45,7 +45,7 @@ int countLines(char *dataFile, FILE *(*stream)) {
 }
 
 //function to populate linked list with each word from the data file
-struct node populate(struct node *head, struct node *current, int size, 
+struct node* populate(struct node *head, struct node *current, int size, 
 		FILE *stream, char *dataFile) {
 	//rewind the file to start at the beginning
 	rewind(stream);
@@ -54,53 +54,35 @@ struct node populate(struct node *head, struct node *current, int size,
 	char *line = NULL;
 	size_t length = 0;
 	//to store number of characters in each line	
-	ssize_t read = 0;	
+	char *word;
+	//allocate memory for first node
+	head = (struct node*) malloc(sizeof(struct node));
+	current = head;
 	//mosey through each line of the file
-	for (int i = size; i > 0; i--) {
+	for (int i = 0; i < size; i++) {
 		getline(&line, &length, stream);
-		//allocate memory for new node
-		current = (struct node*) malloc(sizeof(struct node));
-		//allocate memory for the word data for each node
-		int length = strlen(line);
-		current->word = (char *) calloc(length, sizeof(char));
-		//assign the word of current node with the first work in file
-		current->word = strtok(line, " ");
-		printf("%s ", current->word); //FIXME
-		//set next node to head as we traverse downward through links
-		current->next = head;
-		//assign current to head and repeat process
-		head = current;
+		//get the string token for the first word of the line
+		word = strtok(line, " ");
+
 		//enter do-while loop to create new nodes for each word and assign words
-		while (current->word) {
-			//allocate memory for new current node			
-			current = (struct node*) malloc(sizeof(struct node));
-			//allocate memory for word to be assigned to new current node
-			current->word = (char *) calloc(length, sizeof(char));
-			//assign next word in line to new current node
-			if (current->word = strtok(NULL, " ")) {
-				j++;
-				printf("%s ", current->word); //FIXME
-				//set next node to head as we traverse downward through links
-				current->next = head;
-				//assign current to head and repeat process
-				head = current;
-			}
-		} 
-		current->next = head;
-		head = current;
+		do {
+			//allocate memory for the word data for each node
+			current->word = (char *) calloc(strlen(word), sizeof(char));
+			//assign the word of current node with the first word in file	
+			strncpy(current->word, word, strlen(word));
+			j++;
+			
+			//printf("%s ", current->word); //FIXME
+			
+			//allocate memory for next current node			
+			current->next = (struct node*) malloc(sizeof(struct node));
+			current = current->next;
+		} while ((word = strtok(NULL, " \n")) != NULL);
+		//hide the body
 		free(line);
 		line = NULL;
-		//printf("\n");
 	}
-	printf("%d\n",j);
-	printf("\n NOW LET'S TRY TO PRINT THE POEM \n");
-	//current = head;
-	while (current) {
-		printf("%s\n", current->word);
-		current = current->next;
-	}
-	
-	return *current;
+	return head;
 }
 
 int main(void) {
@@ -115,14 +97,12 @@ int main(void) {
 	
 	//count the number of lines in the file
 	size = countLines(dataFile, &stream);
-	printf("%d\n",size);
 	
 	//populate linked list with each word from the input file
-	*current = populate(head, current, size, stream, dataFile);
+	current = populate(head, current, size, stream, dataFile);
 
 	//display results for checking purposes
-	//current = head;
-	while (current) {
+	while (current->next) {
 		printf("%s\n", current->word);
 		current = current->next;
 	}
