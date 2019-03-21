@@ -68,7 +68,7 @@ struct node* populate(struct node *head, struct node *current, int size,
 		//enter do-while loop to create new nodes for each word and assign words
 		do {
 			//allocate memory for the word data for each node
-			current->word = (char *) calloc(strlen(word), sizeof(char));
+			current->word = (char *) calloc(strlen(word)+1, sizeof(char));
 			//assign the word of current node with the first word in file	
 			if (word == ",") {
 				current->punc = ',';
@@ -113,8 +113,8 @@ struct codex* load(struct codex *head, struct codex *current, int size, FILE *st
 		temp1 = strtok(line, " \n");
 		temp2 = strtok(NULL, " \n");
 		//allocate some memory
-		current->word1 = (char *) calloc(strlen(temp1), sizeof(char));
-		current->word2 = (char *) calloc(strlen(temp2), sizeof(char));
+		current->word1 = (char *) calloc(strlen(temp1)+1, sizeof(char));
+		current->word2 = (char *) calloc(strlen(temp2)+1, sizeof(char));
 		strncpy(current->word1, temp1, strlen(temp1));
 		strncpy(current->word2, temp2, strlen(temp2));
 		current->next = (struct codex*) malloc(sizeof(struct codex));
@@ -130,11 +130,10 @@ char* replace(char *key, struct codex *currentx) {
 	//traverse through the codex linked list and compare the key to each word
 	while (currentx->next) {
 		if (strncmp(key, currentx->word1, strlen(currentx->word1)) == 0) {
-			printf("We got a hit\n");
 			return currentx->word2;
 		}
+		currentx = currentx->next;
 	}
-	printf(".\n");
 	return key;
 }
 
@@ -143,15 +142,12 @@ void fixPoem(struct node *head, struct codex *headx) {
 	struct node *data = head;
 	struct codex *codex = headx;
 
-	while(data->word != NULL) {
-		printf("Where do we seg fault?\n");
+	while(data->word) {
 		changed = 0; 
 		codex = headx;
-		printf("Where do we seg fault?\n");
 		//go through the codex to replace words
 		while(codex->word1 != NULL && changed == 0) {
-			if(strcmp(codex->word1, data->word) == 0) {
-				printf("%s will be replaced by %s\n",data->word, codex->word2);
+			if(strncmp(codex->word1, data->word, strlen(data->word)-1) == 0) {
 				free(data->word);
 				data->word = NULL;
 				data->word = calloc(strlen(codex->word2),sizeof(char));
@@ -186,17 +182,18 @@ int main(void) {
 	codexSize = countLines(codexFile, &cstream);
 	
 	//populate linked list with each word from the input file
-	current = populate(head, current, dataSize, dstream, dataFile);
+	head = populate(head, current, dataSize, dstream, dataFile);
+	current = head;
 
 	//populate codex from the file
-	currentx = load(headx, currentx, codexSize, cstream, codexFile);
+	headx = load(headx, currentx, codexSize, cstream, codexFile);
+	currentx = headx;
 
 	int i = 1;
 	//traverse the poem linked list and replace words
 	/*while (current->next) {
 		temp = replace(current->word, currentx);
 		if (strncmp(current->word, temp, strlen(current->word)) != 0) {
-			printf("%s will be replaced with %s\n",current->word,temp);
 			//free memory for current word to replace it
 			free(current->word);
 			current->word = NULL;
@@ -206,19 +203,23 @@ int main(void) {
 			strncpy(current->word, temp, strlen(temp));
 		}
 		current = current->next;
-		currentx->next = headx;	
+		currentx = headx;	
 	}*/
 	
 	fixPoem(head, headx);
 	
 	printf("Did it work?\n");
 	//display results for checking purposes
+	int numNodes = 0;
+	current = head;
 	while (current->next) {
 		printf("%s\n", current->word);
 		current = current->next;
+		numNodes++;
 	}
-	
-	
-	
+	printf("%d\n",numNodes);
+
+
+
 
 }
