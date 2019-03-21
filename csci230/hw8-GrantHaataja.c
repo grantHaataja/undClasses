@@ -24,8 +24,6 @@ int countLines(char *dataFile, FILE *(*stream)) {
 	//string variable to hold each individual line
 	char *line = NULL;
 	size_t length = 0;
-	//to store number of characters in each line	
-	ssize_t read = 0;
 	//make sure file is valid
 	if (stream == NULL) {
 		printf("File not found...\n");
@@ -33,7 +31,7 @@ int countLines(char *dataFile, FILE *(*stream)) {
 	}
 	//read each line and get work done
 	else {
-		while ((read = getline(&line, &length, *stream)) != -1) {
+		while ((getline(&line, &length, *stream)) != -1) {
 			//increment size to count number of lines
 			size++;
 			//clean up the blood
@@ -47,10 +45,9 @@ int countLines(char *dataFile, FILE *(*stream)) {
 
 //function to populate linked list with each word from the data file
 struct node* populate(struct node *head, struct node *current, int size, 
-		FILE *stream, char *dataFile) {
+		FILE *stream) {
 	//rewind the file to start at the beginning
 	rewind(stream);
-	int j = 0;	
 	//string variable to hold each individual line
 	char *line = NULL;
 	size_t length = 0;
@@ -63,29 +60,28 @@ struct node* populate(struct node *head, struct node *current, int size,
 	for (int i = 0; i < size; i++) {
 		getline(&line, &length, stream);
 		//get the string token for the first word of the line
-		word = strtok(line, " \n");
+		word = strtok(line, " ,.\n");
 
 		//enter do-while loop to create new nodes for each word and assign words
 		do {
 			//allocate memory for the word data for each node
 			current->word = (char *) calloc(strlen(word)+1, sizeof(char));
 			//assign the word of current node with the first word in file	
-			if (word == ",") {
+			
+			/*if (strncmp(word, ",", 1) == 0) {
 				current->punc = ',';
 				printf("\nPunctuation!\n");
 			}
 			if (word == ".") {
 				current->punc = '.';
-			}
-			strncpy(current->word, word, strlen(word));
-			j++;
+			}*/
 			
-			//printf("%s ", current->word); //FIXME
+			strncpy(current->word, word, strlen(word));
 			
 			//allocate memory for next current node			
 			current->next = (struct node*) malloc(sizeof(struct node));
 			current = current->next;
-		} while ((word = strtok(NULL, " \n")) != NULL);
+		} while ((word = strtok(NULL, " ,.\n")) != NULL);
 		//hide the body
 		free(line);
 		line = NULL;
@@ -93,8 +89,37 @@ struct node* populate(struct node *head, struct node *current, int size,
 	return head;
 }
 
+//function to run through file again and add punctuation to poem linked list
+void punctuate(struct node *head, struct node *current, int siz, FILE *stream) {
+	//rewind the file to start at the beginning
+	rewind(stream);
+	//string variable to hold each individual line
+	char *line = NULL;
+	size_t length = 0;	
+	//to store number of characters in each line	
+	char *word;
+	current = head;
+	//mosey through each line of the file
+	for (int i = 0; i < siz; i++) {
+		getline(&line, &length, stream);
+		//get the string token for the first non-word of the line
+		word = strtok(line, "QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm");
+		//enter do-while loop to add punctuation to the nodes
+		do {
+			//assign the non-word characters to each node
+			current->punc = (char) *word;
+			printf("%c",current->punc);
+			
+			current = current->next;
+		} while ((word = strtok(NULL, "QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm")) != NULL);
+		//hide the body
+		free(line);
+		line = NULL;	
+	}	
+}
+
 //function to load data into codex
-struct codex* load(struct codex *head, struct codex *current, int size, FILE *stream, char *filename) {
+struct codex* load(struct codex *head, struct codex *current, int size, FILE *stream) {
 	//rewind the file to start at the beginning
 	rewind(stream);	
 	//string variable to hold each individual line
@@ -122,24 +147,14 @@ struct codex* load(struct codex *head, struct codex *current, int size, FILE *st
 		free(line);
 		line = NULL;
 	}
+	fclose(stream);
 	return head;
-}
-
-//function to traverse the codex and compare each word to the input
-char* replace(char *key, struct codex *currentx) {
-	//traverse through the codex linked list and compare the key to each word
-	while (currentx->next) {
-		if (strncmp(key, currentx->word1, strlen(currentx->word1)) == 0) {
-			return currentx->word2;
-		}
-		currentx = currentx->next;
-	}
-	return key;
 }
 
 void fixPoem(struct node *head, struct codex *headx) {
 	int changed = 0;
 	struct node *data = head;
+	struct node *prev = head;
 	struct codex *codex = headx;
 
 	while(data->word) {
@@ -147,15 +162,30 @@ void fixPoem(struct node *head, struct codex *headx) {
 		codex = headx;
 		//go through the codex to replace words
 		while(codex->word1 != NULL && changed == 0) {
-			if(strncmp(codex->word1, data->word, strlen(data->word)-1) == 0) {
+			if(strncmp(codex->word1, data->word, strlen(codex->word1)) == 0) {
 				free(data->word);
 				data->word = NULL;
-				data->word = calloc(strlen(codex->word2),sizeof(char));
-				strncpy(data->word, codex->word2, strlen(codex->word2));
-				changed = 1;
+				if(strcmp(codex->word2, "skip") == 0) {
+					//link previous node to next node to unlink current node
+					prev->next = data->next;
+					//shoot the messenger
+					free(data);
+					//send word to client that the job is done
+					changed = 1;
+					//set current node to previous node to continue traversal
+					data = prev;
+				}
+				else {
+					data->word = calloc(strlen(codex->word2),sizeof(char));
+					//copy the correct word from the codex
+					strncpy(data->word, codex->word2, strlen(codex->word2));
+					//send word to client that the job is done
+					changed = 1;
+				}
 			}
 			codex = codex->next;
 		}
+		prev = data;
 		data = data->next;
 	}
 }
@@ -182,44 +212,27 @@ int main(void) {
 	codexSize = countLines(codexFile, &cstream);
 	
 	//populate linked list with each word from the input file
-	head = populate(head, current, dataSize, dstream, dataFile);
+	head = populate(head, current, dataSize, dstream);
 	current = head;
+	
+	//run through the input file again to get punctuation for poem
+	punctuate(head, current, dataSize, dstream);
 
 	//populate codex from the file
-	headx = load(headx, currentx, codexSize, cstream, codexFile);
+	headx = load(headx, currentx, codexSize, cstream);
 	currentx = headx;
 
-	int i = 1;
 	//traverse the poem linked list and replace words
-	/*while (current->next) {
-		temp = replace(current->word, currentx);
-		if (strncmp(current->word, temp, strlen(current->word)) != 0) {
-			//free memory for current word to replace it
-			free(current->word);
-			current->word = NULL;
-			//allocate memory to store the correct word instead
-			current->word = calloc(strlen(temp), sizeof(char));
-			//copy the correct word into current->word
-			strncpy(current->word, temp, strlen(temp));
-		}
-		current = current->next;
-		currentx = headx;	
-	}*/
+	//fixPoem(head, headx);
 	
-	fixPoem(head, headx);
-	
-	printf("Did it work?\n");
 	//display results for checking purposes
-	int numNodes = 0;
 	current = head;
 	while (current->next) {
-		printf("%s\n", current->word);
+		printf("%s", current->word);
+		printf("*");
 		current = current->next;
-		numNodes++;
 	}
-	printf("%d\n",numNodes);
 
-
-
+	printf("\n");
 
 }
