@@ -61,23 +61,12 @@ struct node* populate(struct node *head, struct node *current, int size,
 		getline(&line, &length, stream);
 		//get the string token for the first word of the line
 		word = strtok(line, " ,.\n");
-
 		//enter do-while loop to create new nodes for each word and assign words
 		do {
 			//allocate memory for the word data for each node
 			current->word = (char *) calloc(strlen(word)+1, sizeof(char));
-			//assign the word of current node with the first word in file	
-			
-			/*if (strncmp(word, ",", 1) == 0) {
-				current->punc = ',';
-				printf("\nPunctuation!\n");
-			}
-			if (word == ".") {
-				current->punc = '.';
-			}*/
-			
+			//assign the word of current node with the first word in file
 			strncpy(current->word, word, strlen(word));
-			
 			//allocate memory for next current node			
 			current->next = (struct node*) malloc(sizeof(struct node));
 			current = current->next;
@@ -108,13 +97,14 @@ void punctuate(struct node *head, struct node *current, int siz, FILE *stream) {
 		do {
 			//assign the non-word characters to each node
 			current->punc = (char) *word;
-			
+			//set current to next node to 
 			current = current->next;
 		} while ((word = strtok(NULL, "QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm")) != NULL);
 		//hide the body
 		free(line);
 		line = NULL;	
-	}	
+	}
+	fclose(stream);	
 }
 
 //function to load data into codex
@@ -150,17 +140,18 @@ struct codex* load(struct codex *head, struct codex *current, int size, FILE *st
 	return head;
 }
 
-void fixPoem(struct node *head, struct codex *headx) {
+void fixPoem(struct node *head, struct codex *headx, int size) {
 	int changed = 0;
 	struct node *data = head;
 	struct node *prev = head;
 	struct codex *codex = headx;
 
-	while(data->word) {
+	while(data->next) {
+		int i = 0;
 		changed = 0; 
 		codex = headx;
 		//go through the codex to replace words
-		while(codex->word1 != NULL && changed == 0) {
+		while(i < size && changed == 0) {
 			if(strcmp(codex->word1, data->word) == 0) {
 				free(data->word);
 				data->word = NULL;
@@ -183,10 +174,48 @@ void fixPoem(struct node *head, struct codex *headx) {
 				}
 			}
 			codex = codex->next;
+			i++;
 		}
 		prev = data;
 		data = data->next;
 	}
+}
+
+//function to print and display to the screen 
+void display(struct node *current) {
+	while (current->next) {
+		printf("%s", current->word);
+		printf("%c", current->punc);
+		if (current->punc == ',' || current->punc == '.') {
+			printf("\n");
+		}
+		current = current->next;
+	}
+}
+
+void clean(struct node *current, struct node *head, struct codex *currentx, struct codex *headx) {
+	//free the poem linked list
+	while (current->next) {
+		free(current->word);
+		current->word = NULL;
+		free(current);
+		current = current->next;
+	}
+	free(head);
+	current = NULL;
+	head = NULL;
+	//free the codex linked list
+	while (currentx->next) {
+		free(currentx->word1);
+		free(currentx->word2);
+		currentx->word1 = NULL;
+		currentx->word2 = NULL;
+		free(currentx);
+		currentx = currentx->next;
+	}
+	free(headx);
+	currentx = NULL;
+	headx = NULL;
 }
 
 int main(void) {
@@ -202,7 +231,6 @@ int main(void) {
 	FILE *cstream;
 	int dataSize = 0;
 	int codexSize = 0;
-	char *temp;
 	
 	//count the number of lines in the data file
 	dataSize = countLines(dataFile, &dstream);
@@ -216,25 +244,22 @@ int main(void) {
 	
 	//run through the input file again to get punctuation for poem
 	punctuate(head, current, dataSize, dstream);
-
+	
 	//populate codex from the file
 	headx = load(headx, currentx, codexSize, cstream);
 	currentx = headx;
 
 	//traverse the poem linked list and replace words
-	fixPoem(head, headx);
+	fixPoem(head, headx, codexSize);
 	
-	//display results for checking purposes
+	//display fixed poem to the screen
+	display(head);
+	
+	//clean up the mess
 	current = head;
-	while (current->next) {
-		printf("%s", current->word);
-		printf("%c", current->punc);
-		if (current->punc == ',' || current->punc == '.') {
-			printf("\n");
-		}
-		current = current->next;
-	}
-
-	printf("\n");
+	currentx = headx;
+	clean(current, head, currentx, headx);
+	
+	return 0;
 
 }
