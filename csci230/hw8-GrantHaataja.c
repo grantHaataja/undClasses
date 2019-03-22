@@ -104,7 +104,7 @@ void punctuate(struct node *head, struct node *current, int siz, FILE *stream) {
 		free(line);
 		line = NULL;	
 	}
-	fclose(stream);	
+	//fclose(stream);	
 }
 
 //function to load data into codex
@@ -136,7 +136,7 @@ struct codex* load(struct codex *head, struct codex *current, int size, FILE *st
 		free(line);
 		line = NULL;
 	}
-	fclose(stream);
+	//fclose(stream);
 	return head;
 }
 
