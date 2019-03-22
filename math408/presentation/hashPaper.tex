@@ -58,6 +58,10 @@ A hash function can be as simple as $$f(x) = x\mod7.$$
 		
 Then any input could be converted into a decimal number and sent through the function. For example, consider the input: "Message". If we apply the standard conversion from letters to numbers, (A $\rightarrow$ 1,B $\rightarrow$ 2,...,Z $\rightarrow$ 26), "Message" becomes 13 5 18 18 1 7 5. Then, we take it as the number 1,351,818,175 and send it through the function, giving $$f(1351818175) = 1351818175 \mod 7 = 1.$$
 
+Now, there are only 7 possible outputs for this hash function, making it totally useless for verification, since there are so many collisions. It would take fractions of a second to find a collision for this algorithm with a computer. But it does illustrate 2 important characteristics of hash functions. 
+
+First, no matter what the size of the input is, the output will always be of fixed length, in this case one digit. Second, if one was given the output of the above message, (1), and told to reverse it to find the original input, there is almost no chance that anyone could do that.
+
 \section{Uses of Cryptographic Hash Functions}
 \tab There are many important uses of cryptographic hash functions, including file verification, password protection, and bitcoin mining and creation of addresses.
 
@@ -83,42 +87,42 @@ MD5 is still used extensively, but should no longer be implemented for any sensi
 
 
 \section{SHA-256 (Secure Hashing Algorithm)}
+\tab The current most commonly-used cryptographic hashing algorithm is the Secure Hashing Algorithm 2. There are several different algorithms in this family, but the most common one is the 256-bit SHA-256. Developed in 2001 by the NSA as part of the SHA-2 set, this is the most trusted and widely used hash algorithm in use currently. SHA-3 is the newest Secure Hashing Algorithm, and is slowly taking over and replacing SHA-256, but that will take time.
 
-		
-		
-		
-		256-bit hash
-		Designed by the NSA as part of the SHA-2 set in 2001
-		Collision resistance hasn't been fully broken yet
-		Most commonly used and trusted hashing algorithm currently, although industry is in the process of switching to SHA-3\newline
+Collision resistance has not been fully broken on SHA-256 yet, the best public attacks currently break 46 out of 64 rounds. For preimage resistance, 52 out of 64 rounds break it. SHA-256 can also be vulnerable to length extension attacks, meaning the security of the hash algorithm is decreasing over time. For optimal security, it is recommended to switch to the 512-bit SHA-3 algorithm. 
 
 
 \section{Hashing Examples}
-	\begin{itemize}
-		\item We have the message "Hashing is a secure way to store passwords, change my mind".
-		\item MD5: b30d5d9bc11f392daa4950be13d35106
-		\item SHA-256: a1b196e3e571170f5111c9f0058d20cc4761546468fbe6bdc16f2663f6096e7a
-		\item Now we will remove the comma from the message and hash "Hashing is a secure way to store passwords change my mind".
-		\item MD5: 91a6526d84520f2aad7f25116880d4e9
-		\item SHA-256 7809dace6f2004d72611a4a59f2d6fa5d2ab0307c2b7de741b86779275681a5b\newline
-	\end{itemize}
 
-\section{Pros and Cons of Hashing}
-	\begin{itemize}
-		\item PROS
-		\begin{itemize}
-			\item Portable and easy for storing
-			\item Simple and fairly secure way to store sensitive data to be used for verification, as long as the hashes are salted
-			\item Does not require any key for verification 
-		\end{itemize}
-		\item CONS
-		\begin{itemize}
-			\item Cannot be used to send messages, since there is no way to reverse secure hashes
-			\item Unsalted hashes can become security risks   \newline
-		\end{itemize}
-		
-	\end{itemize}
+\tab Consider the message "Hashing is a secure way to store passwords, change my mind". Below are shown the MD5 and SHA-256 hashes of this message.
 
+MD5: b30d5d9bc11f392daa4950be13d35106
+
+SHA-256: a1b196e3e571170f5111c9f0058d20cc4761546468fbe6bdc16f2663f6096e7a
+
+Now, the comma is removed from the message and the following is hashed: "Hashing is a secure way to store passwords change my mind". Observe how the hash digests have completely changed, all from the removal of a single comma.
+
+MD5: 91a6526d84520f2aad7f25116880d4e9
+
+SHA-256 7809dace6f2004d72611a4a59f2d6fa5d2ab0307c2b7de741b86779275681a5b
+
+This is the power of hash functions. This also illustrates how using a salt for users' passwords on a website protects the randomness of the hashes even if multiple users have the same password, since appending even a single character to the user-entered string changes the output of the hash function completely.
+
+\section{Hashing vs Encryption}
+
+Hashing should be used over encryption in any case where the verifying party does not need to know the actual data. Because hashing always yields a fixed-length string, it is portable and easy to store digests.
+
+Hashing is one of the most secure ways to store sensitive data for verification purposes, as long as the hashes are salted. 
+
+Unlike encryption, no key is required for verification, since hashing algorithms are not secret due to their one-way nature.
+
+There are a few downfalls of hash functions, however. Hashing cannot be used to send messages or any data that the receiver needs to reverse back to its original form. 
+
+Unsalted hashes stored in a database can become a security risk if an attacker gains access and finds multiple occurrences of a specific hash digest.
+
+Overall, hash functions are an efficient and elegant way to store data and verify files and passwords. If hashing can be used instead of encryption, it will likely be a more secure option, assuming proper techniques are followed.
+
+\newpage
 \begin{thebibliography}{}
 	\bibitem{Cryptographic Hash Functions Explained: A Beginner's Guide}
 	Daniel. (2018, December 03). Cryptographic Hash Functions Explained: A Beginner's Guide. Retrieved from {https://komodoplatform.com/cryptographic-hash-function/}

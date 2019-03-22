@@ -108,7 +108,6 @@ void punctuate(struct node *head, struct node *current, int siz, FILE *stream) {
 		do {
 			//assign the non-word characters to each node
 			current->punc = (char) *word;
-			printf("%c",current->punc);
 			
 			current = current->next;
 		} while ((word = strtok(NULL, "QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm")) != NULL);
@@ -162,7 +161,7 @@ void fixPoem(struct node *head, struct codex *headx) {
 		codex = headx;
 		//go through the codex to replace words
 		while(codex->word1 != NULL && changed == 0) {
-			if(strncmp(codex->word1, data->word, strlen(codex->word1)) == 0) {
+			if(strcmp(codex->word1, data->word) == 0) {
 				free(data->word);
 				data->word = NULL;
 				if(strcmp(codex->word2, "skip") == 0) {
@@ -223,13 +222,16 @@ int main(void) {
 	currentx = headx;
 
 	//traverse the poem linked list and replace words
-	//fixPoem(head, headx);
+	fixPoem(head, headx);
 	
 	//display results for checking purposes
 	current = head;
 	while (current->next) {
 		printf("%s", current->word);
-		printf("*");
+		printf("%c", current->punc);
+		if (current->punc == ',' || current->punc == '.') {
+			printf("\n");
+		}
 		current = current->next;
 	}
 
