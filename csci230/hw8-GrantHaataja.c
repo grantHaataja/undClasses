@@ -60,7 +60,7 @@ struct node* populate(struct node *head, struct node *current, int size,
 	for (int i = 0; i < size; i++) {
 		getline(&line, &length, stream);
 		//get the string token for the first word of the line
-		word = strtok(line, " ,.\n");
+		word = strtok(line, " :;></?\\|[]{}+=--()*&^%$#@!`~'\",.\n");
 		//enter do-while loop to create new nodes for each word and assign words
 		do {
 			//allocate memory for the word data for each node
@@ -70,7 +70,8 @@ struct node* populate(struct node *head, struct node *current, int size,
 			//allocate memory for next current node			
 			current->next = (struct node*) malloc(sizeof(struct node));
 			current = current->next;
-		} while ((word = strtok(NULL, " ,.\n")) != NULL);
+		} while ((word = strtok(NULL, " :;></?\\|[]{}+=--()*&^%$#@!`~'\",.\n")
+				 ) != NULL);
 		//hide the body
 		free(line);
 		line = NULL;
@@ -92,23 +93,26 @@ void punctuate(struct node *head, struct node *current, int siz, FILE *stream) {
 	for (int i = 0; i < siz; i++) {
 		getline(&line, &length, stream);
 		//get the string token for the first non-word of the line
-		word = strtok(line, "QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm");
+		word = strtok(line, 
+			"QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm");
 		//enter do-while loop to add punctuation to the nodes
 		do {
 			//assign the non-word characters to each node
 			current->punc = (char) *word;
 			//set current to next node to 
 			current = current->next;
-		} while ((word = strtok(NULL, "QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm")) != NULL);
+		} while ((word = strtok(NULL, 
+			"QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm")) != NULL);
 		//hide the body
 		free(line);
 		line = NULL;	
 	}
-	//fclose(stream);	
+	fclose(stream);	
 }
 
 //function to load data into codex
-struct codex* load(struct codex *head, struct codex *current, int size, FILE *stream) {
+struct codex* load(struct codex *head, struct codex *current, 
+		int size, FILE *stream) {
 	//rewind the file to start at the beginning
 	rewind(stream);	
 	//string variable to hold each individual line
@@ -136,7 +140,7 @@ struct codex* load(struct codex *head, struct codex *current, int size, FILE *st
 		free(line);
 		line = NULL;
 	}
-	//fclose(stream);
+	fclose(stream);
 	return head;
 }
 
@@ -186,14 +190,15 @@ void display(struct node *current) {
 	while (current->next) {
 		printf("%s", current->word);
 		printf("%c", current->punc);
-		if (current->punc == ',' || current->punc == '.') {
+		if (current->punc != ' ' && current->punc != '\n') {
 			printf("\n");
 		}
 		current = current->next;
 	}
 }
 
-void clean(struct node *current, struct node *head, struct codex *currentx, struct codex *headx) {
+void clean(struct node *current, struct node *head, struct codex *currentx, 
+		struct codex *headx) {
 	//free the poem linked list
 	while (current->next) {
 		free(current->word);
@@ -261,5 +266,4 @@ int main(void) {
 	clean(current, head, currentx, headx);
 	
 	return 0;
-
 }
