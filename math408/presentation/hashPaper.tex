@@ -34,7 +34,7 @@
 \section{Introduction}
 \tab Hash functions are an important facet of cybersecurity. Although the name may sound dry and complicated to those unfamiliar with hash functions, there are many interesting properties and uses for hashes, and they affect everyone who uses the internet. 
 
-This paper will discuss cryptographic hash functions and many of the intriguing aspects of their nature. There will be two famous and widely-used hash functions that will be analyzed in detail, namely MD5 and SHA-256. 
+This paper will discuss cryptographic hash functions and many of the intriguing aspects of their nature. Two famous and widely-used hash functions will be analyzed in detail, namely MD5 and SHA-256. 
 
 A hash function is an algorithm that takes an input of arbitrary length and maps it through a series of transformations to a string of fixed length. The purpose of this is to verify a given input without needing to store that input.
 
@@ -109,6 +109,7 @@ SHA-256 7809dace6f2004d72611a4a59f2d6fa5d2ab0307c2b7de741b86779275681a5b
 This is the power of hash functions. This also illustrates how using a salt for users' passwords on a website protects the randomness of the hashes even if multiple users have the same password, since appending even a single character to the user-entered string changes the output of the hash function completely.
 
 \section{Hashing vs Encryption}
+\tab Another word on collisions. Any well-developed hashing algorithm should have high collision resistance, but it is important to note that it is theoretically impossible to make a hash function that is completely collision-free. This is due to the fact that a hash function returns a fixed-length string. So, for a 128-bit hash, the output is always 32 characters. Possible characters for include the 26 letters and 0-9, so a total of 32 possible characters. This gives $26^{32}$ possible hashes, which is $1.9 x 10^{45}$. This is an astronomically high number, so breaking a hash of this size with brute force is infeasible, but given that there is a near-infinite number of inputs, there will always be possible collisions.  
 
 Hashing should be used over encryption in any case where the verifying party does not need to know the actual data. Because hashing always yields a fixed-length string, it is portable and easy to store digests.
 
