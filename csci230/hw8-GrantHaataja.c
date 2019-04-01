@@ -230,8 +230,8 @@ int main(void) {
 	struct codex *headx = NULL;
 	struct codex *currentx = NULL;
 	//declare hard-coded filenames for the pleasure of the TA
-	char *dataFile = "hw8data.txt";
-	char *codexFile = "hw8codex.txt";
+	char *dataFile = "hw8datum.txt";
+	char *codexFile = "hw8codexx.txt";
 	FILE *dstream;
 	FILE *cstream;
 	int dataSize = 0;
