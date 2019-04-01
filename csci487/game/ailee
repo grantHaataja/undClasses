@@ -1,0 +1,29 @@
+AI name: Artificial Intelligence Linux(Learning) Exploit Environment (AILEE)
+
+Pen-Testing Firm: Pro International Cybersecurity Solutions (PICS)
+
+
+Possible endings:
+0: hack yourself to find the malware in your system and remove it
+
+1: complete tasked penetration tests and get taken over during final attack against crypto bank network, resulting in AI getting shut down
+
+2 & 3: fail attack against 1st or second target
+
+
+Game structure:
+
+Tutorial of basic commands, and give player a txt file of "all" possible commands to be used in the game
+
+#Interact with administrator and receive first mission
+First mission: Run a penetration test against a bank with outdated security 
+Hack will be against an old Windows XP style system. Classic pen-test involving information gathering, vulnerability scanning, and then running a classic exploit to get a reverse meterpreter command line and discover some sensitive data from the bank
+
+#Interact with administrator to relay data and receive second mission
+Second mission: 
+
+#Interact with administrator to relay data and receive final mission
+#System update which leaves a malware file in ailee's directory
+Third mission: Run a penetration test against an organization with millions of dollars worth of crypto-currency. After access is gained, if ailee hasn't fixed the malware file on her system, she  loses control and commands are run on the screen with little to no control. The money is all transferred to a different account, and the organization's systems are destroyed.
+
+#A possible final interaction with the administrator, resulting in goodbye and ailee being shut off
