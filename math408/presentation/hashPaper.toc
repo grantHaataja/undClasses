@@ -5,4 +5,4 @@
 \contentsline {section}{\numberline {5}MD5 (Message Digest Algorithm 5)}{4}{section.5}% 
 \contentsline {section}{\numberline {6}SHA-256 (Secure Hashing Algorithm)}{5}{section.6}% 
 \contentsline {section}{\numberline {7}Hashing Examples}{5}{section.7}% 
-\contentsline {section}{\numberline {8}Hashing vs Encryption}{5}{section.8}% 
+\contentsline {section}{\numberline {8}Conclusion}{6}{section.8}% 

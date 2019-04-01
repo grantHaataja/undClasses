@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2019.3.18)  28 MAR 2019 16:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2019.3.18)  1 APR 2019 11:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -399,35 +399,35 @@ e
 
 
 [2] [3] [4] [5] [6]
-Underfull \hbox (badness 10000) in paragraph at lines 132--133
+Underfull \hbox (badness 10000) in paragraph at lines 126--127
 []\OT1/cmr/m/n/10 Tutorialspoint.com. (2019). Cryp-tog-ra-phy Hash func-tions. 
 Re-trieved from
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 138--139
+Underfull \hbox (badness 10000) in paragraph at lines 132--133
 []\OT1/cmr/m/n/10 Holbreich, A. (2016, Novem-ber 01). Cryp-to-graphic Hash Func
 -tions. Re-trieved from
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 145.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 139.
 [7]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 145.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 139.
  (./hashPaper.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 145.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 145.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 139.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 139.
 Package rerunfilecheck Info: File `hashPaper.out' has not changed.
-(rerunfilecheck)             Checksum: F349A31722FC0CD00E0A7050F40E2126;492.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 145.
+(rerunfilecheck)             Checksum: D34A0E044FD811E7140DF055A6628715;481.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 139.
  ) 
 Here is how much of TeX's memory you used:
  6950 strings out of 492615
  102316 string characters out of 6131390
- 207646 words of memory out of 5000000
+ 207645 words of memory out of 5000000
  10779 multiletter control sequences out of 15000+600000
  9062 words of font info for 33 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,6n,32p,746b,324s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,6n,32p,742b,324s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texl
@@ -437,7 +437,7 @@ mf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist
 type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
 blic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
 msfonts/cm/cmti10.pfb>
-Output written on hashPaper.pdf (7 pages, 121981 bytes).
+Output written on hashPaper.pdf (7 pages, 121686 bytes).
 PDF statistics:
  126 PDF objects out of 1000 (max. 8388607)
  106 compressed objects within 2 object streams

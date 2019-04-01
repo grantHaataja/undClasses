@@ -104,22 +104,16 @@ Now, the comma is removed from the message and the following is hashed: "Hashing
 
 MD5: 91a6526d84520f2aad7f25116880d4e9
 
-SHA-256 7809dace6f2004d72611a4a59f2d6fa5d2ab0307c2b7de741b86779275681a5b
+SHA-256: 7809dace6f2004d72611a4a59f2d6fa5d2ab0307c2b7de741b86779275681a5b
 
 This is the power of hash functions. This also illustrates how using a salt for users' passwords on a website protects the randomness of the hashes even if multiple users have the same password, since appending even a single character to the user-entered string changes the output of the hash function completely.
 
-\section{Hashing vs Encryption}
-\tab Another word on collisions. Any well-developed hashing algorithm should have high collision resistance, but it is important to note that it is theoretically impossible to make a hash function that is completely collision-free. This is due to the fact that a hash function returns a fixed-length string. So, for a 128-bit hash, the output is always 32 characters. Possible characters for include the 26 letters and 0-9, so a total of 32 possible characters. This gives $26^{32}$ possible hashes, which is $1.9 x 10^{45}$. This is an astronomically high number, so breaking a hash of this size with brute force is infeasible, but given that there is a near-infinite number of inputs, there will always be possible collisions.  
+Another word on collisions. Any well-developed hashing algorithm should have high collision resistance, but it is important to note that it is theoretically impossible to make a hash function that is completely collision-free. This is due to the fact that a hash function returns a fixed-length string. So, for a 128-bit hash, the output is always 32 characters. Possible characters include the 26 letters and 0-9, so a total of 36 possible characters. This gives $36^{32}$ possible hashes, which is $6.334 \times 10^{49}$. This is an astronomically high number, so breaking a hash of this size with brute force is infeasible, but given that there is a near-infinite number of inputs, there will always be possible collisions.
 
-Hashing should be used over encryption in any case where the verifying party does not need to know the actual data. Because hashing always yields a fixed-length string, it is portable and easy to store digests.
+\section{Conclusion}
+\tab Hashing should be used over encryption in any case where the verifying party does not need to know the actual data. Because hashing always yields a fixed-length string, it is portable and easy to store digests. Hashing is one of the most secure ways to store sensitive data for verification purposes, as long as the hashes are salted. Unlike encryption, no key is required for verification, since hashing algorithms are not secret due to their one-way nature.
 
-Hashing is one of the most secure ways to store sensitive data for verification purposes, as long as the hashes are salted. 
-
-Unlike encryption, no key is required for verification, since hashing algorithms are not secret due to their one-way nature.
-
-There are a few downfalls of hash functions, however. Hashing cannot be used to send messages or any data that the receiver needs to reverse back to its original form. 
-
-Unsalted hashes stored in a database can become a security risk if an attacker gains access and finds multiple occurrences of a specific hash digest.
+There are a few downfalls of hash functions, however. Hashing cannot be used to send messages or any data that the receiver needs to reverse back to its original form. Unsalted hashes stored in a database can become a security risk if an attacker gains access and finds multiple occurrences of a specific hash digest.
 
 Overall, hash functions are an efficient and elegant way to store data and verify files and passwords. If hashing can be used instead of encryption, it will likely be a more secure option, assuming proper techniques are followed.
 
