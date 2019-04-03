@@ -21,7 +21,7 @@ TARGET = hw9
 all:
 	$(COMPILER) $(FLAGS) $(CODE)
 	$(COMPILER) $(SFLAGS) libHW9.so $(OBJECTS)
-	$(COMPILER) -Wall -o $(TARGET) $(OBJECTS) ./libHW9.so
+	$(COMPILER) -Wall -o $(TARGET) $(OBJECTS) -ldl
 
 #clean up the mess
 clean:
