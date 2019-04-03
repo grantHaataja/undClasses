@@ -1,41 +1,33 @@
 #Grant Haataja
-#Assignment 6: Makefile
+#Assignment 9: Makefile
 
 #define COMPILER variable
 COMPILER = gcc
 
 #define COMPILER FLAGS
-FLAGS = -c -Wall
+FLAGS = -c -Wall -fPIC
 
 #define object files
 OBJECTS = hw6-A-GrantHaataja.o hw6-B-GrantHaataja.o hw6-C-GrantHaataja.o hw6-D-GrantHaataja.o hw6-GrantHaataja.o
 
+#define c files
+CODE = hw6-A-GrantHaataja.c hw6-B-GrantHaataja.c hw6-C-GrantHaataja.c hw6-D-GrantHaataja.c hw6-GrantHaataja.c
+
 #define TARGET output filename
-TARGET = hw6
+TARGET = hw9
 
 all: $(TARGET)
 
 $(TARGET): $(OBJECTS)
 	$(COMPILER) -Wall -o $(TARGET) $(OBJECTS)
+	
+sharedlib:
+	$(COMPILER) $(FLAGS) $(CODE)
+	$(COMPILER) -shared -o libHW9.so $(OBJECTS)
 
 #clean up the mess
 clean:
 	rm -f $(OBJECTS) $(TARGET) *.tar*
-
-hw6-A-GrantHaataja.o: hw6-A-GrantHaataja.c hw6-A-GrantHaataja.h
-	$(COMPILER) $(FLAGS) hw6-A-GrantHaataja.c
-
-hw6-B-GrantHaataja.o: hw6-B-GrantHaataja.c hw6-B-GrantHaataja.h
-	$(COMPILER) $(FLAGS) hw6-B-GrantHaataja.c
-
-hw6-C-GrantHaataja.o: hw6-C-GrantHaataja.c hw6-C-GrantHaataja.h
-	$(COMPILER) $(FLAGS) hw6-C-GrantHaataja.c
-
-hw6-D-GrantHaataja.o: hw6-D-GrantHaataja.c hw6-D-GrantHaataja.h
-	$(COMPILER) $(FLAGS) hw6-D-GrantHaataja.c
-
-hw6-GrantHaataja.o: hw6-A-GrantHaataja.o hw6-B-GrantHaataja.o hw6-C-GrantHaataja.o hw6-D-GrantHaataja.o
-	$(COMPILER) $(FLAGS) hw6-GrantHaataja.c
 
 #make a zip of all the contents of the folder
 targz:
