@@ -6,6 +6,7 @@ COMPILER = gcc
 
 #define COMPILER FLAGS
 FLAGS = -c -Wall -fPIC
+SFLAGS = -shared -o
 
 #define object files
 OBJECTS = hw6-A-GrantHaataja.o hw6-B-GrantHaataja.o hw6-C-GrantHaataja.o hw6-D-GrantHaataja.o hw6-GrantHaataja.o
@@ -16,14 +17,11 @@ CODE = hw6-A-GrantHaataja.c hw6-B-GrantHaataja.c hw6-C-GrantHaataja.c hw6-D-Gran
 #define TARGET output filename
 TARGET = hw9
 
-all: $(TARGET)
-
-$(TARGET): $(OBJECTS)
-	$(COMPILER) -Wall -o $(TARGET) $(OBJECTS)
-	
-sharedlib:
+#generate object files, link them to shared library, generate executable
+all:
 	$(COMPILER) $(FLAGS) $(CODE)
-	$(COMPILER) -shared -o libHW9.so $(OBJECTS)
+	$(COMPILER) $(SFLAGS) libHW9.so $(OBJECTS)
+	$(COMPILER) -Wall -o $(TARGET) $(OBJECTS) ./libHW9.so
 
 #clean up the mess
 clean:
@@ -32,4 +30,4 @@ clean:
 #make a zip of all the contents of the folder
 targz:
 	rm -f *.tar*
-	tar -czvf hw6-GrantHaataja.tar.gz *.c *.h Makefile* hw6 *.data
+	tar -czvf hw6-GrantHaataja.tar.gz *.c *.h *.so Makefile* hw9 *.data
