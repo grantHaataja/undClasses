@@ -7,68 +7,34 @@
 #include <time.h>
 
 //merge function
-void merge(int array[], int p, int q, int r) {
-	int n1 = q - p + 1;
-	int n2 = r - q;
-	//create arrays L and R
-	int L[n1], R[n2];
-	int i, j, k;
-	
-	//copy data to temp arrays L and R
-	for (i = 0; i < n1; i++) {
-		L[i] = array[p + i];
-		printf("Adding %d to temp array L\n", array[p+i]);
-	}
-	for (j = 0; j < n2; j++) {
-		R[j] = array[q + 1 + j];
-		printf("Adding %d to temp array R\n", array[q+1+j]);		
-	}
-	
-	//merge temp arrays back into array
-	i = 0;
-	j = 0;
-	k = p;
-	while (i < n1 && j < n2) {
-		if (L[i] <= R[j]) {
-			array[k] = L[i];
-			i++;
-		}
-		else {
-			array[k] = R[j];
-			j++;
-		}
-		k++;
-	}
-	
-	//copy remaining elements of L if there are any
-	while (i < n1) {
-		array[k] = L[i];
-		i++;
-		k++;
-	}
-	
-	//copy the remaining elements of R if there are any
-	while (j < n2) {
-		array[k] = R[i];
-		j++;
-		k++;
-	}
-}
+void merge(int array[], int low, int mid, int high) {
+	int n1, n2, i;
+	int b[high];
 
-//merge-sort function
-void mergeSort(int array[], int p, int r) {
-	if (p < r) {
-		int q = (p + (r-p)/2);
-		mergeSort(array, p, q);
-		mergeSort(array, q+1, r);
-		merge(array, p, q, r);
+	for(n1 = low, n2 = mid + 1, i = low; n1 <= mid && n2 <= high; i++) {
+		if(array[n1] <= array[n2])
+			b[i] = array[n1++];
+		else
+			b[i] = array[n2++];
 	}
-}
+   
+	while(n1 <= mid)    
+		b[i++] = array[n1++];
 
-//display function
-void display(int *array, int size) {
-	
+	while(n2 <= high)   
+		b[i++] = array[n2++];
 
+	for(i = low; i <= high; i++)
+		array[i] = b[i];
+	}
+
+void mergeSort(int array[], int low, int high) {
+	if(low < high) {
+		int mid = (low + high) / 2;
+		mergeSort(array, low, mid);
+		mergeSort(array, mid+1, high);
+		merge(array, low, mid, high);
+	}
 }
 
 //Main Routine
@@ -78,10 +44,20 @@ int main(void) {
 	int size = 0; 
 	int temp = 0;
 	
-	printf("Enter the size of the integer array you wish to sort: ");
-	scanf("%d",&size);
-	unsorted = calloc(size, sizeof(int));
-	
+	while (1) {
+		printf("Enter the size (max 1,000,000) of the integer array");
+		printf(" you wish to sort: ");
+		scanf("%d",&size);
+		if (size > 1000000)
+			printf("Array too large, please try again\n");
+		else if (size < 0)
+			printf("Array size undefined, please try again\n");
+		else
+			break;
+	}
+	//allocate memory for array
+	unsorted = malloc(size * sizeof(int));
+		
 	//use current time as seed for random generator 
     srand(time(0)); 
   
@@ -90,7 +66,7 @@ int main(void) {
 		printf(" %d ",temp);
 		unsorted[i] = temp;
 	}
-  
+	int max = size-1;
 	
 	printf("\n\nUnsorted array: ");
 	for (int i = 0; i < size; i++) {
@@ -99,7 +75,7 @@ int main(void) {
 	printf("\n\n");
 	
 	//sort array
-	mergeSort(unsorted, 0, size-1);
+	mergeSort(unsorted, 0, max);
 	
 	printf("\nSorted array: ");
 	for (int i = 0; i < size; i++) {
@@ -107,6 +83,6 @@ int main(void) {
 	}
 	printf("\n");
 	
-
 	return 0;
 }
+
