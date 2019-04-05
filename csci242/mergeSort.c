@@ -13,15 +13,19 @@ void merge(int *array, int p, int q, int r) {
 	int L[n1], R[n2];
 	int i, j, k;
 	
-	for (i = 1; i < n1; i++) {
-		L[i] = array[p + i -1];
+	//copy data to temp arrays L and R
+	for (i = 0; i < n1; i++) {
+		L[i] = array[p + i];
 	}
-	for (j = 1; j < n2; j++) {
-		R[j] = array[q + j];
+	for (j = 0; j < n2; j++) {
+		R[j] = array[q + 1 + j];
 	}
-	i = 1;
-	j = 1;
-	for (k = p; k < r; k++) {
+	
+	//merge temp arrays back into array
+	i = 0;
+	j = 0;
+	k = p;
+	while (i < n1 && j < n2) {
 		if (L[i] <= R[j]) {
 			array[k] = L[i];
 			i++;
@@ -30,6 +34,21 @@ void merge(int *array, int p, int q, int r) {
 			array[k] = R[j];
 			j++;
 		}
+		k++;
+	}
+	
+	//copy remaining elements of L if there are any
+	while (i < n1) {
+		array[k] = L[i];
+		i++;
+		k++;
+	}
+	
+	//copy the remaining elements of R if there are any
+	while (j < n2) {
+		array[k] = R[i];
+		j++;
+		k++;
 	}
 
 }
@@ -37,11 +56,17 @@ void merge(int *array, int p, int q, int r) {
 //merge-sort function
 void mergeSort(int *array, int p, int r) {
 	if (p < r) {
-		int q = ((p + r) / 2);
+		int q = (p + (r-p)/2);
 		mergeSort(array, p, q);
 		mergeSort(array, q+1, r);
 		merge(array, p, q, r);
 	}
+}
+
+//display function
+void display(int *array, int size) {
+	
+
 }
 
 //Main Routine
@@ -65,7 +90,7 @@ int main(void) {
 	printf("]\n");
 	
 	//sort array
-	mergeSort(unsorted, unsorted[0], unsorted[size-1]);
+	mergeSort(unsorted, 0, size-1);
 	
 	printf("Sorted array: [");
 	for (int i = 0; i < size; i++) {
