@@ -4,9 +4,10 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 //merge function
-void merge(int *array, int p, int q, int r) {
+void merge(int array[], int p, int q, int r) {
 	int n1 = q - p + 1;
 	int n2 = r - q;
 	//create arrays L and R
@@ -16,9 +17,11 @@ void merge(int *array, int p, int q, int r) {
 	//copy data to temp arrays L and R
 	for (i = 0; i < n1; i++) {
 		L[i] = array[p + i];
+		printf("Adding %d to temp array L\n", array[p+i]);
 	}
 	for (j = 0; j < n2; j++) {
 		R[j] = array[q + 1 + j];
+		printf("Adding %d to temp array R\n", array[q+1+j]);		
 	}
 	
 	//merge temp arrays back into array
@@ -50,11 +53,10 @@ void merge(int *array, int p, int q, int r) {
 		j++;
 		k++;
 	}
-
 }
 
 //merge-sort function
-void mergeSort(int *array, int p, int r) {
+void mergeSort(int array[], int p, int r) {
 	if (p < r) {
 		int q = (p + (r-p)/2);
 		mergeSort(array, p, q);
@@ -73,30 +75,37 @@ void display(int *array, int size) {
 int main(void) {
 	//define array to be sorted
 	int *unsorted = NULL;
-	int size = 0;
+	int size = 0; 
+	int temp = 0;
 	
-	printf("Enter the size of the integer array you wish to sort\n");
+	printf("Enter the size of the integer array you wish to sort: ");
 	scanf("%d",&size);
-	unsorted = calloc(size+1, sizeof(int));
-	printf("Enter integer values to fill the array\n");
-	for (int i = 0; i < size; i++) {
-		scanf("%d",&unsorted[i]);
-	}
+	unsorted = calloc(size, sizeof(int));
 	
-	printf("Unsorted array: [");
+	//use current time as seed for random generator 
+    srand(time(0)); 
+  
+	for (int i = 0; i < size; i++) {
+		temp = rand() %1000;
+		printf(" %d ",temp);
+		unsorted[i] = temp;
+	}
+  
+	
+	printf("\n\nUnsorted array: ");
 	for (int i = 0; i < size; i++) {
 		printf("%d ", unsorted[i]);
 	}
-	printf("]\n");
+	printf("\n\n");
 	
 	//sort array
 	mergeSort(unsorted, 0, size-1);
 	
-	printf("Sorted array: [");
+	printf("\nSorted array: ");
 	for (int i = 0; i < size; i++) {
 		printf("%d ", unsorted[i]);
 	}
-	printf("]\n");
+	printf("\n");
 	
 
 	return 0;
