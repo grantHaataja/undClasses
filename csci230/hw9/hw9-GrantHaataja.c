@@ -9,9 +9,16 @@
 
 //Main
 int main(int argc, char **argv) {
-	//open shared library
+	//define variables
 	void *handle;
 	char *error;
+	//define prototypes
+	int (*SCAN)(char*, FILE**);
+	struct _data* (*LOAD)(FILE*, int, char*);
+	void (*SEARCH)(struct _data*, char*, int);
+	void (*FREE)(struct _data*, int, char*);
+	
+	//dlopen executable for shared library
 	handle = dlopen("./libHW9.so", RTLD_NOW);
 	if (!handle) {
 		printf("Error in opening library\n");
@@ -19,32 +26,26 @@ int main(int argc, char **argv) {
 	}
 	
 	//add functions from shared library to symbol table
-
-	dlsym(handle, "SCAN");
+	*(void **) (&SCAN) = dlsym(handle, "SCAN");
 	if ((error = dlerror()) != NULL) {
 		printf("Error in adding function from library\n");
 		exit(0);
 	}
-	
-	dlsym(handle, "LOAD");
+	*(void **) (&LOAD) = dlsym(handle, "LOAD");
 	if ((error = dlerror()) != NULL) {
 		printf("Error in adding function from library\n");
 		exit(0);
 	}
-	
-	dlsym(handle, "SEARCH");
+	*(void **) (&SEARCH) = dlsym(handle, "SEARCH");
 	if ((error = dlerror()) != NULL) {
 		printf("Error in adding function from library\n");
 		exit(0);
 	}
-	
-	dlsym(handle, "FREE");
+	*(void **) (&FREE) = dlsym(handle, "FREE");
 	if ((error = dlerror()) != NULL) {
 		printf("Error in adding function from library\n");
 		exit(0);
 	}
-	
-	dlclose(handle);
 	
 	//define name of file containing the information used in this program	
 	char *fileName;
@@ -57,8 +58,8 @@ int main(int argc, char **argv) {
 		//call function to count lines in file
 		if ((size = SCAN(fileName, &fstream)) != 0) {
 			break;
-		}	
-	}	
+		}
+	}
 	//call function to store data in structure
 	BlackBox = LOAD(fstream, size, fileName);
 	//close file
@@ -72,6 +73,8 @@ int main(int argc, char **argv) {
 	SEARCH(BlackBox, *(argv+1), size);
 	//call function to free memory
 	FREE(BlackBox, size, fileName);
+	//dlclose executable for shared library
+	dlclose(handle);
 
 	return 0;
 }

@@ -16,8 +16,6 @@ struct _data *LOAD(FILE *stream, int size, char *fileName) {
 	//hold each individual line of file
 	char *line = NULL;
 	size_t length = 0;
-	//to store number of characters in each line
-	ssize_t read = 0;
 	//string variable to hold name from each line and copy it to BlackBox
 	char *first;
 	//string variable to hold number from each line and convert it to long
@@ -30,7 +28,7 @@ struct _data *LOAD(FILE *stream, int size, char *fileName) {
 	rewind(stream);
 	for (int i = 0; i < size; i++) {
 		//scan in each line of the file individually 
-		read = getline(&line, &length, stream);
+		getline(&line, &length, stream);
 		//use deliminator to get the name from the line and assign to 'first'
 		first = strtok(line, " ,\n");
 		//allocate memory for each name in the struct

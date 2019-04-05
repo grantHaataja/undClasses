@@ -21,13 +21,13 @@ TARGET = hw9
 all:
 	$(COMPILER) $(FLAGS) $(CODE)
 	$(COMPILER) $(SFLAGS) libHW9.so $(OBJECTS)
-	$(COMPILER) -Wall -o $(TARGET) $(OBJECTS) ./libHW9.so
+	$(COMPILER) -Wall -o $(TARGET) $(OBJECTS) -ldl
 
 #clean up the mess
 clean:
-	rm -f $(OBJECTS) $(TARGET) *.tar*
+	rm -f $(OBJECTS) $(TARGET) *.tar* *.so
 
 #make a zip of all the contents of the folder
 targz:
 	rm -f *.tar*
-	tar -czvf hw6-GrantHaataja.tar.gz *.c *.h *.so Makefile* hw9 *.data
+	tar -czvf hw9-GrantHaataja.tar.gz *.c *.h *.so Makefile* hw9 *.data
