@@ -1,0 +1,38 @@
+\documentclass[11pt,final,twoside]{article} %setup
+%set margins and load symbols and such
+\usepackage[top=20mm,inner=20mm,outer=30mm,bottom=20mm,
+marginparwidth=23mm,marginparsep=4mm]{geometry}
+%header of document
+\title{CSci242, Spring 2019\\
+	\texttt{Assignment 3\\
+	\texttt{Chapter 11.5 Exercise R-11.1}}}
+\author{Grant Haataja}
+\date{\today}
+%set paragraph spacing
+\linespread{0.8}
+
+%make stuff happen
+\begin{document}
+	\maketitle
+
+\begin{enumerate}
+	\item Characterize each of the following recurrence equations using the master theorem
+	(assuming that $T(n) = c$ for $n < d$, for constants $c > 0$ and $d \geq 1$).
+	\begin{enumerate}
+		\item $T(n) = 2T(n/2) + \log n$
+		\item $T(n) = 8T(n/2) + n^2$
+		\item $T(n) = 16T(n/2) + (n\log n)^4$
+		\item $T(n) = 7T(n/3) + n$
+		\item $T(n) = 9T(n/3) + n^3\log n)$ 	
+	\end{enumerate}
+	\item Answers:
+	\begin{enumerate}
+		\item Case 1 of the master theorem applies. $n^{\log_ba} = n^{\log_22} = n$ and $f(n) = \log n$ so $f(n)$ is small compared to $n^{\log_ba}$. $T(n) \sim n$.
+		\item Case 1 applies. $T(n) \sim n^3$.
+		\item Case 2 applies. $T(n) \sim n^4(\log n)^5$.
+		\item Case 1 applies. $T(n) \sim n^{1.77...}$.
+		\item None of the cases apply, so $T(n) \sim n^3\log n$.
+	\end{enumerate}
+\end{enumerate}
+	
+\end{document}
