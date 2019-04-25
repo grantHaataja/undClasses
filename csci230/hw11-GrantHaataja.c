@@ -6,7 +6,9 @@
 #include <string.h>
 
 struct node {
-	char *word;
+	char word[100];
+	char arcs[10][100];
+	int costs[10];
 	int index;
 	struct node *next;
 };
@@ -46,10 +48,15 @@ struct node* populate(struct node *head, struct node *current, int size,
 	size_t length = 0;
 	//to store number of characters in each line	
 	char *word;
+	//to temporarily store the start and end of arcs and the string cost
+	char *arcStart, *arcEnd, *costString;
+	//to store the cost associated with each arc
+	int cost;
 	//allocate memory for first node
 	head = (struct node*) malloc(sizeof(struct node));
 	current = head;
 	int i = -1;
+	int count = 0;
 	//mosey through each line of the file
 	for (i = 1; i < size; i++) {
 		getline(&line, &length, stream);
@@ -57,21 +64,72 @@ struct node* populate(struct node *head, struct node *current, int size,
 		word = strtok(line, "\n");
 		//check to see if the end of the establishments is here
 		if (strcmp(word, "STOP") == 0) {
+			free(line);
+			line = NULL;
 			break;
 		}
 		//allocate memory for the word data for each node
-		current->word = (char *) calloc(strlen(word)+1, sizeof(char));
+		//current->word = (char *) calloc(strlen(word)+1, sizeof(char));
 		//assign the word of current node with the establishment
 		strncpy(current->word, word, strlen(word));
 		//assign node its index number
 		current->index = i;
+		//assign each arc of the node to 0
+		for (int j = 0; j < 10; j++) {
+			current->arcs[j][100] = NULL;
+		}
 		//allocate memory for next current node			
 		current->next = (struct node*) malloc(sizeof(struct node));
 		current = current->next;
 		//hide the body
 		free(line);
 		line = NULL;
+		count++;
 	}
+	//now continue parsing through file and adding all arcs to the proper nodes
+	for (i = count; i < size; i++) {
+		//get individual line to record arcs
+		getline(&line, &length, stream);
+		//check to see if arcs portion of file is reached, and break if true
+		if (strcmp(line, "STOP STOP 0\n") == 0) {
+			free(line);
+			line = NULL;
+			break;
+		}
+		printf("%s",line);
+		//assign first destination of line to arcStart
+		arcStart = strtok(line, " ");
+		//assign second destination of line to arcEnd
+		arcEnd = strtok(NULL, " ");
+		//get the cost associated with arc as a string from line
+		costString = strtok(NULL, "\n");
+		//convert string cost associated with arc to an integer
+		cost = atoi(costString);
+		//now we need to parse through linked list of destinations and add the 
+		//info for the arcs to each node
+		current = head;
+		int j = 0;
+		while (current->next) {
+			//if the node matches which arc line we are at
+			if (strcmp(current->word, arcStart) == 0) {
+				//find the next available spot in the array of arcs
+				while (current->arcs[j] == 0 && j <= 10) {
+					j++;
+				}
+				//copy the end destination to the corresponding starting point
+				//current->arcs[j] = calloc(strlen(arcEnd), sizeof(char));
+				strncpy(current->arcs[j], arcEnd, strlen(arcEnd));
+				current->costs[j] = cost;
+				printf("Adding %s to the list of arcs\n", current->arcs[j]);
+				printf("This has an associated cost of %d\n",current->costs[j]);
+			}
+			current = current->next;
+		}
+		
+		free(line);
+		line = NULL;	
+	}
+	printf("\nExitting function\n");
 	return head;
 }
 
@@ -79,6 +137,10 @@ struct node* populate(struct node *head, struct node *current, int size,
 void display(struct node *current) {
 	while (current) {
 		printf("Node %d: %s\n",current->index, current->word);
+		for (int j = 0; j < 10; j++) {
+			printf("Destination: %s\n",current->arcs[j]);
+			printf("Associated cost: %d\n",current->costs[j]);
+		}
 		current = current->next;
 	}
 }
@@ -90,16 +152,25 @@ int main(void) {
 	char *fileName = "hw111.data";
 	FILE *stream;
 	int size = 0;
+	char *line = NULL;
+	size_t length = 0;
+	char *start;
 	struct node *head = NULL;
 	struct node *current = NULL;
 	
-	//count how many lines in file
+	//count how many lines in file //TODO do we need this ??
 	size = countLines(fileName, &stream);
-	printf("There are %d lines in file\n",size);
 	
 	//populate linked list with each establishment from the input file
 	head = populate(head, current, size, stream);
 	current = head;
+
+	//get last line of file to see where the journey begins
+	getline(&line, &length, stream);
+	start = strtok(line, "\n");
+	free(line);
+	line = NULL;
+	fclose(stream);
 	
 	display(head);//FIXME
 	
