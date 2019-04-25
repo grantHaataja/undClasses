@@ -49,9 +49,9 @@ struct node* populate(struct node *head, struct node *current, int size,
 	//allocate memory for first node
 	head = (struct node*) malloc(sizeof(struct node));
 	current = head;
-	int i = 0;
+	int i = -1;
 	//mosey through each line of the file
-	for (i = 0; i < size; i++) {
+	for (i = 1; i < size; i++) {
 		getline(&line, &length, stream);
 		//get the string token for the first word of the line
 		word = strtok(line, "\n");
@@ -102,5 +102,7 @@ int main(void) {
 	current = head;
 	
 	display(head);//FIXME
+	
+	
 
 }
