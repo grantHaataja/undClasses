@@ -5,11 +5,15 @@
 #include <stdlib.h>
 #include <string.h>
 
-struct node {
+struct Graph {
 	char *word;
-	struct node *arcs[10];
+	struct Graph *arcs[10];
+};
+
+struct LinkedList {
 	int index;
-	struct node *next;
+	struct LinkedList *next;
+	struct Graph *child;
 };
 
 //function to count lines in file
