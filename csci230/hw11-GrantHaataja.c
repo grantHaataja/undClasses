@@ -6,9 +6,8 @@
 #include <string.h>
 
 struct node {
-	char word[100];
-	char arcs[10][100];
-	int costs[10];
+	char *word;
+	struct node *arcs[10];
 	int index;
 	struct node *next;
 };
@@ -69,14 +68,14 @@ struct node* populate(struct node *head, struct node *current, int size,
 			break;
 		}
 		//allocate memory for the word data for each node
-		//current->word = (char *) calloc(strlen(word)+1, sizeof(char));
+		current->word = (char *) calloc(strlen(word)+1, sizeof(char));
 		//assign the word of current node with the establishment
 		strncpy(current->word, word, strlen(word));
 		//assign node its index number
 		current->index = i;
-		//assign each arc of the node to 0
+		//assign each arc of the node to null
 		for (int j = 0; j < 10; j++) {
-			current->arcs[j][100] = NULL;
+			current->arcs[j] = NULL;
 		}
 		//allocate memory for next current node			
 		current->next = (struct node*) malloc(sizeof(struct node));
@@ -117,11 +116,8 @@ struct node* populate(struct node *head, struct node *current, int size,
 					j++;
 				}
 				//copy the end destination to the corresponding starting point
-				//current->arcs[j] = calloc(strlen(arcEnd), sizeof(char));
-				strncpy(current->arcs[j], arcEnd, strlen(arcEnd));
-				current->costs[j] = cost;
+				current->arcs[j] = calloc(strlen(arcEnd), sizeof(char));
 				printf("Adding %s to the list of arcs\n", current->arcs[j]);
-				printf("This has an associated cost of %d\n",current->costs[j]);
 			}
 			current = current->next;
 		}
@@ -139,7 +135,6 @@ void display(struct node *current) {
 		printf("Node %d: %s\n",current->index, current->word);
 		for (int j = 0; j < 10; j++) {
 			printf("Destination: %s\n",current->arcs[j]);
-			printf("Associated cost: %d\n",current->costs[j]);
 		}
 		current = current->next;
 	}
