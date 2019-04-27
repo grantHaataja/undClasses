@@ -6,7 +6,8 @@
 #include <string.h>
 
 struct Graph {
-	char *word;
+	char *name;
+	int cost[10];
 	struct Graph *arcs[10];
 };
 
@@ -16,83 +17,70 @@ struct LinkedList {
 	struct Graph *child;
 };
 
-//function to count lines in file
-int countLines(char *fileName, FILE *(*stream)) {
-	//variable for number of lines
-	int size = 0;
-	//string variable to hold each individual line
-	char *line = NULL;
-	size_t length = 0;
-	//check if file is valid
-	if ((*stream = fopen(fileName, "r")) == NULL) {
+//function to populate linked list with the establishments in the list
+struct LinkedList* populate(struct LinkedList *head, struct LinkedList *current, 
+		char *fileName,	FILE *stream) {
+	//make sure file is valid and open file
+	if ((stream = fopen(fileName, "r")) == NULL) {
 		printf("\nFile not found...\n");
 		return 0;
 	}
-	else {
-		while ((getline(&line, &length, *stream)) != -1) {
-			//increment size to count number of lines
-			size++;
-			//free line variable and set to null
-			free(line);
-			line = NULL;
-		}
-		//return number of lines
-		return size;
-	}
-}
-
-//function to populate linked list with the establishments in the list
-struct node* populate(struct node *head, struct node *current, int size, 
-		FILE *stream) {
-	//rewind the file to start at the beginning
-	rewind(stream);
 	//string variable to hold each individual line
 	char *line = NULL;
 	size_t length = 0;
 	//to store number of characters in each line	
-	char *word;
+	char *name;
+	
+	
 	//to temporarily store the start and end of arcs and the string cost
 	char *arcStart, *arcEnd, *costString;
-	//to store the cost associated with each arc
-	int cost;
+	
+	
 	//allocate memory for first node
-	head = (struct node*) malloc(sizeof(struct node));
+	head = (struct LinkedList*) malloc(sizeof(struct LinkedList));
+	current = (struct LinkedList*) malloc(sizeof(struct LinkedList));
 	current = head;
 	int i = -1;
-	int count = 0;
 	//mosey through each line of the file
-	for (i = 1; i < size; i++) {
+	while (1) {
+		i = 1;
 		getline(&line, &length, stream);
-		//get the string token for the first word of the line
-		word = strtok(line, "\n");
+		//get the string token for the first name of the line
+		name = strtok(line, "\n");
 		//check to see if the end of the establishments is here
-		if (strcmp(word, "STOP") == 0) {
+		if (strcmp(name, "STOP") == 0) {
 			free(line);
 			line = NULL;
 			break;
 		}
-		//allocate memory for the word data for each node
-		current->word = (char *) calloc(strlen(word)+1, sizeof(char));
-		//assign the word of current node with the establishment
-		strncpy(current->word, word, strlen(word));
 		//assign node its index number
 		current->index = i;
+		//allocate memory for current LinkedList child
+		current->child = (struct Graph*) malloc(sizeof(struct Graph));
+		//allocate memory for the name of each graph node
+		(current->child)->name = (char *) calloc(strlen(name)+1, sizeof(char));
+		//assign the name of current child graph node with the establishment
+		strncpy((current->child)->name, name, strlen(name));
+		
 		//assign each arc of the node to null
 		for (int j = 0; j < 10; j++) {
-			current->arcs[j] = NULL;
+			(current->child)->arcs[j] = malloc(sizeof(struct Graph));
+			(current->child)->arcs[j] = NULL;
+			(current->child)->cost[j] = 0;
 		}
+		
 		//allocate memory for next current node			
-		current->next = (struct node*) malloc(sizeof(struct node));
+		current->next = (struct LinkedList*) malloc(sizeof(struct LinkedList));
 		current = current->next;
 		//hide the body
 		free(line);
 		line = NULL;
-		count++;
+		i++;
 	}
+	
+	
 	//now continue parsing through file and adding all arcs to the proper nodes
-	for (i = count; i < size; i++) {
-		//get individual line to record arcs
-		getline(&line, &length, stream);
+	while (getline(&line, &length, stream) != -1) {
 		//check to see if arcs portion of file is reached, and break if true
 		if (strcmp(line, "STOP STOP 0\n") == 0) {
 			free(line);
@@ -107,38 +95,55 @@ struct node* populate(struct node *head, struct node *current, int size,
 		//get the cost associated with arc as a string from line
 		costString = strtok(NULL, "\n");
 		//convert string cost associated with arc to an integer
-		cost = atoi(costString);
+		int cost = atoi(costString);
+		
 		//now we need to parse through linked list of destinations and add the 
 		//info for the arcs to each node
 		current = head;
-		int j = 0;
+		
 		while (current->next) {
-			//if the node matches which arc line we are at
-			if (strcmp(current->word, arcStart) == 0) {
-				//find the next available spot in the array of arcs
-				while (current->arcs[j] == 0 && j <= 10) {
-					j++;
+			int j = 0;
+			//if name of child matches the arcStart
+			if (strcmp((current->child)->name, arcStart) == 0) {
+				//create a temp node to find the arcEnd
+				struct LinkedList *temp = NULL;
+				temp = (struct LinkedList*) malloc(sizeof(struct LinkedList));
+				temp = head;
+				
+				//now find the one that matches arcEnd
+				while (temp->next) {
+					//if name of child matches the arcEnd
+					if (strcmp((temp->child)->name, arcEnd) == 0) {
+						//find the next available spot in arcs
+						while ((current->child)->arcs[j] == NULL) {
+							j++;
+						}
+						//assign temp->child to current->child arcs
+						(current->child)->arcs[j] = temp->child;
+					}
+					temp = temp->next;
 				}
-				//copy the end destination to the corresponding starting point
-				current->arcs[j] = calloc(strlen(arcEnd), sizeof(char));
-				printf("Adding %s to the list of arcs\n", current->arcs[j]);
+				
+
 			}
 			current = current->next;
 		}
-		
+		//free(temp);
+		//temp = NULL;
 		free(line);
 		line = NULL;	
 	}
-	printf("\nExitting function\n");
+	
 	return head;
 }
 
 //function to print and display to the screen 
-void display(struct node *current) {
-	while (current) {
-		printf("Node %d: %s\n",current->index, current->word);
+void display(struct LinkedList *current) {
+	while (current->next) {
+		printf("Node %d: %s\n",current->index, (current->child)->name);
+		printf("\tPossible destinations: ");
 		for (int j = 0; j < 10; j++) {
-			printf("Destination: %s\n",current->arcs[j]);
+			printf("%s, ",(current->child)->arcs[j]->name);
 		}
 		current = current->next;
 	}
@@ -154,24 +159,26 @@ int main(void) {
 	char *line = NULL;
 	size_t length = 0;
 	char *start;
-	struct node *head = NULL;
-	struct node *current = NULL;
-	
-	//count how many lines in file //TODO do we need this ??
-	size = countLines(fileName, &stream);
+	struct LinkedList *head = NULL;
+	struct LinkedList *current = NULL;
 	
 	//populate linked list with each establishment from the input file
-	head = populate(head, current, size, stream);
+	head = populate(head, current, fileName, stream);
 	current = head;
+	
+	printf("Successfully populated structures\n");
 
 	//get last line of file to see where the journey begins
 	getline(&line, &length, stream);
 	start = strtok(line, "\n");
 	free(line);
-	line = NULL;
-	fclose(stream);
+	line = NULL;	
+	//fclose(stream);
 	
-	display(head);//FIXME
+	printf("\nNode %d: %s\n", current->index, (current->child)->name);
+	printf("Possible destinations: %s", (current->child)->arcs[0]->name);
+
+	//display(head);//FIXME
 	
 	
 
