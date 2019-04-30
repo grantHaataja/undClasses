@@ -1,6 +1,6 @@
 import json
 
-jsonNum = 110
+jsonNum = 100
 tweets = []
 profanity = []
 
@@ -33,7 +33,3 @@ print(str(len(profaneTweets)) + '/' + str(len(tweets)))
 print('\n\tUses:')
 for use in uses:
 	print(use + ': ' + str(uses[use]))
-	
-for tweet in profaneTweets:
-	print('-' * 25)
-	print(tweet)

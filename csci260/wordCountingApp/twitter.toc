@@ -1,0 +1,10 @@
+\contentsline {section}{\numberline {1}Introduction}{3}{section.1}% 
+\contentsline {section}{\numberline {2}Goals of Analysis}{3}{section.2}% 
+\contentsline {section}{\numberline {3}Methodology}{3}{section.3}% 
+\contentsline {section}{\numberline {4}Twitter API}{3}{section.4}% 
+\contentsline {section}{\numberline {5}Code to parse .json files}{3}{section.5}% 
+\contentsline {section}{\numberline {6}Tweet Examples}{4}{section.6}% 
+\contentsline {section}{\numberline {7}Code to Create Graphs}{5}{section.7}% 
+\contentsline {section}{\numberline {8}The Data}{6}{section.8}% 
+\contentsline {section}{\numberline {9}Conclusions}{7}{section.9}% 
+\contentsline {section}{\numberline {10}Further Research}{7}{section.10}% 
