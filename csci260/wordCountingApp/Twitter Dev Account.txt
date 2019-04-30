@@ -1,0 +1,8 @@
+WilsonHaatajaWordCountingApp
+
+
+# Consumer API key
+bsXNLJroI35M306xLEa74o5L6
+
+# Consumer API Secret Key
+KIAbyjzwyBpskwG5K6FYk3dW2jVdtjtAmOUAh8B7ozwBPzjNXl
