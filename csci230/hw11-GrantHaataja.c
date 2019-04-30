@@ -54,7 +54,6 @@ struct LinkedList* populate(struct LinkedList *head, struct LinkedList *current,
 		(current->child)->name = (char *) calloc(strlen(name)+1, sizeof(char));
 		//assign the name of current child graph node with the establishment
 		strncpy((current->child)->name, name, strlen(name));
-		
 		//assign each arc of the node to null
 		for (int j = 0; j < 10; j++) {
 			(current->child)->arcs[j] = malloc(sizeof(struct Graph));
@@ -229,7 +228,7 @@ void drunkWalk(struct Graph* start) {
 //Main Routine
 int main(void) {
 	//define fileName to be used for the journey
-	char *fileName = "hw11.data";
+	char *fileName = "hw111.data";
 	
 	FILE *stream;
 	struct LinkedList *head = NULL;
