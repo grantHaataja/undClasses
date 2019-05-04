@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2019.4.24)  30 APR 2019 14:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2019.4.24)  3 MAY 2019 20:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -449,72 +449,75 @@ File: lstlang1.sty 2018/09/02 1.7 listings language file
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
 nput line 79.
 
-(./jsonreader.py
+(./jsonreader.py [3]
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 20.
  (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <8> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 20.
-
-[3])
-<terminal.png, id=98, 187.4202pt x 117.8001pt>
+)
+<terminal.png, id=85, 187.4202pt x 117.8001pt>
 File: terminal.png Graphic file (type png)
 <use terminal.png>
-Package pdftex.def Info: terminal.png  used on input line 83.
+Package pdftex.def Info: terminal.png  used on input line 82.
 (pdftex.def)             Requested size: 485.41643pt x 305.10101pt.
 
-Overfull \hbox (1.20654pt too wide) in paragraph at lines 83--84
+Overfull \hbox (1.20654pt too wide) in paragraph at lines 82--83
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 87--88
+Underfull \hbox (badness 10000) in paragraph at lines 88--89
 
  []
 
 [4 <./terminal.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 107--108
+Underfull \hbox (badness 10000) in paragraph at lines 108--109
 
  []
 
-(./piechart.py)
-Underfull \hbox (badness 10000) in paragraph at lines 111--112
+(./piechart.py [5])
+Underfull \hbox (badness 10000) in paragraph at lines 112--113
 
  []
 
-[5] (./barchart.py)
-<Figure_1.png, id=138, 462.528pt x 346.896pt>
+(./barchart.py)
+<Figure_1.png, id=127, 462.528pt x 346.896pt>
 File: Figure_1.png Graphic file (type png)
 <use Figure_1.png>
 Package pdftex.def Info: Figure_1.png  used on input line 119.
-(pdftex.def)             Requested size: 462.52686pt x 346.89514pt.
+(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
  [6 <./Figure_1.png>]
-<Figure_2.png, id=159, 462.528pt x 346.896pt>
+<Figure_2.png, id=154, 462.528pt x 346.896pt>
 File: Figure_2.png Graphic file (type png)
 <use Figure_2.png>
-Package pdftex.def Info: Figure_2.png  used on input line 125.
+Package pdftex.def Info: Figure_2.png  used on input line 126.
 (pdftex.def)             Requested size: 462.52686pt x 346.89514pt.
  [7 <./Figure_2.png>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 142.
- [8]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 142.
+Underfull \hbox (badness 2680) in paragraph at lines 146--148
+[]\OT1/cmr/m/n/10 Wikimedia Foun-da-tion. (2018, De-cem-ber 12). Most com-mon w
+ords in En-glish. Re-trieved from
+ []
 
-(./twitter.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 142.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 142.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 151.
+[8]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 151.
+ (./twitter.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 151.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 151.
 Package rerunfilecheck Info: File `twitter.out' has not changed.
-(rerunfilecheck)             Checksum: B78E7A8EC34FA089D98BFE071E7F2D18;498.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 142.
+(rerunfilecheck)             Checksum: 5A4AB04F2DD6F8FE89BC8B89DD25B943;450.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 151.
  ) 
 Here is how much of TeX's memory you used:
- 8933 strings out of 492615
- 127916 string characters out of 6131390
- 463446 words of memory out of 5000000
- 12657 multiletter control sequences out of 15000+600000
+ 8935 strings out of 492615
+ 127978 string characters out of 6131390
+ 469129 words of memory out of 5000000
+ 12658 multiletter control sequences out of 15000+600000
  8716 words of font info for 32 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 33i,7n,43p,501b,2002s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 33i,8n,43p,501b,2002s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texli
@@ -523,10 +526,10 @@ f-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/ty
 pe1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
 ic/amsfonts/cm/cmsy8.pfb>
-Output written on twitter.pdf (8 pages, 191758 bytes).
+Output written on twitter.pdf (8 pages, 193428 bytes).
 PDF statistics:
- 219 PDF objects out of 1000 (max. 8388607)
- 193 compressed objects within 2 object streams
- 86 named destinations out of 1000 (max. 500000)
- 96 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 216 PDF objects out of 1000 (max. 8388607)
+ 190 compressed objects within 2 object streams
+ 87 named destinations out of 1000 (max. 500000)
+ 88 words of extra memory for PDF output out of 10000 (max. 10000000)
 
