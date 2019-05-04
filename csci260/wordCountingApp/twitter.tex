@@ -66,14 +66,12 @@
 \tab A growing concern of social media is the amount of profanity and inappropriate content appearing to the public. This paper will address this issue by outlining data analysis for profanity on Twitter.
 
 \section{Goals of Analysis}
-\tab The goals for this analysis were to test the occurrence of profanity from a sample of tweets, to determine whether Twitter was more than 50\% profane or not. But more interestingly, the goal was to find the proportion of tweets that contain profanity. 
-
+\tab The goals for this analysis were to test the occurrence of profanity from a sample of tweets, to determine whether Twitter was more than 50\% profane or not. But more interestingly, the goal was to find the proportion of tweets that contain profanity.
 
 \section{Methodology}
-\tab In order to collect the tweet data for the analysis, this study chose to use the Twitter API (*** Reference? ***). To do so, the program used to access the tweet metadata needed to be registered through a twitter developer account. 
-
-\section{Twitter API}
-\tab ***David Write your stuff here***
+\tab In order to collect the tweet data for the analysis, this study chose to use the Twitter API [2]. This required a twitter developer account, and security keys to access the API using HTTP requests. A twitter developer was created, and the project was registered under Twitter to get the access keys.
+\tab After aquiring the access keys, the project utilized the command line program "Twurl" to send Twitter search requests to the API. Results were returned in a json file format. Unfortunately, because the project didn't aquire the premium form of the Twitter API, each search request was limited to 15 results.
+\tab Because of this, the project was instead composed of a hundred seperate search requests, using Wikipedia's list of the most common words in english [3]. Then, a python script was created to parse the json files retrieved, and search the tweets for the profane words. Finally, the collected data was used to create tables and support our conclusion.
 
 \section{Code to parse .json files}
 \lstinputlisting[language=Python]{jsonreader.py}
@@ -133,10 +131,17 @@ Shown in the next chart are the actual numbers of occurrences of the various pro
 
 \newpage
 \begin{thebibliography}{}
-	\bibitem{stuff}https://twitter.com
-	\bibitem{stuff}https://developer.twitter.com/en/docs.html *** CHECK THIS ***
-
+	\bibitem{Twitter}
+	Twitter. (2019). It's what's happening.
+	Retrieved from {https://twitter.com}
 	
+	\bibitem{Twitter API Reference}
+	Twitter. (2019). Developer Documentation.
+	Retrieved from {https://developer.twitter.com/en/docs.html}
+	
+	\bibitem{Wikipedia}
+	Wikimedia Foundation. (2018, December 12). Most common words in English. 
+	Retrieved from {https://en.wikipedia.org/wiki/Most_common_words_in_English}
 	
 \end{thebibliography}
 
