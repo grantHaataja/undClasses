@@ -100,21 +100,40 @@ Upon choosing New Game, the user watches as the administrator logs into their ac
 
 The user is encouraged to try out the various possible commands, which can be displayed using the \textit{help} command. The story continues after the user has ran ten commands, (they can be the same or different commands, it doesn't matter).
 
-\subsection{Equations}
-Number equations consecutively. To make your 
-equations more compact, you may use the solidus (~/~), the exp function, or 
-appropriate exponents. Italicize Roman symbols for quantities and variables, 
-but not Greek symbols. Use a long dash rather than a hyphen for a minus 
-sign. Punctuate equations with commas or periods when they are part of a 
-sentence, as in:
-\begin{equation}
-a+b=\gamma\label{eq}
-\end{equation}
+\subsection{Gameplay and Executables}
+As the game progresses, the user will utilize the available penetration testing tools to gain access to the target computers. There are tools for finding IP addresses, port scanning, vulnerability scanning, exploitation, password cracking, and connecting through the ftp file sharing network. Generally, some of the commands require the results from running other commands in order to be run successfully. 
 
-Be sure that the 
-symbols in your equation have been defined before or immediately following 
-the equation. Use ``\eqref{eq}'', not ``Eq.~\eqref{eq}'' or ``equation \eqref{eq}'', except at 
-the beginning of a sentence: ``Equation \eqref{eq} is . . .''
+In particular, the \textit{exploit} command is extremely useful for gaining access to other computers. This executable is similar to the Metasploit framework which is commonly used in real-life penetration testing. In the game, it only has two possible exploits to choose from, and if ran against a vulnerable IP address with the proper port selection, will successfully open a new shell on the target computer. 
+
+\lstinputlisting[language=Python]{exploit.py}
+
+Above is the code for the \textit{exploit} executable in the game. In terms of options, it does not compare to the Metasploit framework, but the goal was to create it to feel similarly in the terminal environment.
+
+\begin{figure}[htbp]
+	\centerline{\includegraphics[scale=2]{exploit-pic}}
+	\caption{Running the \textit{exploit} executable}
+	\label{fig}
+\end{figure}
+
+First, the user enters the number corresponding to the exploit they wish to run. Then, the target IP address is entered, followed by the specific port, and finally the command 'run' must be entered and the exploitation software will attempt to gain access to the target (Fig. 1). 
+
+\begin{figure}[htbp]
+	\centerline{\includegraphics[scale=2]{loading-new-shell}}
+	\caption{Gaining a shell on target machine}
+	\label{fig}
+\end{figure}
+
+If the exploit is successful, the screen will clear and the words "Loading new shell...." will appear on the screen with increasing dots as the shell loads (Fig 2).
+
+\begin{figure}[htbp]
+	\centerline{\includegraphics[scale=2]{access-granted}}
+	\caption{A new shell on an exploited target}
+	\label{fig}
+\end{figure}
+
+Once the shell loads, the name of the computer exploited will be shown before the /\$ symbol where commands are typed (Fig 3).
+
+Most of the other executables play an important role in the game, with a few exceptions that were included for comedic value.
 
 \subsection{\LaTeX-Specific Advice}
 
@@ -221,12 +240,6 @@ copy& More table copy$^{\mathrm{a}}$& &  \\
 \label{tab1}
 \end{center}
 \end{table}
-
-\begin{figure}[htbp]
-\centerline{\includegraphics{Figure_1}}
-\caption{Example of a figure caption.}
-\label{fig}
-\end{figure}
 
 Figure Labels: Use 8 point Times New Roman for Figure labels. Use words 
 rather than symbols or abbreviations when writing Figure axis labels to 
