@@ -45,17 +45,17 @@
 
 \author{\IEEEauthorblockN{Grant Haataja}
 \IEEEauthorblockA{\textit{UND Computer Science} \\
-Grand Forks, USA \\
+Grand Forks, ND, USA \\
 grant.haataja@und.edu}
 \and
 \IEEEauthorblockN{David Wilson}
 \IEEEauthorblockA{\textit{UND Computer Science} \\
-Grand Forks, USA \\
+Grand Forks, ND, USA \\
 david.andrew.wilson@und.edu}
 \and
 \IEEEauthorblockN{Michael Turnbull}
 \IEEEauthorblockA{\textit{UND Computer Science} \\
-Grand Forks, USA \\
+Monroe, NH, USA \\
 michael.turnbull@und.edu}
 }
 
@@ -64,6 +64,8 @@ michael.turnbull@und.edu}
 \begin{abstract}
 This document details the planning, development, and workings of the penetration testing game AILEE, created as a final project for CSCI 487 Penetration Testing class at the University of North Dakota.
 \end{abstract}
+
+\tableofcontents
 
 %\begin{IEEEkeywords}
 %component, formatting, style, styling, insert
@@ -81,7 +83,7 @@ There are two targets to hack in this demo, although there is much potential for
 Before beginning the development of the game, a suitable platform to run the environment needed to be found. The website Repl.it was decided upon, due to their extensive language support and the ability for multiple people to work simultaneously and have all changes automatically saved to the cloud. \cite{b1} The “Multiplayer” mode, as this feature was called, still had a lot of bugs, so forking the project and saving work manually was still necessary, but overall it made the development of AILEE much smoother. 
 
 Python3 was selected as the programming language of choice, due to its ease of scripting and strong object-oriented nature. The various classes corresponding to different aspects of the game and environment would be programmed separately, as well as Python scripts for each command available to the player, and every storyline event that could be run. The original plan was for there to be three different targets for the player to hack, but due to time limitations the scope was decreased to two targets.
-
+    
 To enable smooth graphics for the intro screen and the game’s ending events, the Python Curses library was referenced and used extensively. \cite{b2} This provided the ability to control keyboard input while text displayed on the screen or the ending event graphics played, to increase the smoothness of gameplay. 
 
 \section{Project Description}
@@ -100,10 +102,16 @@ Upon choosing New Game, the user watches as the administrator logs into their ac
 
 The user is encouraged to try out the various possible commands, which can be displayed using the \textit{help} command. The story continues after the user has ran ten commands, (they can be the same or different commands, it doesn't matter).
 
+\begin{figure}[h]
+    \centerline{\includegraphics[scale=0.7]{shellloop.png}}
+    \caption{Shell flow diagram}
+    \label{fig:shell-flow}
+\end{figure}
+
 \subsection{Gameplay and Commands}
 As the game progresses, the user will utilize the available penetration testing tools to gain access to the target computers. There are tools for finding IP addresses, port scanning, vulnerability scanning, exploitation, password cracking, and connecting through the ftp file sharing network. Generally, some of the commands require the results from running other commands in order to be run successfully. 
 
-In particular, the \textit{exploit} command is extremely useful for gaining access to other computers. This command is similar to the Metasploit framework which is commonly used in real-life penetration testing. In the game, it only has two possible exploits to choose from, and if ran against a vulnerable IP address with the proper port selection, will successfully open a new shell on the target computer. 
+In particular, the \texttt{exploit} command is extremely useful for gaining access to other computers.  This command is similar to the Metasploit framework, commonly used in real-life penetration testing.  In the game, as the player uncovers exploits in different computers with the \texttt{vscan} command, those exploits are added to a global database of exploits which the user can then pick from in the \texttt{exploit} command.  Exploits are specific to a port on a computer, and if correctly used, will successfully open a new shell on the target computer.
 
 \lstinputlisting[language=Python]{exploit.py}
 
@@ -151,6 +159,12 @@ This is how the scripts for the events are written, implementing a custom-built 
 
 This is the text for the third event (Fig. 4), which triggers after the user runs the command \textit{pscan} against the first target IP address.
 
+\begin{figure}[hp]
+    \centerline{\includegraphics[scale=0.5]{gameflow.png}}
+    \caption{The sequence of events in play order}
+    \label{fig:gameplay-sequence}
+\end{figure}
+
 There are three special events that do not trigger in a normal play-through of the game. These events will only trigger if the player thinks for themselves and uses information found in the game creatively and without instruction from the administrator. Interestingly, if the user follows the instructions without diverging on their own, they will lose the game during the final hack. The only way to win is by finding what the information leads to and changing the fate of the game before attempting to exploit the final target.
 
 \subsection{Computers and Filesystems}
@@ -161,6 +175,20 @@ To navigate the filesystems, the traditional Linux commands \textit{ls} and \tex
 \lstinputlisting[language=Python]{filesystem.py}
 
 This is the code for the structure and mechanics of the computer filesystems. 
+Similar to Linux, both files and folders have and use discrete permissions, 
+marking certain files as executable and readable.  While there are not yet any
+provisions for editing/creating files in-game\footnote{The \texttt{gcc} command
+creates a file \texttt{a.out}, which promptly throws a segmentation fault.},
+the permissions architecture is in place for adding future file-editing
+utilities.
+
+Executable files are created from a separate filesystem constructor.  Each
+executable file simply is a \texttt{File} object with the executable bit set in
+its permissions object, and the file contents are pure Python code that executes
+when the file is run via the \texttt{run} command.  To verify that arbitrary
+code is not run (which would break the game), executable files compare hashes
+from creation to runtime to and will not run if the contents have been
+altered.
 
 \begin{figure}[htbp]
 	\centerline{\includegraphics[scale=2]{filesystem-example}}
