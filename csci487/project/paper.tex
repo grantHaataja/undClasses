@@ -78,11 +78,11 @@ There are two targets to hack in this demo, although there is much potential for
 
 \subsection{Planning the Project}
 
-Before beginning the development of the game, a suitable platform to run the environment needed to be found. The website Repl.it was decided upon, due to their extensive language support and the ability for multiple people to work simultaneously and have all changes automatically saved to the cloud. [1] The “Multiplayer” mode, as this feature was called, still had a lot of bugs, so forking the project and saving work manually was still necessary, but overall it made the development of AILEE much smoother. 
+Before beginning the development of the game, a suitable platform to run the environment needed to be found. The website Repl.it was decided upon, due to their extensive language support and the ability for multiple people to work simultaneously and have all changes automatically saved to the cloud. \cite{b1} The “Multiplayer” mode, as this feature was called, still had a lot of bugs, so forking the project and saving work manually was still necessary, but overall it made the development of AILEE much smoother. 
 
 Python3 was selected as the programming language of choice, due to its ease of scripting and strong object-oriented nature. The various classes corresponding to different aspects of the game and environment would be programmed separately, as well as Python scripts for each command available to the player, and every storyline event that could be run. The original plan was for there to be three different targets for the player to hack, but due to time limitations the scope was decreased to two targets.
 
-To enable smooth graphics for the intro screen and the game’s ending events, the Python Curses library was referenced and used extensively. [2] This provided the ability to control keyboard input while text displayed on the screen or the ending event graphics played, to increase the smoothness of gameplay. 
+To enable smooth graphics for the intro screen and the game’s ending events, the Python Curses library was referenced and used extensively. \cite{b2} This provided the ability to control keyboard input while text displayed on the screen or the ending event graphics played, to increase the smoothness of gameplay. 
 
 \section{Project Description}
 
@@ -100,14 +100,14 @@ Upon choosing New Game, the user watches as the administrator logs into their ac
 
 The user is encouraged to try out the various possible commands, which can be displayed using the \textit{help} command. The story continues after the user has ran ten commands, (they can be the same or different commands, it doesn't matter).
 
-\subsection{Gameplay and Executables}
+\subsection{Gameplay and Commands}
 As the game progresses, the user will utilize the available penetration testing tools to gain access to the target computers. There are tools for finding IP addresses, port scanning, vulnerability scanning, exploitation, password cracking, and connecting through the ftp file sharing network. Generally, some of the commands require the results from running other commands in order to be run successfully. 
 
-In particular, the \textit{exploit} command is extremely useful for gaining access to other computers. This executable is similar to the Metasploit framework which is commonly used in real-life penetration testing. In the game, it only has two possible exploits to choose from, and if ran against a vulnerable IP address with the proper port selection, will successfully open a new shell on the target computer. 
+In particular, the \textit{exploit} command is extremely useful for gaining access to other computers. This command is similar to the Metasploit framework which is commonly used in real-life penetration testing. In the game, it only has two possible exploits to choose from, and if ran against a vulnerable IP address with the proper port selection, will successfully open a new shell on the target computer. 
 
 \lstinputlisting[language=Python]{exploit.py}
 
-Above is the code for the \textit{exploit} executable in the game. In terms of options, it does not compare to the Metasploit framework, but the goal was to create it to feel similarly in the terminal environment.
+Above is the code for the \textit{exploit} command in the game. In terms of options, it does not compare to the Metasploit framework, but the goal was to create it to feel similarly in the terminal environment.
 
 \begin{figure}[htbp]
 	\centerline{\includegraphics[scale=2]{exploit-pic}}
@@ -123,7 +123,7 @@ First, the user enters the number corresponding to the exploit they wish to run.
 	\label{fig}
 \end{figure}
 
-If the exploit is successful, the screen will clear and the words "Loading new shell...." will appear on the screen with increasing dots as the shell loads (Fig 2).
+If the exploit is successful, the screen will clear and the words "Loading new shell...." will appear on the screen with increasing dots as the shell loads (Fig. 2).
 
 \begin{figure}[htbp]
 	\centerline{\includegraphics[scale=2]{access-granted}}
@@ -131,9 +131,9 @@ If the exploit is successful, the screen will clear and the words "Loading new s
 	\label{fig}
 \end{figure}
 
-Once the shell loads, the name of the computer exploited will be shown before the /\$ symbol where commands are typed (Fig 3).
+Once the shell loads, the name of the computer exploited will be shown before the /\$ symbol where commands are typed (Fig. 3).
 
-Most of the other executables play an important role in the game, with a few exceptions that were included for comedic value.
+Most of the other commands play an important role in the game, with a few exceptions that were included for comedic value.
 
 \subsection{Events and Storyline}
 
@@ -144,118 +144,34 @@ The story development of the game is controlled by event scripts that are trigge
 This is how the scripts for the events are written, implementing a custom-built "typewriter" function created to display text to the screen word by word as if it were typed, and using a blue color to differentiate it from the rest of the game text. 
 
 \begin{figure}[htbp]
-	\centerline{\includegraphics[scale=1.36]{event3}}
+	\centerline{\includegraphics[scale=1.39]{event3}}
 	\caption{The dialogue for event 3}
 	\label{fig}
 \end{figure}
 
+This is the text for the third event (Fig. 4), which triggers after the user runs the command \textit{pscan} against the first target IP address.
 
-\subsection{Some Common Mistakes}\label{SCM}
-\begin{itemize}
-\item The word ``data'' is plural, not singular.
-\item The subscript for the permeability of vacuum $\mu_{0}$, and other common scientific constants, is zero with subscript formatting, not a lowercase letter ``o''.
-\item In American English, commas, semicolons, periods, question and exclamation marks are located within quotation marks only when a complete thought or name is cited, such as a title or full quotation. When quotation marks are used, instead of a bold or italic typeface, to highlight a word or phrase, punctuation should appear outside of the quotation marks. A parenthetical phrase or statement at the end of a sentence is punctuated outside of the closing parenthesis (like this). (A parenthetical sentence is punctuated within the parentheses.)
-\item A graph within a graph is an ``inset'', not an ``insert''. The word alternatively is preferred to the word ``alternately'' (unless you really mean something that alternates).
-\item Do not use the word ``essentially'' to mean ``approximately'' or ``effectively''.
-\item In your paper title, if the words ``that uses'' can accurately replace the word ``using'', capitalize the ``u''; if not, keep using lower-cased.
-\item Be aware of the different meanings of the homophones ``affect'' and ``effect'', ``complement'' and ``compliment'', ``discreet'' and ``discrete'', ``principal'' and ``principle''.
-\item Do not confuse ``imply'' and ``infer''.
-\item The prefix ``non'' is not a word; it should be joined to the word it modifies, usually without a hyphen.
-\item There is no period after the ``et'' in the Latin abbreviation ``et al.''.
-\item The abbreviation ``i.e.'' means ``that is'', and the abbreviation ``e.g.'' means ``for example''.
-\end{itemize}
-An excellent style manual for science writers is \cite{b7}.
+There are three special events that do not trigger in a normal play-through of the game. These events will only trigger if the player thinks for themselves and uses information found in the game creatively and without instruction from the administrator. Interestingly, if the user follows the instructions without diverging on their own, they will lose the game during the final hack. The only way to win is by finding what the information leads to and changing the fate of the game before attempting to exploit the final target.
 
-\subsection{Authors and Affiliations}
-\textbf{The class file is designed for, but not limited to, six authors.} A 
-minimum of one author is required for all conference articles. Author names 
-should be listed starting from left to right and then moving down to the 
-next line. This is the author sequence that will be used in future citations 
-and by indexing services. Names should not be listed in columns nor group by 
-affiliation. Please keep your affiliations as succinct as possible (for 
-example, do not differentiate among departments of the same organization).
+\subsection{Computers and Filesystems}
+AILEE uses a filesystem structure that feels like a Linux terminal. There are a total of four computers in the game, localhost (AILEE's home computer), the two targets, and one other computer. Each computer has a unique filesystem, with directories and files. As time was limited, the \textit{bin} and \textit{log} directories were left empty on all computers, but the \textit{home} directories all have files in them that either pertain to the gameplay or exist for comedic value or storyline development.
 
-\subsection{Identify the Headings}
-Headings, or heads, are organizational devices that guide the reader through 
-your paper. There are two types: component heads and text heads.
+To navigate the filesystems, the traditional Linux commands \textit{ls} and \textit{cd} are used, as well as the commands \textit{read} and \textit{run}, which display file text and run executable files, respectively. 
 
-Component heads identify the different components of your paper and are not 
-topically subordinate to each other. Examples include Acknowledgments and 
-References and, for these, the correct style to use is ``Heading 5''. Use 
-``figure caption'' for your Figure captions, and ``table head'' for your 
-table title. Run-in heads, such as ``Abstract'', will require you to apply a 
-style (in this case, italic) in addition to the style provided by the drop 
-down menu to differentiate the head from the text.
+\lstinputlisting[language=Python]{filesystem.py}
 
-Text heads organize the topics on a relational, hierarchical basis. For 
-example, the paper title is the primary text head because all subsequent 
-material relates and elaborates on this one topic. If there are two or more 
-sub-topics, the next level head (uppercase Roman numerals) should be used 
-and, conversely, if there are not at least two sub-topics, then no subheads 
-should be introduced.
+This is the code for the structure and mechanics of the computer filesystems. 
 
-\subsection{Figures and Tables}
-\paragraph{Positioning Figures and Tables} Place figures and tables at the top and 
-bottom of columns. Avoid placing them in the middle of columns. Large 
-figures and tables may span across both columns. Figure captions should be 
-below the figures; table heads should appear above the tables. Insert 
-figures and tables after they are cited in the text. Use the abbreviation 
-``Fig.~\ref{fig}'', even at the beginning of a sentence.
+\begin{figure}[htbp]
+	\centerline{\includegraphics[scale=2]{filesystem-example}}
+	\caption{Filesystem navigation}
+	\label{fig}
+\end{figure}
 
-\begin{table}[htbp]
-\caption{Table Type Styles}
-\begin{center}
-\begin{tabular}{|c|c|c|c|}
-\hline
-\textbf{Table}&\multicolumn{3}{|c|}{\textbf{Table Column Head}} \\
-\cline{2-4} 
-\textbf{Head} & \textbf{\textit{Table column subhead}}& \textbf{\textit{Subhead}}& \textbf{\textit{Subhead}} \\
-\hline
-copy& More table copy$^{\mathrm{a}}$& &  \\
-\hline
-\multicolumn{4}{l}{$^{\mathrm{a}}$Sample of a Table footnote.}
-\end{tabular}
-\label{tab1}
-\end{center}
-\end{table}
+The directories are colored light blue, executable files are colored light green and all have a .exe extension, and regular files are colored white and must have a .something extension (Fig. 5). One difference between AILEE and a real-life Linux terminal is that the \textit{ls} command cannot be given an argument in the game, and thus can only be used in the current directory.
 
-Figure Labels: Use 8 point Times New Roman for Figure labels. Use words 
-rather than symbols or abbreviations when writing Figure axis labels to 
-avoid confusing the reader. As an example, write the quantity 
-``Magnetization'', or ``Magnetization, M'', not just ``M''. If including 
-units in the label, present them within parentheses. Do not label axes only 
-with units. In the example, write ``Magnetization (A/m)'' or ``Magnetization 
-\{A[m(1)]\}'', not just ``A/m''. Do not label axes with a ratio of 
-quantities and units. For example, write ``Temperature (K)'', not 
-``Temperature/K''.
-
-\section*{Acknowledgment}
-
-The preferred spelling of the word ``acknowledgment'' in America is without 
-an ``e'' after the ``g''. Avoid the stilted expression ``one of us (R. B. 
-G.) thanks $\ldots$''. Instead, try ``R. B. G. thanks$\ldots$''. Put sponsor 
-acknowledgments in the unnumbered footnote on the first page.
-
-\section*{References}
-
-Please number citations consecutively within brackets \cite{b1}. The 
-sentence punctuation follows the bracket \cite{b2}. Refer simply to the reference 
-number, as in \cite{b3}---do not use ``Ref. \cite{b3}'' or ``reference \cite{b3}'' except at 
-the beginning of a sentence: ``Reference \cite{b3} was the first $\ldots$''
-
-Number footnotes separately in superscripts. Place the actual footnote at 
-the bottom of the column in which it was cited. Do not put footnotes in the 
-abstract or reference list. Use letters for table footnotes.
-
-Unless there are six authors or more give all authors' names; do not use 
-``et al.''. Papers that have not been published, even if they have been 
-submitted for publication, should be cited as ``unpublished'' \cite{b4}. Papers 
-that have been accepted for publication should be cited as ``in press'' \cite{b5}. 
-Capitalize only the first word in a paper title, except for proper nouns and 
-element symbols.
-
-For papers published in translation journals, please give the English 
-citation first, followed by the original foreign-language citation \cite{b6}.
+\section{Conclusion}
+In summary, this project dives into many core concepts and facets of penetration testing, and simulates them to feel like the real-world counterparts. Many of the commands that simulate complicated software are coded creatively to look realistic even though they only work in the specific instances inside the game. AILEE is a demo, and there is much opportunity to expand the game into something far more complex and realistic if enough time and energy was dedicated to doing so.
 
 \begin{thebibliography}{00}
 \bibitem{b1} Repl.it, “The world's leading online coding platform,” repl.it. [Online]. Available: https://repl.it/site/features. [Accessed: 02-May-2019].
@@ -263,8 +179,5 @@ citation first, followed by the original foreign-language citation \cite{b6}.
 \bibitem{b2} A. M. Kuchling and E. S. Raymond, “Curses Programming with Python¶,” Curses Programming with Python - Python 3.7.3 documentation. [Online]. Available: https://docs.python.org/3/howto/curses.html. [Accessed: 02-May-2019].
 
 \end{thebibliography}
-\vspace{12pt}
-\color{red}
-IEEE conference templates contain guidance text for composing and formatting conference papers. Please ensure that all template text is removed from your conference paper prior to submission to the conference. Failure to remove the template text from your paper may result in your paper not being published.
 
 \end{document}

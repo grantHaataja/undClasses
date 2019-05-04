@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2019.4.24)  3 MAY 2019 22:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2019.4.24)  4 MAY 2019 12:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -438,6 +438,9 @@ LaTeX Warning: Label `fig' multiply defined.
 
 LaTeX Warning: Label `fig' multiply defined.
 
+
+LaTeX Warning: Label `fig' multiply defined.
+
 )
 \openout1 = `paper.aux'.
 
@@ -591,35 +594,15 @@ Package pdftex.def Info: access-granted.png  used on input line 129.
 File: event3.png Graphic file (type png)
 <use event3.png>
 Package pdftex.def Info: event3.png  used on input line 147.
-(pdftex.def)             Requested size: 246.70036pt x 122.85873pt.
- [4 <./loading-new-shell.png> <./access-granted.png> <./event3.png>]
-
-LaTeX Warning: Citation `b7' on page 5 undefined on input line 167.
-
-LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 228.
-
-LaTeX Warning: Citation `b3' on page 5 undefined on input line 243.
-
-
-LaTeX Warning: Citation `b3' on page 5 undefined on input line 243.
-
-
-LaTeX Warning: Citation `b3' on page 5 undefined on input line 243.
-
-
-LaTeX Warning: Citation `b3' on page 5 undefined on input line 244.
-
-
-LaTeX Warning: Citation `b4' on page 5 undefined on input line 252.
-
-
-LaTeX Warning: Citation `b5' on page 5 undefined on input line 253.
-
-
-LaTeX Warning: Citation `b6' on page 5 undefined on input line 258.
-
-[5]
+(pdftex.def)             Requested size: 252.14206pt x 125.56874pt.
+ [4 <./loading-new-shell.png> <./access-granted.png> <./event3.png>] (./filesys
+tem.py)
+<filesystem-example.png, id=30, 125.9907pt x 57.816pt>
+File: filesystem-example.png Graphic file (type png)
+<use filesystem-example.png>
+Package pdftex.def Info: filesystem-example.png  used on input line 166.
+(pdftex.def)             Requested size: 251.98077pt x 115.63168pt.
+ [5 <./filesystem-example.png>]
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -635,35 +618,27 @@ Before submitting the final camera ready copy, remember to:
 
 ] (./paper.aux)
 
-LaTeX Warning: There were undefined references.
-
-
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 6398 strings out of 492615
- 89399 string characters out of 6131390
- 713912 words of memory out of 5000000
- 10198 multiletter control sequences out of 15000+600000
- 45682 words of font info for 91 fonts, out of 8000000 for 9000
+ 6408 strings out of 492615
+ 89658 string characters out of 6131390
+ 713894 words of memory out of 5000000
+ 10208 multiletter control sequences out of 15000+600000
+ 39594 words of font info for 81 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,11n,43p,655b,1772s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,8n,43p,655b,1772s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/urw/times/utmri8a.pfb>
-Output written on paper.pdf (6 pages, 195638 bytes).
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/
+times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on paper.pdf (6 pages, 178326 bytes).
 PDF statistics:
- 77 PDF objects out of 1000 (max. 8388607)
- 49 compressed objects within 1 object stream
+ 59 PDF objects out of 1000 (max. 8388607)
+ 34 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
 
