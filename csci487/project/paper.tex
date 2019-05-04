@@ -135,42 +135,20 @@ Once the shell loads, the name of the computer exploited will be shown before th
 
 Most of the other executables play an important role in the game, with a few exceptions that were included for comedic value.
 
-\subsection{\LaTeX-Specific Advice}
+\subsection{Events and Storyline}
 
-Please use ``soft'' (e.g., \verb|\eqref{Eq}|) cross references instead
-of ``hard'' references (e.g., \verb|(1)|). That will make it possible
-to combine sections, add equations, or change the order of figures or
-citations without having to go through the file line by line.
+The story development of the game is controlled by event scripts that are triggered at specific times. Running the events in the proper order is critical for the game to play as planned. The first event is run immediately after the game loads its first shell on the localhost computer. Each event after that has a condition that must be met to trigger it. The second event runs after ten commands have been run, the third event runs after the \textit{pscan} command runs, and so on. Each event runs instructions for the user that should allow them to trigger the next event and progress in the game.
 
-Please don't use the \verb|{eqnarray}| equation environment. Use
-\verb|{align}| or \verb|{IEEEeqnarray}| instead. The \verb|{eqnarray}|
-environment leaves unsightly spaces around relation symbols.
+\lstinputlisting[language=Python]{event3.py}
 
-Please note that the \verb|{subequations}| environment in {\LaTeX}
-will increment the main equation counter even when there are no
-equation numbers displayed. If you forget that, you might write an
-article in which the equation numbers skip from (17) to (20), causing
-the copy editors to wonder if you've discovered a new method of
-counting.
+This is how the scripts for the events are written, implementing a custom-built "typewriter" function created to display text to the screen word by word as if it were typed, and using a blue color to differentiate it from the rest of the game text. 
 
-{\BibTeX} does not work by magic. It doesn't get the bibliographic
-data from thin air but from .bib files. If you use {\BibTeX} to produce a
-bibliography you must send the .bib files. 
+\begin{figure}[htbp]
+	\centerline{\includegraphics[scale=1.36]{event3}}
+	\caption{The dialogue for event 3}
+	\label{fig}
+\end{figure}
 
-{\LaTeX} can't read your mind. If you assign the same label to a
-subsubsection and a table, you might find that Table I has been cross
-referenced as Table IV-B3. 
-
-{\LaTeX} does not have precognitive abilities. If you put a
-\verb|\label| command before the command that updates the counter it's
-supposed to be using, the label will pick up the last counter to be
-cross referenced instead. In particular, a \verb|\label| command
-should not go before the caption of a figure or a table.
-
-Do not use \verb|\nonumber| inside the \verb|{array}| environment. It
-will not stop equation numbers inside \verb|{array}| (there won't be
-any anyway) and it might stop a wanted equation number in the
-surrounding equation.
 
 \subsection{Some Common Mistakes}\label{SCM}
 \begin{itemize}
