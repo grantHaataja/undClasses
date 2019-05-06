@@ -74,7 +74,7 @@ michael.turnbull@und.edu}
 This document details the planning, development, and workings of the penetration testing game AILEE, created as a final project for CSCI 487 Penetration Testing class at the University of North Dakota.
 \end{abstract}
 
-\tableofcontents
+%\tableofcontents
 
 %\begin{IEEEkeywords}
 %component, formatting, style, styling, insert
@@ -126,29 +126,29 @@ In particular, the \texttt{exploit} command is extremely useful for gaining acce
 
 Above is the code for the \textit{exploit} command in the game. In terms of options, it does not compare to the Metasploit framework, but the goal was to create it to feel similarly in the terminal environment.
 
-\begin{figure}[htbp]
+\begin{figure}[h]
 	\centerline{\includegraphics[scale=2]{exploit-pic}}
 	\caption{Running the \textit{exploit} executable}
-	\label{fig}
+	\label{fig:exploit-pic}
 \end{figure}
 
-First, the user enters the number corresponding to the exploit they wish to run. Then, the target IP address is entered, followed by the specific port, and finally the command 'run' must be entered and the exploitation software will attempt to gain access to the target (Fig. 1). 
+First, the user enters the number corresponding to the exploit they wish to run. Then, the target IP address is entered, followed by the specific port, and finally the command 'run' must be entered and the exploitation software will attempt to gain access to the target (Fig. \ref{fig:exploit-pic}) 
 
-\begin{figure}[htbp]
+\begin{figure}[h]
 	\centerline{\includegraphics[scale=2]{loading-new-shell}}
 	\caption{Gaining a shell on target machine}
-	\label{fig}
+	\label{fig:loading}
 \end{figure}
 
-If the exploit is successful, the screen will clear and the words "Loading new shell...." will appear on the screen with increasing dots as the shell loads (Fig. 2).
+If the exploit is successful, the screen will clear and the words "Loading new shell...." will appear on the screen with increasing dots as the shell loads (Fig. \ref{fig:loading})
 
-\begin{figure}[htbp]
+\begin{figure}[h]
 	\centerline{\includegraphics[scale=2]{access-granted}}
 	\caption{A new shell on an exploited target}
-	\label{fig}
+	\label{fig:access}
 \end{figure}
 
-Once the shell loads, the name of the computer exploited will be shown before the /\$ symbol where commands are typed (Fig. 3).
+Once the shell loads, the name of the computer exploited will be shown before the /\$ symbol where commands are typed (Fig. \ref{fig:access}).
 
 Most of the other commands play an important role in the game, with a few exceptions that were included for comedic value.
 
@@ -160,15 +160,15 @@ The story development of the game is controlled by event scripts that are trigge
 
 This is how the scripts for the events are written, implementing a custom-built "typewriter" function created to display text to the screen word by word as if it were typed, and using a blue color to differentiate it from the rest of the game text. 
 
-\begin{figure}[htbp]
+\begin{figure}[h]
 	\centerline{\includegraphics[scale=1.39]{event3}}
 	\caption{The dialogue for event 3}
-	\label{fig}
+	\label{fig:event3}
 \end{figure}
 
-This is the text for the third event (Fig. 4), which triggers after the user runs the command \textit{pscan} against the first target IP address.
+This is the text for the third event (Fig. \ref{fig:event3}), which triggers after the user runs the command \textit{pscan} against the first target IP address.
 
-\begin{figure}[hp]
+\begin{figure}[h]
     \centerline{\includegraphics[scale=0.5]{gameflow.png}}
     \caption{The sequence of events in play order}
     \label{fig:gameplay-sequence}
@@ -185,7 +185,7 @@ To navigate the filesystems, the traditional Linux commands \textit{ls} and \tex
 
 This is the code for the structure and mechanics of the computer filesystems. 
 Similar to Linux, both files and folders have and use discrete permissions, 
-marking certain files as executable and readable.  While there are not yet any
+marking certain files as readable, writable, and executable.  While there are not yet any
 provisions for editing/creating files in-game\footnote{The \texttt{gcc} command
 creates a file \texttt{a.out}, which promptly throws a segmentation fault.},
 the permissions architecture is in place for adding future file-editing
@@ -202,10 +202,10 @@ altered.
 \begin{figure}[htbp]
 	\centerline{\includegraphics[scale=2]{filesystem-example}}
 	\caption{Filesystem navigation}
-	\label{fig}
+	\label{fig:ls-command}
 \end{figure}
 
-Directories are colored \textcolor{folder-blue}{\textbf{light blue}}, executables a \textcolor{file-green}{\textbf{light green}}, and regular files are white.  Because of the permissions associated with each file and directory, and the fact that \texttt{File} and \texttt{Directory} objects are implemented as separate classes, there are no special requirements to file/folder names or attributes.  However, due to the difficult implementation of a directory tree, the \textit{ls} command cannot be given a path argument as in real life, and thus can only be used in the current directory.
+Directories are colored light blue, executables are light green, and regular files are white.  Because of the permissions associated with each file and directory, and the fact that \texttt{File} and \texttt{Directory} objects are implemented as separate classes, there are no special requirements to file/folder names or attributes.  However, due to the difficult implementation of a directory tree, the \textit{ls} command cannot be given a path argument as in real life, and thus can only be used in the current directory.
 
 \section{Conclusion}
 In summary, this project dives into many core concepts and facets of penetration testing, and simulates them to feel like the real-world counterparts. Many of the commands that simulate complicated software are coded creatively to look realistic even though they only work in the specific instances inside the game. AILEE is a demo, and there is much opportunity to expand the game into something far more complex and realistic if enough time and energy was dedicated to doing so.
