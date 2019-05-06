@@ -14,15 +14,6 @@ from MainMenuException import MainMenuException
 
 DEFAULT_PROMPT = colored("AILEE@{COMP}: {CWD}$ ", 'green')
 
-CMD_NOT_FOUND_STRS = [
-    "command not found",
-    "Nope, don't know that one",
-    "This isn't Google",
-    "NOOB!"
-    "Segmentation fault (core dumped)",
-
-]
-
 
 class Shell(object):
     """
@@ -131,7 +122,6 @@ class Shell(object):
         self.history.append([None, []])
         self.game.history.append([None, []])
         print("Command not found")
-        # print(random.choice(CMD_NOT_FOUND_STRS))
 
     def start_shell_loop(self):
         self.running = True
