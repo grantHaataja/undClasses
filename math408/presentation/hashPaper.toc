@@ -1,8 +1,0 @@
-\contentsline {section}{\numberline {1}Introduction}{3}{section.1}% 
-\contentsline {section}{\numberline {2}Requirements of Hash Functions}{3}{section.2}% 
-\contentsline {section}{\numberline {3}How do Hash Functions Work?}{3}{section.3}% 
-\contentsline {section}{\numberline {4}Uses of Cryptographic Hash Functions}{4}{section.4}% 
-\contentsline {section}{\numberline {5}MD5 (Message Digest Algorithm 5)}{5}{section.5}% 
-\contentsline {section}{\numberline {6}SHA-256 (Secure Hashing Algorithm)}{5}{section.6}% 
-\contentsline {section}{\numberline {7}Hashing Examples}{5}{section.7}% 
-\contentsline {section}{\numberline {8}Conclusion}{6}{section.8}% 
