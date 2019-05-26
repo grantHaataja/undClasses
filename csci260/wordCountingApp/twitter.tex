@@ -69,17 +69,20 @@
 \tab The goals for this analysis were to test the occurrence of profanity from a sample of tweets, to determine whether Twitter was more than 50\% profane or not. But more interestingly, the goal was to find the proportion of tweets that contain profanity.
 
 \section{Methodology}
-\tab In order to collect the tweet data for the analysis, this study chose to use the Twitter API [2]. This required a twitter developer account, and security keys to access the API using HTTP requests. A twitter developer was created, and the project was registered under Twitter to get the access keys.
-\tab After aquiring the access keys, the project utilized the command line program "Twurl" to send Twitter search requests to the API. Results were returned in a json file format. Unfortunately, because the project didn't aquire the premium form of the Twitter API, each search request was limited to 15 results.
-\tab Because of this, the project was instead composed of a hundred seperate search requests, using Wikipedia's list of the most common words in english [3]. Then, a python script was created to parse the json files retrieved, and search the tweets for the profane words. Finally, the collected data was used to create tables and support our conclusion.
+\tab In order to collect the tweet data for the analysis, this study chose to use the Twitter API [2]. This required a twitter developer account and security keys to access the API using HTTP requests. A twitter developer was created, and the project was registered under Twitter to get the access keys.
+
+After acquiring the access keys, the project utilized the command line program "Twurl" to send Twitter search requests to the API. Results were returned in a json file format. Unfortunately, because the project didn't acquire the premium form of the Twitter API, each search request was limited to 15 results.
+
+Because of this, the project was instead composed of a hundred separate search requests, using Wikipedia's list of the most common words in English [3]. Then, a python script was created to parse the json files retrieved, and search the tweets for the profane words. Finally, the collected data was used to create tables and support our conclusion.
 
 \section{Code to parse .json files}
 \lstinputlisting[language=Python]{jsonreader.py}
-The following picture shows the output of the above code when ran on the 100 json files that were created from the queries.
 
 \begin{figure}[h]
 	\includegraphics[scale=2.59]{terminal}
 \end{figure}
+
+The above picture shows the output of the above code when ran on the 100 json files that were created from the queries.
 
 \section{Tweet Examples}
 \tab In this section, several of the tweets that were searched are shown. The program did not output the entirety of some of the longer tweets. Note that many of them have multiple occurrences of different profane words, so some of them may be counted twice.\newline
@@ -112,11 +115,11 @@ The following is the code to generate the bar chart containing the actual number
 
 \section{The Data}
 \tab Below are the recorded percentages of various profanity from the 1136 tweets in the sample size. A total of 37 tweets were found to be profane.
-
 \begin{figure}[h]
-	\includegraphics[scale=1]{Figure_1}
+	\includegraphics[scale=.7]{Figure_1}
 \end{figure}
 
+\newpage
 Shown in the next chart are the actual numbers of occurrences of the various profanity in the 37 profane tweets found from the sample.
 
 \begin{figure}[h]
@@ -141,7 +144,7 @@ Shown in the next chart are the actual numbers of occurrences of the various pro
 	
 	\bibitem{Wikipedia}
 	Wikimedia Foundation. (2018, December 12). Most common words in English. 
-	Retrieved from {https://en.wikipedia.org/wiki/Most_common_words_in_English}
+	Retrieved from {https://en.wikipedia.org/wiki/Most\_common\_words\_in\_English}
 	
 \end{thebibliography}
 
