@@ -1,0 +1,102 @@
+\documentclass{article}
+
+%call packages
+\usepackage{titlesec}
+\usepackage{titling}
+\usepackage[margin=.9in, top=0.59in]{geometry}
+\usepackage{hyperref}
+
+
+%format titles for sections, no numbers and no indentation
+\titleformat{\section}
+{\huge\bfseries}
+{}
+{0em}
+{}[\titlerule]
+
+
+%format titles for subsections, bullet points and 0.3 indentation
+\titleformat{\subsection}[runin]
+{\bfseries\large}
+{$\bullet$}
+{0.3em}
+{}
+
+%format titles for subsubsections, bullet points and 0.3 indentation
+\titleformat{\subsubsection}
+{\bfseries\large}
+{$\bullet$}
+{0.3em}
+{}
+
+%format maketitle command
+\renewcommand{\maketitle}{
+\begin{center}
+{\huge\bfseries
+\theauthor}
+
+\vspace{0.5em}
+
+\large grant.haataja@und.edu
+
+\large 701-580-6305
+
+\end{center}
+}
+
+
+
+
+\begin{document}
+\title{R\'esum\'e}
+\author{Grant Haataja}
+\maketitle
+
+\section{Education}
+
+\subsection{University of North Dakota:}
+Double major in Computer Science and Mathematics with a current cumulative GPA of 3.75. Expected Graduation Date: 12/2020
+
+\subsection{Williston State College:}
+Associate's Degree in Science with High Honors. Graduated in May, 2016 with a cumulative GPA of 3.85
+
+\section{Projects}
+
+\subsection{Advanced Rocketry Club:}
+Developing software on embedded computer chips to control the systems of a liquid-propelled rocket for the Base 11 Space Challenge
+
+\subsection{Association of Computing Machinery:}
+Acting president of club, organizing meetings and training and participating in regional programming competitions 
+
+\section{Work Experience}
+
+\subsubsection{UND Math Department (11/26/19 - Current)}
+\textbf{Math Tutor:} Helping students learn math concepts such as college algebra, calculus, discrete math, differential equations, set theory and logic, and abstract algebra
+
+
+\subsubsection{Advanced Engineering and Environmental Services (05/11/17 - 11/18/18)}
+\textbf{Engineering Assistant:} 
+Oversaw and managed 3 construction crews for a 16-mile transmission waterline. Provided quality control on behalf of the client, and coordinated smooth project development
+
+\section{Skills}
+
+\subsection{Technical Skills:}
+Java, C, Python, Bash, GitHub, Linux shell, {\LaTeX}
+
+\subsection{General Skills:}
+Customer service, communication, teamwork, organization skills
+
+\section{Links}
+
+\subsection{}
+\url{https://www.linkedin.com/in/grant-haataja-40526a144/}
+
+\subsection{}
+\url{https://und.joinhandshake.com/users/10782099?buildFromResumeId=9939568}
+
+\subsection{}
+\url{https://github.com/grantHaataja?tab=repositories}
+
+
+
+\end{document}
