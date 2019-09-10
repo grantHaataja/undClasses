@@ -1,0 +1,8 @@
+Student: Grant Haataja
+
+Project options ranking:
+1. Robotic Mining Competition
+2. 5G Networks: Cyber Attack Detection and Mitigation (phishing, DoS)
+3. Deep Learning for Detection of Cyber Attacks on UAS
+4. Project Rebel
+5. GUI Library for Python/Java
