@@ -1,4 +1,4 @@
-<!--Grant Haataja - Assignment I-->
+<!--Grant Haataja - Assignment II-->
 <!--this is the entry page to the bookstore-->
  <!DOCTYPE html>
 	<head>
@@ -6,15 +6,12 @@
 		<meta name="robots" content="noindex, nofollow">
 		<meta name="description" content="Entry Page for Geeks Books Bookstore">
 		<meta name="author" content="Grant Haataja">	
-		<title>G33ks B00ks</title>
-		<style>
-			h1 {color: green;}
-			h2 {color: blue;}
-			p {}
-		</style>
-		 <basefont color="black" size="5">
+		<title>G33ks B00ks</title>	
 	</head>
-	<body bgcolor="orange">
+	<body>
+		<!-- Link in the css formatting sheet -->
+		<link rel="stylesheet" type="text/css" href="1.css">
+		<!-- Code the button to move on to the next website page -->
 		<form action="2.html">
 			<h1>
 				Welcome to G33ks B00ks!
@@ -22,19 +19,22 @@
 			<h2>
 				(A bookstore filled with nerdy scrolls and tomes of wisdom).
 			</h2>
-				<p>
+				<p id="para1">
+					<mark>Enter your username and password to check in to the bookstore.</mark><br><br>
+					<input type="text" placeholder="Username"><br>
+					<input type="password" placeholder="Password"><br><br>
 					<input type="submit" name="act" value="Enter store" />
 					<br>
 				</p>
-				<div style="background-color:lightblue">
+				<div>
 					<h3>
-						<center>Store Information</center><br>
+						Store Information<br><br>
 					</h3>
-				<p class="Big">
-					<big><strong>Our history:</strong></big> The <abbr title="Geeks Bookstore">GB</abbr> was created in <mark>September, 2019</mark>. It was created to service the needs of nerdy book users and sort out the <em>necessary</em> books from the oceans of useless ones.<br>
+				<p>
+					<span style="font-size:14pt"> <strong>Our history:</strong> </span>	The <abbr title="Geeks Bookstore">GB</abbr> was created in September, 2019 It was created to service the needs of nerdy book users and sort out the <em>necessary</em> books from the oceans of useless ones.<br>
 				</p>
-				<p class="Big">
-					<font size="3" color="purple"><big><strong>Our mission:</strong></big> The <abbr title="Geeks Bookstore">GB</abbr> strives to provide the highest quality nerdy books for our customers, to improve their lives and bring knowledge to all.</font>
+				<p id="para2">
+					<strong>Our mission:</strong> <span style="color:purple;font-size:12pt">	The <abbr title="Geeks Bookstore">GB</abbr> strives to provide the highest quality nerdy books for our customers, to improve their lives and bring knowledge to all.</span>
 				</p>
 				</div>
 		</form>
