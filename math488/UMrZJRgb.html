@@ -1,0 +1,705 @@
+
+<link rel="stylesheet" href="assets/bootstrap.css">
+<link rel="stylesheet" href="assets/theme.css" media="all">
+
+<head>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-5222637924397992",
+          enable_page_level_ads: true
+     });
+</script>
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5a4200320929b0b2"></script>
+
+
+<meta property="og:image" content="https://scialert.net/images/logo_icon.jpg"/>
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@scialert" />
+<meta name="twitter:title" content="Analysis and Research of the RSA Algorithm" />
+<meta name="twitter:description" content="Analysis and Research of the RSA Algorithm" />
+<meta name="twitter:image" content="https://scialert.net/images/logo_icon.jpg" />
+
+<script type="text/javascript" src="selectuser.js"></script>
+<title> 
+Analysis and Research of the RSA Algorithm - SciAlert Responsive Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" itemprop="description" content="Fulltext - Analysis and Research of the RSA Algorithm" />
+<meta name="keywords" itemprop="keywords" content="RSA algorithm,security,encryption,application,decrypt,digital signature," />
+<meta name="dc.identifier" content="doi:10.3923/itj.2013.1818.1824">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+    <!-- Stylesheets -->
+    
+<link href="assets/css.css" type="text/css" rel="stylesheet">
+<link href="assets/globalCSS.css" type="text/css" rel="stylesheet">
+<link href="assets/global.css" rel="stylesheet" type="text/css">
+<link href="assets/ijournalblue.css" rel="stylesheet" type="text/css">
+    
+<script src="assets/jquery-1.js" type="text/javascript"></script>
+<style type="text/css">
+@media screen and (min-width : 100px) and (max-width : 800px)
+{
+
+.well
+{
+width:100%;
+}
+
+.container
+{
+width:100%;
+
+}
+
+
+	.imgz 
+	{
+		width: 100%;
+		text-align:center;
+		position: relative;
+		-ms-interpolation-mode: bicubic;
+	}
+
+	.titleimg
+	{
+		display:none;
+	}
+
+	.cimg
+	{
+		width:0;
+    	visibility:hidden;
+	}
+	
+	.jtitle
+	{
+    	color:#000033; 
+    	font-family: 'Prosto One', cursive; 
+    	font-size:19px; 
+    	line-height:27px; 
+    	letter-spacing:1px;"
+	}
+
+	.arttitle
+	{
+    	color:#000033; 
+    	font-family: 'Prosto One', cursive; 
+    	font-size:17px; 
+    	line-height:27px; 
+    	letter-spacing:.3px;"
+	}
+
+}
+
+@media screen and (min-width : 801px) and (max-width : 1199px)
+{
+
+	.imgz 
+	{
+		width: 80%;
+		text-align:center;
+		position: relative;
+		-ms-interpolation-mode: bicubic;
+	}
+
+	.titleimg
+	{
+	width: 110px;
+	text-align:right;
+	top:55; right:70;
+	position: absolute;
+	-ms-interpolation-mode: bicubic;
+	}
+
+	.jtitle
+	{
+    	color:#000033; 
+    	font-family: 'Prosto One', cursive; 
+    	font-size:23px; 
+    	line-height:37px; 
+    	letter-spacing:1px;"
+	}
+
+	.arttitle
+	{
+    	color:#000033; 
+    	font-family: 'Prosto One', cursive; 
+    	font-size:21px; 
+    	line-height:37px; 
+    	letter-spacing:.5px;"
+	}
+
+}
+
+@media screen and (min-width : 1200px) and (max-width : 2900px)
+{
+
+	.imgz 
+	{
+		width: 50%;
+		text-align:center;
+		position: relative;
+		-ms-interpolation-mode: bicubic;
+	}
+
+	.titleimg
+	{
+	width: 140px;
+	text-align:right;
+	top:55; right:70;
+	position: absolute;
+	-ms-interpolation-mode: bicubic;
+	}
+
+	.jtitle
+	{
+    	color:#000033; 
+    	font-family: 'Prosto One', cursive; 
+    	font-size:33px; 
+    	line-height:47px; 
+    	letter-spacing:1px;"
+	}
+
+	.arttitle
+	{
+    	color:#000033; 
+    	font-family: 'Prosto One', cursive; 
+    	font-size:29px; 
+    	line-height:37px; 
+    	letter-spacing:.7px;"
+	}
+
+}
+.intro {
+font-size:1.2em;
+line-height:1.7em;
+letter-spacing:.2px;
+}
+</style>
+
+<link rel="amphtml" href="https://scialert.net/fulltext/amp.php?doi=itj.2013.1818.1824">
+
+</head>
+
+<body data-sitename="Information Technology Journal" class="off-canvas pg_index">
+ <script type="text/javascript" src="wz_tooltip.js"></script>
+
+
+    <div class="master-container">
+        <section class="master-header row">
+                <div class="widget widget-SitePageHeader widget-instance-SitePageHeader">
+        
+
+    <div class="oup-header">
+        <div class="center-inner-row">
+
+            <div class="oup-header-logo">
+                <a href="../index.php"><img src="assets/logo_scialert.png" alt="Science Alert" class="oup-header-image"></a>
+            </div><!-- /.oup-header-logo -->
+
+        </div><!-- /.center-inner-row -->
+    </div><!-- /.oup-header -->
+
+
+
+<div class="navbar navbar-bg">
+    <div class="center-inner-row" style="letter-spacing:.5px; word-spacing:1px;">
+        <nav class="navbar-menu">
+
+
+    <i class="desktop-nav-arrow icon-general-arrow-filled-down arrow-icon"></i><i class="mobile-nav-arrow icon-general_arrow-down"></i>
+    <ul class="site-menu site-menu-lvl-0">
+
+        <li class="site-menu-item site-menu-lvl-0">
+            <a href="../jhome.php?issn=1812-5638" class="nav-link ">Home</a>
+        </li>
+
+		<li class="site-menu-item site-menu-lvl-0">
+            <a href="../current.php?issn=1812-5638" class="nav-link ">Current Issue</a>
+        </li>
+        
+		<li class="site-menu-item site-menu-lvl-0">
+            <a href="../previous.php?issn=1812-5638" class="nav-link ">Previous Issues</a>
+        </li>
+
+		<li class="site-menu-item site-menu-lvl-0">
+            <a href="https://feedburner.google.com/fb/a/mailverify?uri=1812-5638" target="_blank" class="nav-link">Subscribe</a>
+        </li>
+
+        </ul>
+        </nav>
+    </div><!-- /.center-inner-row -->
+</div><!-- /.navbar -->
+
+    </div>
+
+        </section>
+        
+    </div>
+
+<script src="assets/footerJS" type="text/javascript"></script>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<body id="homepage" class="home">
+<title> 
+Analysis and Research of the RSA Algorithm</title>
+<meta name="description" itemprop="description" content="Analysis and Research of the RSA Algorithm" />
+<meta name="keywords" itemprop="keywords" content="," />
+
+<div class="contai-ner">
+
+<section class="col-md-12">
+
+<div class="col-md-12  col-xs-12">
+    
+<div class="color-box well cols-lightGray">
+   
+<div class="inside">
+<div class="color-box well" style="background:#FFFFFF;">
+          <div class="intro">
+          <h1 class=" journal-logo-container" title="Information Technology Journal">
+<link href="https://fonts.googleapis.com/css?family=Prosto+One" rel="stylesheet">
+
+<span class="jtitle">Information Technology Journal</span>
+          </h1>
+          
+              <h4>Volume 12 (9): 1818-1824, 2013</h4>
+      <!-- Start CrossMark Snippet v1.5 -->
+      <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js" ></script>
+      <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.7/jquery-ui.min.js" ></script>
+      <script type="text/javascript" src="https://crossmark.crossref.org/javascripts/v1.5/crossmark.min.js"></script>
+      <a id="open-crossmark" href="#" style="padding: 0px 0 0px 0;"><img style="border: 0; display: none;" class="cimg" id="crossmark-icon" src="https://crossmark.crossref.org/images/logos/cm_sbs_072_click.png" /></a>
+          <img style="border: 0;" class="titleimg" src="../images/title/1812-5638.gif" />
+      <div id="crossmark-dialog" style="display: none;" title="">
+        <!-- the external CrossMark data is loaded inside this iframe -->
+        <iframe id="crossmark-dialog-frame" frameborder="0" style="float: right;"></iframe>
+      </div>
+      <!-- End CrossMark Snippet -->
+
+              </div>
+</div>
+<div class="color-box well" style="background:#FFFFFF;">
+<h2><font color="#999999"><strong>Research Article</strong></font></h2>
+
+<span class="arttitle">Analysis and Research of the RSA Algorithm</span>
+<p class="intro" style="padding-top:17px;">
+      <strong>
+                                    <a href='http://ascidatabase.com/author.php?author=NaQi&amp;last=' target="_blank" class="links" title="Click to find out more papers by NaQi "> NaQi </a>,
+                                                            <a href='http://ascidatabase.com/author.php?author=Wei&amp;last=Wei' target="_blank" class="links" title="Click to find out more papers by Wei Wei"> Wei Wei</a>,
+                                                            <a href='http://ascidatabase.com/author.php?author=Jing&amp;last=Zhang' target="_blank" class="links" title="Click to find out more papers by Jing Zhang"> Jing Zhang</a>,
+                                                            <a href='http://ascidatabase.com/author.php?author=Wei&amp;last=Wang' target="_blank" class="links" title="Click to find out more papers by Wei Wang"> Wei Wang</a>,
+                                                            <a href='http://ascidatabase.com/author.php?author=Jinwei&amp;last=Zhao' target="_blank" class="links" title="Click to find out more papers by Jinwei Zhao"> Jinwei Zhao</a>,
+                                                            <a href='http://ascidatabase.com/author.php?author=Junhuai&amp;last=Li' target="_blank" class="links" title="Click to find out more papers by Junhuai Li"> Junhuai Li</a>,
+                                                            <a href='http://ascidatabase.com/author.php?author=Peiyi&amp;last=Shen' target="_blank" class="links" title="Click to find out more papers by Peiyi Shen"> Peiyi Shen</a>,
+                                                            <a href='http://ascidatabase.com/author.php?author=Xiaoyan&amp;last=Yin' target="_blank" class="links" title="Click to find out more papers by Xiaoyan Yin"> Xiaoyan Yin</a>,
+                                                                  <a href='http://ascidatabase.com/author.php?author=Xiangrong&amp;last=Xiao' target="_blank" class="links" title="Click to find out more papers by Xiangrong Xiao"> Xiangrong Xiao</a>
+                                                                              and <a href='http://ascidatabase.com/author.php?author=Jie&amp;last=Hu' target="_blank" class="links" title="Click to find out more papers by Jie Hu"> Jie Hu</a>
+                      </strong>
+    </p>
+</div>
+      
+<div class="color-box well" style="background:#FFFFFF;">
+<p align="justify" class="intro">    
+<span class="arttitle">Abstract</span><br>
+                        With the continuous development of society and the prevalence of computer and network technology. How to ensure the security of information in the course of transmission have become the most important things for people at present. With this background, we studied how to realize encryption and decryption of the RSA (Initials of Ron Rivest, Adi Shamirh, LenAdleman) encryption technology. This study mainly introduces the application of RSA algorithm in encryption and decryption, mentions the technology of digital signature. Also introduces in the process of implementation of RSA algorithm in Visual Studios environment and operation results. Using this system for encryption and decryption of information, theoretically, good results were obtained in safety and reliability. </font>
+</p>
+      
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </div>
+      
+      
+<div class="color-box well" style="margin-top:35px;">
+      <table width="100%" border="0" cellpadding="0" cellspacing="7">
+        <tr>
+          <td width="3" bgcolor="#44433F">&nbsp;</td>
+          <td width="100%" class="intro"><strong class="intro">How to cite this article:</strong><br />
+            <br />
+            NaQi , Wei Wei, Jing Zhang, Wei Wang, Jinwei Zhao, Junhuai Li, Peiyi Shen, Xiaoyan Yin, Xiangrong Xiao  and Jie Hu, 2013. Analysis and Research of the RSA Algorithm. <i>Information Technology Journal, 12: 1818-1824.</i><br />
+            <br />
+            <strong>DOI:</strong> <a href="http://dx.doi.org/10.3923/itj.2013.1818.1824" target="_blank">10.3923/itj.2013.1818.1824</a> <br />
+            <br />
+            <strong>URL:</strong> <a href="https://scialert.net/abstract/?doi=itj.2013.1818.1824" target="_blank">https://scialert.net/abstract/?doi=itj.2013.1818.1824 </a></td>
+        </tr>
+      </table>
+      </div>
+<div class="color-box well" style="background:#FFFFFF;">
+  <p class="intro">
+      
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+                                                                                          
+                                                                                                                                                                               
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          <P class="intro"><B>INTRODUCTION</B></P>
+<P class="intro">Encryption technology does not appear now that originated in 2000 BC (centuries), 
+  although the name is different (even not call encryption ago), but the concept 
+  as a kind of encryption, it was born in the early centuries ago, their idea 
+  is the same. In order to protect the information in the transmission process, 
+  prevent important or private information is intercepted and steal. Even if the 
+  access by third parties, not decrypt the corresponding method, the information 
+  has no value in use, it will not cause any loss.</P>
+<P class="intro">The origin of the encryption technology what we now use, is proposed by Diffie 
+  and Hellman in the paper of "New Direction in Cryptography&#148; in 1976 (<a href='#105017_b' class='redtext' onmouseover="Tip(showref('105017_b'))" onmouseout='UnTip()'>Kahata, 
+  2005</a>). R. Rivest, A. Shamir and L. Adleman realize a public key cryptosystem 
+  that now called RSA public cryptosystem (<a href='#1124401_ja' class='redtext' onmouseover="Tip(showref('1124401_ja'))" onmouseout='UnTip()'>Chen, 2012</a>). 
+  The algorithm is considered to be the most perfect and the most mature public-key 
+  cryptosystem that is widely used in various fields.</P>
+<P class="intro">This study focuses on algorithm principle, application, security and analysis 
+  and researches of the problem that existed in the algorithm. And the encryption 
+  and decryption of RSA technology is implemented in Visual Studios environment.</P>
+<P class="intro"><B>Basis of cryptography:</B> Cryptography has a long history, but in general 
+  it is still very strange, because it is only in a small area, such as the military, 
+  intelligence, diplomatic and other sensitive sectors (<a href='#1124402_ja' class='redtext' onmouseover="Tip(showref('1124402_ja'))" onmouseout='UnTip()'>Wei 
+  <I>et al</I>., 2011</a>). Computer cryptography is the study of computer information 
+  encryption, decryption and transform scientific, interdisciplinary mathematics 
+  and computer, is an emerging discipline (<a href='#105018_b' class='redtext' onmouseover="Tip(showref('105018_b'))" onmouseout='UnTip()'>Shi, 2007</a>).</P>
+<P class="intro">Cryptographic techniques are used to ensure the confidentiality, integrity 
+  and authenticity of electronic data. Confidentiality is to encrypt the data, 
+  so that the illegal user can not read data information read-out information 
+  to the legitimate user can use key. The integrity of data integrity, authentication 
+  and to determine whether the data is illegal tampering, correct and complete 
+  information to ensure that legitimate users. Authenticity is the authenticity 
+  of the data sources, the authenticity of the identification of the data itself, 
+  can ensure that legitimate users are not deceived (<a href='#105018_b' class='redtext' onmouseover="Tip(showref('105018_b'))" onmouseout='UnTip()'>Shi, 2007</a>). 
+  Simple process is shown in <a href="#f1">Fig. 1</a>.</P>
+<P class="intro"><B>Encryption description:</B> The encryption algorithm is divided into two 
+  kinds, symmetric and asymmetric encryption. Using symmetric encryption, the 
+  two parties communicate with the common key that needing the only one. Regardless 
+  of the sender or receiver of encryption and decryption use the key. </P>
+<a name="f1"></a>
+<table width-rem="516" border="0" align="center">
+  <tr>
+    <td colspan="2"><div align="center"><img class="imgz " src="http://docsdrive.com/images/ansinet/itj/2013/fig1-2k13-1818-1824.gif" width-rem="510" height-rem="299"></div></td>
+  </tr>
+  <tr>
+    <td width-rem="49" valign="baseline">Fig. 1:</td>
+    <td width-rem="457"> Process of RSA encryption and decryption</td>
+  </tr>
+</table>
+
+<a name="f2"></a><br>
+<table width-rem="597" border="0" align="center">
+  <tr>
+    <td colspan="2"><div align="center"><img class="imgz " src="http://docsdrive.com/images/ansinet/itj/2013/fig2-2k13-1818-1824.gif" width-rem="591" height-rem="275"></div></td>
+  </tr>
+  <tr>
+    <td width-rem="49" valign="baseline">Fig. 2:</td>
+    <td width-rem="538"> Symmetric cipher model</td>
+  </tr>
+</table>
+
+<P class="intro">If the key access by third parties in the process of transmission, Plus on 
+  the key has no meaning. How to put the key to each other's hands is the shortcoming 
+  of the algorithm. The algorithm of the model is shown in <a href="#f2">Fig. 
+  2</a>.</P>
+<P class="intro">Asymmetric encryption algorithm of RSA that is different from symmetric encryption 
+  algorithm needs two keys, a public key, a secret key. The two of them appear 
+  in pairs, if the public key to encrypt data, only with the corresponding private 
+  key can decrypt; if the private key to encrypt data, so only with the public 
+  key can decrypt the corresponding. Because the encryption and decryption using 
+  two different keys, so this algorithm is called asymmetric encryption algorithm 
+  (<a href='#1134166_ja' class='redtext' onmouseover="Tip(showref('1134166_ja'))" onmouseout='UnTip()'>Cai and Lu, 2011</a>). Party A generates a pair of keys 
+  and one of them as a public key open to the other side, Party B use the key 
+  which from the party A to encrypt the confidential information and then sends 
+  the information to the party A; party A decrypt the encrypted information using 
+  the dedicated key that he preserved. Party A can only decrypt any information 
+  that encrypt by its public-key by a dedicated key. The algorithm of the model 
+  is shown in <a href="#f3">Fig. 3</a>.</P>
+<P class="intro"><B>RSA algorithm:</B> The RSA algorithm is a kind of asymmetric encryption 
+  algorithm which appeared in 1978. The algorithm is public key encryption algorithm 
+  which is a widely accepted and implemented by public. </P>
+<a name="f3"></a>
+<table width-rem="595" border="0" align="center">
+  <tr>
+    <td colspan="2"><div align="center"><img class="imgz " src="http://docsdrive.com/images/ansinet/itj/2013/fig3-2k13-1818-1824.gif" width-rem="589" height-rem="296"></div></td>
+  </tr>
+  <tr>
+    <td width-rem="50" valign="baseline">Fig. 3:</td>
+    <td width-rem="535"> Symmetric cipher model</td>
+  </tr>
+</table>
+
+<P class="intro">It is a kind of algorithm that can be used for not only data encryption but 
+  also <a href='http://www.scialert.net/asci/result.php?searchin=Keywords&cat=&ascicat=ALL&Submit=Search&keyword=digital+signature' target=_blank title='Find more articles at http://www.scialert.net/asci/result.php?searchin=Keywords&cat=&ascicat=ALL&Submit=Search&keyword=digital+signature (digital signature)'><strong><font color='#000000'>digital signature</font></strong></a>. Nearly forty years, has experienced all kinds of attacks 
+  and the test, has been gradually accepted by the people and is considered to 
+  be one of the best public key schemes.</P>
+<P class="intro">The algorithm is based on large integers and prime testing; its mathematical 
+  basis is the Euler theorem.</P>
+<P class="intro">In the Elementary number theory; its security is based on the difficulty of 
+  factoring large integer (<a href='#1124411_ja' class='redtext' onmouseover="Tip(showref('1124411_ja'))" onmouseout='UnTip()'>He and Wu, 2004</a>; <a href='#105023_b' class='redtext' onmouseover="Tip(showref('105023_b'))" onmouseout='UnTip()'>Buchmann, 
+  2001</a>).</P>
+<P class="intro"><B>Key generation:</B> First, we select two big prime number of the same length 
+  randomly: p, q, n = p*q, t = (p-1)*(q-1), then we select the number e, its range 
+  is more than 0 and less than t. we usually use the value of e is 3, 17, 65537 
+  (216 plus 1) and e must meet the Condition is d*e %t = =1, then we can get the 
+  value of d. The result is we get the four numbers n, t, e, d; the e is the encryption 
+  key, the d is the Decryption key, open n and d to public, keep p, q and e to 
+  anybody.</P>
+<P class="intro">Although, the transformation of encryption and decryption is the inverse, the 
+  private key system handles the data as a bit, but the public key system handles 
+  the data as a number that perform function operation and the mathematical function 
+  is one-way. It is to say, it can easily come true from one side, but very difficult 
+  to another side, so simple steps unable to decrypt the cipher text (<a href='#1124415_ja' class='redtext' onmouseover="Tip(showref('1124415_ja'))" onmouseout='UnTip()'>Wang 
+  and Song, 2011</a>).</P>
+<P class="intro"><B>Encryption algorithm:</B> The known-plaintext x(x&lt;n) and group x into 
+  character blocks, the length of each plaintext message Xi must meet 0&lt;xi&lt;k 
+  (where k is the length of n) and calculate the cipher text C = xe (MOD n).</P>
+<P class="intro"><B>Decryption algorithm:</B> The known cipher text c and the private key (n,d), 
+  can calculate the plaintext x = Cd (mod n)?</P>
+<P class="intro"><B>The example of RSA algorithm:</B> Known p = 11, q = 19, gotten n = 209, 
+  t = 180. Select the number e randomly e = 7, meet 0&lt;e&lt;t, According to 
+  the formula of d*e%t = =1 d = 103 can be obtained, d is a private key. Open 
+  (n, e), keep (n, d). If we need to seed the information x = 65, using (n, e) 
+  = (209, 7) to calculate the encrypted values: C = xe(mod n) = 657 mod 209 = 
+  56, When received c = 56, using (n,d) = (209,103) , calculate x = Cd( mod n) 
+  = 56103 mod 209 = 65. </P><p class="intro"></p>
+<P class="intro"><B>Exchange the key of the symmetric encryption algorithm (<a href='#1124416_ja' class='redtext' onmouseover="Tip(showref('1124416_ja'))" onmouseout='UnTip()'>Chen 
+  and Zhu, 2006</a>):</B> Because of asymmetric encryption algorithm is t more 
+  slowly than symmetric encryption algorithm, so asymmetric encryption algorithm 
+  is usually used to secure encryption key of the symmetric encryption algorithm 
+  in the practice, but symmetric encryption algorithm is usually used to secure 
+  the Communication of message. It is also to say, Asymmetric encryption algorithm 
+  is mainly used for the encryption key of the symmetric encryption algorithm.</P>
+<P class="intro">The process of exchange the session key:</P>
+<table width-rem="100%" border="0">
+  <tr> 
+    <td width-rem="2%" valign="baseline">&#8226;</td>
+    <td width-rem="98%">A uses RSA algorithm to generate their own public key (n, 
+      e) and the private key (n, d) and sends the information to B that contains 
+      the public key (n, d) and ID of A</td>
+  </tr>
+  <tr> 
+    <td valign="baseline">&#8226;</td>
+    <td>B gets the session key k and uses the public key encrypt the message to 
+      A, Ke mod n</td>
+  </tr>
+  <tr>
+    <td valign="baseline">&#8226;</td>
+    <td>A uses his private key to decrypt the Ke mod n, then can get K. In this 
+      way, A and B can communicate with symmetric encryption algorithm and the 
+      session key K. Simple process is shown in <a href="#f4">Fig. 4</a></td>
+  </tr>
+</table>
+<a name="f4"></a><br>
+
+<table width-rem="629" border="0" align="center">
+  <tr>
+    <td colspan="2"><div align="center"><img class="imgz " src="http://docsdrive.com/images/ansinet/itj/2013/fig4-2k13-1818-1824.gif" width-rem="623" height-rem="228"></div></td>
+  </tr>
+  <tr>
+    <td width-rem="52" valign="baseline">Fig. 4:</td>
+    <td width-rem="567"> Exchange of symmetric encryption algorithm key processes</td>
+  </tr>
+</table>
+
+<a name="f5"></a><br>
+<table width-rem="651" border="0" align="center">
+  <tr>
+    <td colspan="2"><div align="center"><img class="imgz " src="http://docsdrive.com/images/ansinet/itj/2013/fig5-2k13-1818-1824.gif" width-rem="645" height-rem="306"></div></td>
+  </tr>
+  <tr>
+    <td width-rem="50" valign="baseline">Fig. 5:</td>
+    <td width-rem="591"> RSA algorithms in the <a href='http://www.scialert.net/asci/result.php?searchin=Keywords&cat=&ascicat=ALL&Submit=Search&keyword=digital+signature' target=_blank title='Find more articles at http://www.scialert.net/asci/result.php?searchin=Keywords&cat=&ascicat=ALL&Submit=Search&keyword=digital+signature (digital signature)'><strong><font color='#000000'>digital signature</font></strong></a></td>
+  </tr>
+</table>
+
+<P class="intro"><B>Digital signature: </B>The RSA algorithm uses the public key to encrypt 
+  and the private key to decrypt in the encryption/decryption process. The private 
+  key is used to encrypt and the public key is used to decrypt in the digital 
+  signature. The sender using HASH algorithm to calculate the hash value of the 
+  file M, then generate the <a href='http://www.scialert.net/asci/result.php?searchin=Keywords&cat=&ascicat=ALL&Submit=Search&keyword=digital+signature' target=_blank title='Find more articles at http://www.scialert.net/asci/result.php?searchin=Keywords&cat=&ascicat=ALL&Submit=Search&keyword=digital+signature (digital signature)'><strong><font color='#000000'>digital signature</font></strong></a> C from using the key to encrypt 
+  digital abstract and then M C together and sent to the receiver. The receiver 
+  receives the file M1 and <a href='http://www.scialert.net/asci/result.php?searchin=Keywords&cat=&ascicat=ALL&Submit=Search&keyword=digital+signature' target=_blank title='Find more articles at http://www.scialert.net/asci/result.php?searchin=Keywords&cat=&ascicat=ALL&Submit=Search&keyword=digital+signature (digital signature)'><strong><font color='#000000'>digital signature</font></strong></a> C1, needs to verify that M and M1 
+  are identical.</P>
+<P class="intro">The verification process is to get hash value H1 of M1 using the HASH function 
+  and get the H2 from the decrypt <a href='http://www.scialert.net/asci/result.php?searchin=Keywords&cat=&ascicat=ALL&Submit=Search&keyword=digital+signature' target=_blank title='Find more articles at http://www.scialert.net/asci/result.php?searchin=Keywords&cat=&ascicat=ALL&Submit=Search&keyword=digital+signature (digital signature)'><strong><font color='#000000'>digital signature</font></strong></a> of C1 by using the public 
+  key. Compare H1 to H2 is the same (<a href='#1124418_ja' class='redtext' onmouseover="Tip(showref('1124418_ja'))" onmouseout='UnTip()'>Shi <I>et al</I>., 2008</a>). 
+  Information transmission is security if the same. The specific process is as 
+  follows as shown in <a href="#f5">Fig. 5</a>.</P>
+<P class="intro"><B>IMPLEMENTATION OF RSA ALGORITHM IN VISUAL STUDIOS</B></P>
+<P class="intro">In the program, the user can encrypt and decrypt the digital, Chinese characters, 
+  letters and other information. In the encryption and decryption of digital information, 
+  the user directly inputs the encrypted and decrypted number according to the 
+  suggested of the procedure, then can get the encryption or decryption information 
+  of the number which inputted. </P>
+<a name="f6"></a>
+<table width-rem="343" border="0" align="center">
+  <tr>
+    <td colspan="2"><div align="center"><img class="imgz " src="http://docsdrive.com/images/ansinet/itj/2013/fig6-2k13-1818-1824.gif" width-rem="337" height-rem="324"></div></td>
+  </tr>
+  <tr>
+    <td width-rem="49" valign="baseline">Fig. 6:</td>
+    <td width-rem="284"> Flow chart</td>
+  </tr>
+</table>
+
+<a name="f7"></a><br>
+<table width-rem="319" border="0" align="center">
+  <tr>
+    <td colspan="2"><div align="center"><img class="imgz " src="http://docsdrive.com/images/ansinet/itj/2013/fig7-2k13-1818-1824.gif" width-rem="313" height-rem="167"></div></td>
+  </tr>
+  <tr>
+    <td width-rem="49" valign="baseline">Fig. 7:</td>
+    <td width-rem="260"> Result of encryption</td>
+  </tr>
+</table>
+
+<a name="f8"></a><br>
+<table width-rem="319" border="0" align="center">
+  <tr>
+    <td colspan="2"><div align="center"><img class="imgz " src="http://docsdrive.com/images/ansinet/itj/2013/fig8-2k13-1818-1824.gif" width-rem="313" height-rem="173"></div></td>
+  </tr>
+  <tr>
+    <td width-rem="48" valign="baseline">Fig. 8:</td>
+    <td width-rem="261"> Result of decryption</td>
+  </tr>
+</table>
+
+<P class="intro">We don&#146;t need to do any treatment to the digital information. If the user 
+  input the information that is made of Chinese characters, we turn the information 
+  into URL code. Finally we turn the URL code into ASCII code to encrypt and decrypt. 
+  If the user input the information is composed of string, the information is 
+  converted to ASCII code to encrypt and decrypt. If the information is a very 
+  long string, we need to first packet encryption information.</P>
+<P class="intro">In the program, the main function gets the N and its Euler number T in according 
+  to the prime p and q that the user inputs and given by the user's public key 
+  e, calls the function fun (E and T) to determine whether the cop rime and got 
+  the private key D. user chooses the information is to be Encrypted or decrypted, 
+  calls the function my (encryption), realize the computation of exponentiation 
+  and multiplication. The specific process is shown in <a href="#f6">Fig. 6</a>. 
+  The result of the Encryption is shown in <a href="#f7">Fig. 7</a>. The result 
+  of the Decryption is shown in <a href="#f8">Fig. 8</a>. And the code is as follow:</P>
+<table width-rem="100%" border="0">
+  <tr>
+    <td><img class="imgz " src="http://docsdrive.com/images/ansinet/itj/2013/img1-2k13-1818-1824.gif" width-rem="344" height-rem="355"></td>
+  </tr>
+</table>
+<P class="intro">The result of the Encryption is shown in <a href="#f7">Fig. 7</a>. The result 
+  of the Decryption is shown in <a href="#f8">Fig. 8</a>.</P>
+<P class="intro"><B>Safe of RSA algorithm:</B> The system structure of RSA algorithm is based 
+  on the number theory of the ruler. It is the most security system in the key 
+  systems. The safe of RSA algorithm bases on difficulty in the factorization 
+  of the larger numbers (<a href='#1124419_ja' class='redtext' onmouseover="Tip(showref('1124419_ja'))" onmouseout='UnTip()'>Zhang and Cao, 2011</a>). If you 
+  want to break the information, you need to decompose a large number; it is also 
+  to say, it is difficult to get the private key through the factorization from 
+  a public key. For example, in order to decompose a large number of RSA-129 that 
+  factories a 129 bit decimal 425 bit on April 1994, more than 600 volunteers 
+  participated in the cracking activity, opened more than 1600 workstations, mainframes 
+  and supercomputers decomposition, spent 8 months time, finally decomposed RSA129 
+  problem in public key.</P>
+<P class="intro">But research shows that, since 1994 to complete the work to decipher and faster 
+  decomposition factor calculation method is proposed. Therefore, a large number 
+  of recent lower quartiles (512bit binary number) have been successfully decomposed, 
+  it tells people, the encrypted using the RSA algorithm, in the key generation, 
+  try to ask n is very big, so the attacker to break the success of t = (p-1) 
+  * (q-1), it is very difficult. In order to make the RSA safety, it must choose 
+  a large p and q; use a longer key is beneficial and harmless. Users&#146; 
+  usually choice more than 100 decimal digits, so the attacker cannot decompose 
+  the N in polynomial time effective internal.</P>
+<P class="intro"><B>DISADVANTAGE OF RSA ALGORITHM:</B></P>
+<table width-rem="100%" border="0">
+  <tr> 
+    <td width-rem="2%" valign="baseline">&#8226;</td>
+    <td width-rem="98%">Fake public-key algorithms. The user should not worry if public 
+      key leak, but need to consider someone takes another's place by counterfeiting 
+      published false public key, so it should be possible to widely publish the 
+      right key to public to prevent counterfeiting</td>
+  </tr>
+  <tr> 
+    <td valign="baseline">&#8226;</td>
+    <td>Complexity of the key creation. Because of the RSA algorithm is limited 
+      by the prime and efficiency of generating primes is relatively low, so it 
+      is difficult to achieve a secret once (<a href='#60210_an' class='redtext' onmouseover="Tip(showref('60210_an'))" onmouseout='UnTip()'>Internet Data 
+      Center, 2011</a>)</td>
+  </tr>
+  <tr> 
+    <td valign="baseline">&#8226;</td>
+    <td>Security needs to be proofed. The RSA security depends on the difficulty 
+      of factoring large numbers, but is equivalent to factoring has not been 
+      proved theoretically, because there is no proof of cracked RSA will need 
+      factorization. If there is an algorithm can fast decompose a large number, 
+      so the RSA algorithm's security would be threatened. In addition, the computational 
+      ability of the computer to continuously improve, the cost of computer to 
+      reduce, the parallel technology of the computer to develop, then attack 
+      the RSA algorithm will get huge growth ability</td>
+  </tr>
+  <tr>
+    <td valign="baseline">&#8226;</td>
+    <td>Slow of the speed. The RSA encryption and decryption algorithm need a 
+      lot of calculation and the speed is slowly, compared with the symmetric 
+      cryptographic algorithm thousands of times slower. With the development 
+      of large number of decomposition technique, key length would increase to 
+      ensure safety, so the computation will be greater</td>
+  </tr>
+</table>
+
+<P class="intro"><B>APPLICATION AND DEVELOPMENT PROSPECT OF RSA ALGORITHM</B></P>
+<P class="intro">Since the proposed from the nineteen seventies, through the practice of 20 
+  years, has been widely used, has become a most popular encryption standard. 
+  With the development of computer network and e-commerce technology, provides 
+  a broader space for the application of RSA technology. In many hardware, RSA 
+  software and library software product kernel, is convenient for people to use. 
+  For instance, in terms of hardware, the technology of IC is mature that used 
+  in all kinds of electronic products (<a href='#105026_b' class='redtext' onmouseover="Tip(showref('105026_b'))" onmouseout='UnTip()'>Zhang <I>et al</I>., 
+  2009</a>); in terms of software, mainly used in the encryption connection, digital 
+  signatures and digital certification on the Internet, In addition, the household 
+  IE browser, integrates and uses RSA encryption technology, combined with the 
+  MD5 and SHA1 mainly used for digital certificates and <a href='http://www.scialert.net/asci/result.php?searchin=Keywords&cat=&ascicat=ALL&Submit=Search&keyword=digital+signature' target=_blank title='Find more articles at http://www.scialert.net/asci/result.php?searchin=Keywords&cat=&ascicat=ALL&Submit=Search&keyword=digital+signature (digital signature)'><strong><font color='#000000'>digital signature</font></strong></a>s. For 
+  users accustom to using online shopping and online banking, almost use the RSA 
+  technology every day (<a href='#1124423_ja' class='redtext' onmouseover="Tip(showref('1124423_ja'))" onmouseout='UnTip()'>Si and Tang, 2009</a>).</P>
+<P class="intro">With the year-on-year increase of the amount of data and the continuous improvement 
+  of people's needs, RSA faces various challenges, application security, data 
+  security and privacy, cloud security, denial of service attacks, Advanced Persistent 
+  Threats (APTs), mobile security and so on. There are the prospects of the development 
+  in the few years.</P>
+<P class="intro"><B>CONCLUSION</B></P>
+<P class="intro">In this study, based on fully research and a deep understanding of the principle 
+  of tradition RSA algorithm, the RSA algorithm is implemented in VC environment 
+  and analyzes the security of RSA algorithm and its disadvantages. On the whole, 
+  the RSA algorithm is a good algorithm. But in the application of the RSA algorithm, 
+  RSA algorithm also has many problems, such as the public key is correct, the 
+  encryption and decryption speed is very slow and the key generation is very 
+  troublesome. We take into account the weaknesses while use the RSA algorithm 
+  and make an attack on the RSA. Widely used symmetric encryption algorithm and 
+  asymmetric cryptographic algorithm combines, advantages and disadvantages of 
+  complementary of two algorithm, Longer encrypted with a symmetric cipher encryption 
+  algorithm key file and then use the RSA algorithm to encrypt files, so an excellent 
+  solution to the symmetric key distribution problem (<a href='#1124425_ja' class='redtext' onmouseover="Tip(showref('1124425_ja'))" onmouseout='UnTip()'>Guo, 
+  2011</a>).</P>
+<P class="intro"><B>ACKNOWLEDGMENTS</B></P>
+<P class="intro">We would like to thank the anonymous reviewers for their valuable comments. 
+  This program is supported by Scientific Research Program Funded by Shaanxi Provincial 
+  Education Department (Program No.2013JK1139). Our project is also supported 
+  by Natural Science Basic Research Plan in Shaanxi Province of China (Program 
+  No. 2012JM8047) and by Science and Technology Project of Xi'an (CX1262<img class="imgz " src="http://docsdrive.com/images/ansinet/itj/2013/img2-2k13-1818-1824.gif" width-rem="12" height-rem="10" align="absmiddle">). 
+  And this project is also partially supported by NSFC Grant (Program No. 61072105, 
+  61007011, No. 61172018 81201179, 61100236, 61202393, 11226173) and Beilin District 
+  2012 High-tech Plan, Xi&#146;an, China.</P>
+
+</p>
+                        <p>&nbsp;</p>
+<span class="arttitle">References</span>
+<p class="intro" style="padding-top:13px;">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+                                                            Buchmann, J., 2001. <a name='105023_b'></a>Einfuhrung in die Kryptographie [Introduction to Cryptography]. 2nd Edn., Springer, Berlin, Germany.<br><br>Cai, C. and Y. Lu, 2011. <a name='1134166_ja'></a>Asymmetric encryption JAVA and VC. Comput. Knowled. Technol., 18: 4306-4307.<font size=1></font><br><br>Chen, C. and Z. Zhu, 2006. <a name='1124416_ja'></a>Application of RSA algorithm and implementation details. Comput. Eng. Sci., 9: 13-14.<font size=1></font><br><br>Chen, Z., 2012. <a name='1124401_ja'></a>The encryption algorithm and security of RSA. J. Hengyang Normal Univ., 12: 69-69.<font size=1></font><br><br>Guo, H., 2011. <a name='1124425_ja'></a>Efficient implementation of RSA algorithm based on C language. Mod. Comput., 8: 14-14.<font size=1></font><br><br>He, C. and H. Wu, 2004. <a name='1124411_ja'></a>Public key RSA algorithm is applied to several problems. Mod. Comput., 178: 72-74.<font size=1></font><br><br>Internet Data Center, 2011. <a name='60210_an'></a>Data encryption technology of [DB/OL]. http://zy.zhku.edu.cn/info/kcln/10/3.htm.<br><br>Kahata, A., 2005. <a name='105017_b'></a>Cryptography and Network Security.   Tsinghua University Press, Beijing, China.<br><br>Shi, Z., 2007. <a name='105018_b'></a>Computer Network Security Tutorial.   Tsinghua University Press, Beijing, China.<br><br>Shi, Z., Q. Tan and H. Duan, 2008. <a name='1124418_ja'></a>The research and application of the RSA algorithm in the digital signature. Microcomput. Appl., 6: 50-51.<font size=1></font><br><br>Si, H. and B. Tang, 2009. <a name='1124423_ja'></a>Application of RSA and its application in an encrypted file. Comput. Telecommun., 6: 76-77.<font size=1></font><br><br>Wang, H. and R. Song, 2011. <a name='1124415_ja'></a>The length of the key influences the degree of security of the RSA system. Comput. Knowledge Technol., 10: 7104-7105.<font size=1></font><br><br>Wei, X., Z. Li and Y. Zhu, 2011. <a name='1124402_ja'></a>On the RSA algorithm and application. J. Honghe Univ., 4: 31-32.<font size=1></font><br><br>Zhang, S., W. Wan and J. Zhang, 2009. <a name='105026_b'></a>Applied Cryptography.   Xi'an Electronic and Science University Press, Xi'an, China.<br><br>Zhang, Y. and T. Cao, 2011. <a name='1124419_ja'></a>Application of encryption based on RSA algorithm. Sci. Technol. Advisory (Technol. Admin.), 25: 79-80.<font size=1></font><br><br></p>
+</div>
+
+</div>
+        
+</div>
+    
+</div>
+
+</section>
+
+</div>
+
+</body></html>
