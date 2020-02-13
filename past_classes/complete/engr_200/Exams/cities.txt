@@ -1,0 +1,8 @@
+6
+Montreal    45 30 N  73 33 W
+London      51 30 N   0  7 W
+Chicago     41 52 N  87 37 W
+Los-Angeles 34  2 N 118 13 W
+Winnipeg    49 53 N  97  9 W
+Honolulu    21 18 N 157 51 W
+

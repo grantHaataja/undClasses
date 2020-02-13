@@ -1,0 +1,26 @@
+*************************************************
+            CITY WATER SUPPLY PROGRAM
+
+Water tank dimensions: 
+Cylinder radius = 12.5 
+Cylinder height = 19.0 
+Frustum radius = 23.0 
+Frustum height = 14.0 
+
+Float Height          Water Volume 
+  (meters)           (cubic meters)
+  10.0                 4908.73   
+   5.5                 2699.80   
+ -10.0    Height negative-Calibrate float.
+   8.0                 3926.99   
+  16.0                 7853.97   
+  33.0                23587.84   
+  25.7                14114.73   
+  36.5    Height > 33.0 meters-Calibrate float.
+  32.5                22770.37   
+   0.0    Height < 3.0 meters-Fill tank.
+
+                  END OF REPORT
+*************************************************
+
+

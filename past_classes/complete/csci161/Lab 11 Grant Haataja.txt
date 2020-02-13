@@ -1,0 +1,23 @@
+Lab 11 - Let's Play
+Date: 11/28/18
+Name: Grant Haataja
+
+First 10 games -
+
+1. How many times starting surrounded by walls: 1
+   How many times can you reach goal without fighting anyone: 7
+   How many times can you reach goal with only 1 fight: 2
+   How many times can you reach goal with only 2 fights: 0
+
+Second 10 games -
+   
+2. How many times can you reach goal without fighting anyone: 6
+   How many times can you reach goal with only 1 fight: 2
+   How many times can you reach goal with only 2 fights: 0
+   
+3. How many times did you die in the 20 games: 1
+
+4. Make opponents stronger, play 5 more times and fight as many opponents as possible.
+   How many times did you get to the goal: 4
+   
+5. What are the average stat scores of opponents for all 25 games: 12.0

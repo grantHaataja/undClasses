@@ -1,0 +1,18 @@
+************************************************
+             TABLE OF BALLOON MASSES
+
+Balloon   Pressure   Volume   Temperature   Mass
+  111  Missing data. No computations performed.
+  121       63.0      50.0        73.0      14.1
+  131       64.0      33.0        55.0       9.8
+  141  Missing data. No computations performed.
+  151       55.0     100.0        34.0      26.5
+  161  Missing data. No computations performed.
+  171      100.0      29.0        47.0      13.6
+  181       99.0     100.0        98.0      42.2
+  191       45.0      23.0        93.0       4.5
+
+The average mass for 6 balloons is  18.4
+************************************************
+
+

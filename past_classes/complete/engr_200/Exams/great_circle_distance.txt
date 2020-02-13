@@ -1,0 +1,21 @@
+**********************************************
+      GREAT CIRCLE DISTANCE CALCULATIONS
+
+                     LATITUDE      LONGITUDE
+CITY                 Deg  Min       Deg  Min
+
+Honolulu              21   18 N     157   51 W
+Los-Angeles           34    2 N     118   13 W
+Distance between the two cities = 3227.7 miles
+
+Chicago               41   52 N      87   37 W
+Montreal              45   30 N      73   33 W
+Distance between the two cities = 8255.4 miles
+
+Winnipeg              49   53 N      97    9 W
+London                51   30 N       0    7 W
+Distance between the two cities = 11420.8 miles
+
+************************************************
+
+

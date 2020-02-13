@@ -1,0 +1,17 @@
+***************************************************
+             POWER OUTPUT IN MEGAWATTS
+
+          Day1  Day2  Day3  Day4  Day5  Day6  Day7
+Week 1    207   301   222   302    22   167   125
+Week 2    367    60   120   111   301   400   434
+Week 3    211    72   441   102    21   203   317
+Week 4    401   340   161   297   441   459   206
+Week 5    448   111   370   220   264   444   207
+Week 6     23   313   204   222   446   401   337
+Week 7    213   208   444   321   320   335   313
+Week 8    162   137   265    44   370   315   322
+
+Minimum power =  21 megawatts at week 3, day 5
+Maximum power = 459 megwatts at week 4, day 6
+Average power = 260.5 megawatts
+***************************************************

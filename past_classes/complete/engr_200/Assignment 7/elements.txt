@@ -1,0 +1,9 @@
+8
+Aluminum   Al 13  26.98  2.71  fcc
+Copper     Cu 29  63.55  8.94  fcc
+Iron       Fe 26  55.85  7.87  bcc
+Molybdenum Mo 42  95.94 10.22  bcc
+Cobalt     Co 27  58.93  9.9   hcp
+Lithium    Li  3   6.94  0.534 bcc
+Germanium  Ge 32  72.59  5.32  fcc
+Gold       Au 79 196.97 19.32  fcc

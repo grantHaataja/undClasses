@@ -1,0 +1,24 @@
+**************************************
+          POWER PLANT OUTPUT
+
+        Plant ID      Megawatts
+          111            301
+          112             60
+          113             72
+          114            340
+          115            111
+          116            313
+          117            208
+          118            137
+          119             44
+          120            322
+
+
+COMPOSITE REPORT
+Average power output = 190.8 megawatts
+Minimum power output =    44 megawatts
+Maximum power output =   340 megawatts
+Greater than average =     5 days
+**************************************
+
+

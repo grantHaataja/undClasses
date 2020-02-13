@@ -1,0 +1,30 @@
+%**************************************************************************
+%ENGR 200-??                                                DATE:mm/dd/yyyy
+% 
+%ASSIGNMENT: #8                         Author:
+%**************************************************************************
+
+%PROGRAM DESCRIPTION:
+%This program will 
+
+%VARIABLE DESCRIPTIONS:
+%NAME         | TYPE   | DESCRIPTION
+%--------------------------------------------------------------------------
+
+%**************************************************************************
+
+%Clear Command Window, clear memory, and close plots
+
+%Load input files
+
+%Open output file
+
+%Assign air density value to a variable
+
+%Print main heading and column headings to Command Window and output file
+
+%Compute and print power output to Command Window and output file
+
+%Print end of report
+
+%**************************************************************************

@@ -1,0 +1,24 @@
+***********************************************************
+                    ELEMENT DATA TABLE
+
+Element     Symbol   Atomic   Atomic   Density    Crystal
+                     Number   Weight    g/cm^3   Structure
+-----------------------------------------------------------
+Lithium       Li        3       6.94     0.534      bcc
+Aluminum      Al       13      26.98     2.710      fcc
+Iron          Fe       26      55.85     7.870      bcc
+Cobalt        Co       27      58.93     9.900      hcp
+Copper        Cu       29      63.55     8.940      fcc
+Germanium     Ge       32      72.59     5.320      fcc
+Molybdenum    Mo       42      95.94    10.220      bcc
+Gold          Au       79     196.97    19.320      fcc
+-----------------------------------------------------------
+
+SUMMARY REPORT:
+Mean atomic weight = 72.22
+Median atomic weight = 61.24
+The element with the minimum density is Lithium    
+The element with the maximum atomic weight is Gold       
+***********************************************************
+
+

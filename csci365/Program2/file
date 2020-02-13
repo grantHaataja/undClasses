@@ -1,0 +1,9 @@
+#sample "source code" for a simple language
+min = 0
+input a
+input b
+if a < b begin
+	min = a
+end else
+	min = b
+print min

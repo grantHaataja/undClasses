@@ -1,0 +1,46 @@
+%**************************************************************************
+%MATLAB DEMO PROGRAM
+%   
+%PROGRAM DESCRIPTION:
+%This program will calculate the centrifugal force of a train traveling
+%around a level curved track.  The weight and radius are entered through
+%the keyboard, and the matrix speed is loaded from the input file.  The
+%computed results are printed to the command window and to an output file.
+%The program will stop executing if an incorrect radius is entered.
+%
+%DESCRIPTION VARIABLES:
+%NAME         | TYPE   | DESCRIPTION
+%--------------------------------------------------------------------------
+%train_speeds | double | one-dimensional matrix of speeds in miles/hour
+%weight       | double | weight of train in tons
+%radius       | double | radius of track curve in feet
+%force        | double | calculated centrifugal force in pounds
+%gravity      | double | gravitation acceleration in ft/s^2
+%outputfile   | char   | file location of printed output
+%**************************************************************************
+
+%Clear Command Window, memory, and plots
+
+%Load input file
+
+%Open output file
+
+%Initialize gravity variable
+
+%Print main heading
+?????('**************************************');
+?????('\n      CENTRIFUGAL FORCE PROGRAM\n\n');
+
+%Enter train weight and track radius
+
+%Print column headings
+?????('\nSpeed     Weight     Radius      Force');
+?????('\n(mph)     (tons)      (ft)       (lbs)');
+
+%Verify radius of track curve
+
+%Compute centrifugal forces and print table
+
+%Print end of report
+?????('\n**************************************\n\n');
+%**************************************************************************
