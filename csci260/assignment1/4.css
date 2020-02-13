@@ -1,0 +1,39 @@
+h1 {
+	color: blue;
+	text-align: center;
+}
+
+body {
+	background-color: crimson;
+}
+
+table {
+	margin-left:auto;
+	margin-right:auto;
+	border-spacing: 30px;
+	border-width: 1px;
+	border-color: black;
+	float: none;
+	align-self: center;
+}
+
+td {
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+}
+
+#td1 {
+	font-weight: bold;
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+}
+
+form {
+	text-align: center;
+}
+
+input {
+	cursor: pointer;
+}
