@@ -35,7 +35,7 @@ public class Driver
 		//start the withdrawal threads
 		Thread[] wThreads = new Thread[withdrawalThreads];
 		for (int i = 0; i < withdrawalThreads; i++) {
-			WithdrawalRunnable wRun = new WithdrawalRunnable();
+			WithdrawalRunnable wRun = new WithdrawalRunnable(myAcc, i+1);
 			wThreads[i] = new Thread(wRun);
 			wThreads[i].start();
 		}
@@ -52,6 +52,11 @@ public class Driver
 		//interrupt the deposit threads
 		for (int i = 0; i < depositThreads; i++) {
 			dThreads[i].interrupt();
+		}
+		
+		//interrupt the withdrawal threads
+		for (int i = 0; i < withdrawalThreads; i++) {
+			wThreads[i].interrupt();
 		}
 		
 		//print the final account balance

@@ -37,12 +37,21 @@ public class DepositRunnable implements Runnable
 				totalDeposited += amount;
 				numDeposits++;
 			}
+			else {
+				System.out.println("Amount would exceed account limit.");
+			}
 			
 			//check to see if thread has been interrupted
-			if (Thread.interrupted()) {
-				//throw new InterruptedException();
+			try {
+				Thread.sleep(1000);
+				//if (Thread.interrupted()) {
+				//	break;
+				//}
+			} catch (InterruptedException e) {
+				System.err.println(e);
 				break;
 			}
+			
 		}
 		//print thread info after being interrupted
 		System.out.println("I am " + name + ".");
