@@ -24,7 +24,7 @@ public class WithdrawalRunnable implements Runnable
 	//run method
 	public void run() 
 	{
-		System.out.println("Running Withdrawal thread...\n");
+		System.out.println("Running Withdrawal thread...");
 		while(true) {
 			int amount = ThreadLocalRandom.current().nextInt(1, 100);
 		
@@ -35,26 +35,23 @@ public class WithdrawalRunnable implements Runnable
 				numWithdrawals++;
 			}
 			else {
-				System.out.println("Insufficient Account Balance.");
+				numWaits++;
 			}
 			
 			//check to see if thread has been interrupted
 			try {
 				Thread.sleep(1000);
-				//if (Thread.interrupted()) {
-				//	break;
-				//}
 			} catch (InterruptedException e) {
-				System.err.println(e);
 				break;
 			}
-			
 		}
+		printInfo();
+	}
+	private synchronized void printInfo()
+	{
 		//print thread info after being interrupted
-		System.out.println("I am " + name + ".");
-		System.out.println("I withdrew $" + totalWithdrawn + ".");
-		System.out.println("I made " + numWithdrawals + " withdrawals.");
-		System.out.println("I had to wait " + numWaits + " times on account condition.");	
-
+		System.out.println("I am " + name + ".\n" + "I withdrew $" + totalWithdrawn + 
+			".\n" + "I made " + numWithdrawals + " withdrawals.\n" + "I had to wait " + 
+			numWaits + " times on account condition.\n");
 	}
 }

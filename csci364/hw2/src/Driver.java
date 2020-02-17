@@ -27,7 +27,7 @@ public class Driver
 		//start the deposit threads
 		Thread[] dThreads = new Thread[depositThreads];
 		for (int i = 0; i < depositThreads; i++) {
-			DepositRunnable dRun = new DepositRunnable(myAcc, i+1);
+			DepositRunnable dRun = new DepositRunnable(myAcc, i+1, accountBalance);
 			dThreads[i] = new Thread(dRun);
 			dThreads[i].start();
 		}
@@ -39,7 +39,6 @@ public class Driver
 			wThreads[i] = new Thread(wRun);
 			wThreads[i].start();
 		}
-		System.out.println("Bedtime\n");
 		//sleep for the appropriate time
 		try {
 			Thread.sleep(sleepyTime);
@@ -47,16 +46,26 @@ public class Driver
 			System.err.println("Main thread interrupted.\n");
 			System.exit(0);
 		}
-		System.out.println("Now we've rested\n");
+		System.out.println();
 		
 		//interrupt the deposit threads
 		for (int i = 0; i < depositThreads; i++) {
 			dThreads[i].interrupt();
+			try {
+				dThreads[i].join();
+			} catch (InterruptedException e) {
+				System.err.println(e);
+			}
 		}
 		
 		//interrupt the withdrawal threads
 		for (int i = 0; i < withdrawalThreads; i++) {
 			wThreads[i].interrupt();
+			try {
+				wThreads[i].join();
+			} catch (InterruptedException e) {
+				System.err.println(e);
+			}
 		}
 		
 		//print the final account balance

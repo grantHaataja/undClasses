@@ -16,18 +16,18 @@ public class DepositRunnable implements Runnable
 	private String name;
 	
 	//constructor
-	public DepositRunnable(Account account, int num) 
+	public DepositRunnable(Account account, int num, int balance) 
 	{
 		myAcc = account;
 		name = "Deposit Thread " + num;
+		limit = balance * 2;
 	}
 	
 	//run method
 	public void run() 
 	{
 		//find max value the account can get to
-		limit = myAcc.getAccountBalance() * 2;
-		System.out.println("Running Deposit thread...\n");
+		System.out.println("Running Deposit thread...");
 		while(true) {
 			int amount = ThreadLocalRandom.current().nextInt(1, 100);
 		
@@ -38,25 +38,23 @@ public class DepositRunnable implements Runnable
 				numDeposits++;
 			}
 			else {
-				System.out.println("Amount would exceed account limit.");
+				numWaits++;
 			}
 			
 			//check to see if thread has been interrupted
 			try {
 				Thread.sleep(1000);
-				//if (Thread.interrupted()) {
-				//	break;
-				//}
 			} catch (InterruptedException e) {
-				System.err.println(e);
 				break;
-			}
-			
+			}	
 		}
+		printInfo();
+	}
+	private synchronized void printInfo()
+	{
 		//print thread info after being interrupted
-		System.out.println("I am " + name + ".");
-		System.out.println("I deposited $" + totalDeposited + ".");
-		System.out.println("I made " + numDeposits + " deposits.");
-		System.out.println("I had to wait " + numWaits + " times on account condition.");	
+		System.out.println("I am " + name + ".\n" + "I deposited $" +totalDeposited + 
+			 ".\n" + "I made " + numDeposits + " deposits.\n" + "I had to wait " +
+			 numWaits + " times on account condition.\n");		
 	}
 }
