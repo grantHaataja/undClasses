@@ -16,9 +16,13 @@ public class Account
 	{
 		return accountBalance;
 	}
-	//setter method
-	public void setAccountBalance(int newBalance)
+	//setter methods
+	public synchronized void addMoney(int change)
 	{
-		this.accountBalance = newBalance;
+		this.accountBalance += change;
+	}
+	public synchronized void removeMoney (int change)
+	{
+		this.accountBalance -= change;
 	}
 }
