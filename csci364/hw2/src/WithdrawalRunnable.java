@@ -30,7 +30,7 @@ public class WithdrawalRunnable implements Runnable
 		
 			//check to see if balance is okay
 			if ((myAcc.getAccountBalance() - amount) > 0) {
-				myAcc.removeMoney(amount);
+				myAcc.updateBalance(-amount);
 				totalWithdrawn += amount;
 				numWithdrawals++;
 			}

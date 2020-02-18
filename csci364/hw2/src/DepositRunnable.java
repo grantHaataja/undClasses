@@ -33,7 +33,7 @@ public class DepositRunnable implements Runnable
 		
 			//check to see if balance is okay
 			if ((myAcc.getAccountBalance() + amount) < limit) {
-				myAcc.addMoney(amount);
+				myAcc.updateBalance(amount);
 				totalDeposited += amount;
 				numDeposits++;
 			}
