@@ -1,3 +1,6 @@
+//Grant Haataja
+//CSCI 365 Program2
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
