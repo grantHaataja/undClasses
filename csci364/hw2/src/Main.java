@@ -3,7 +3,7 @@
 import java.lang.Runnable;
 import java.lang.InterruptedException;
 
-public class Driver
+public class Main
 {
 	public static void main(String[] args)
 	{
