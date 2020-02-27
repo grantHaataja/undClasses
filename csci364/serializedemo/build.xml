@@ -1,0 +1,31 @@
+<!--
+
+     build.xml
+     A sample Ant script for CS364
+
+     David Apostal
+-->
+<project name="EchoDemo" default="compile" basedir=".">
+    <!-- define properties to be used later -->
+    <property name="src.dir" location="src" />
+    <property name="build.dir" location="build" />
+
+    <!-- delete existing directories (and contents) -->
+    <target name="clean" description="delete build artifacts">
+        <delete dir="${build.dir}"/>
+    </target>
+
+    <!-- create output directory -->
+    <target name="init">
+        <mkdir dir="${build.dir}"/>
+    </target>
+    
+    <!-- build the source code -->
+    <target name="compile" 
+            description="compile project source code" 
+            depends="init">
+        <javac srcdir="${src.dir}" destdir="${build.dir}" debug="on"
+        		includeAntRuntime="no">
+        </javac>
+    </target>    
+</project>
