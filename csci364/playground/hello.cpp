@@ -1,30 +1,20 @@
-#include<iostream>
-#include<thread>
-#include<sstream>
+#include <iostream>
+#include <sstream>
+#include "omp.h"                      
 
-int num_threads = 10;
-void hello(int tid) {
-	std::ostringstream oss;oss << "Hello from thread " << tid << std::endl;
-	std::cout << oss.str();
-}
-
-int main(int argc, char *argv[]) {
-	// keep track of the threads
-	std::thread t[num_threads];
+int main(int argc,char *argv[]) {           
+	int id, nthreads;
 	
-	// launch the threads
-	for (int i = 0; i < num_threads; i++) {
-		t[i] = std::thread(hello, i);
+#pragma omp parallel private(id)
+	{
+		id = omp_get_thread_num();
+		std::ostringstream oss;
+		oss << "hello from " << id << std::endl;
+		std::cout << oss.str();
+#pragma omp ordered
+	if (id == 0) {
+		nthreads = omp_get_num_threads();
+		std::cout << "There are " << nthreads << " threads\n" << std::endl;
 	}
-
-	std::ostringstream oss;
-	oss << "Hello from main" << std::endl;
-	std::cout << oss.str();
-
-	// have main wait for the hello threads
-	for (int i = 0; i < num_threads; i++) {
-		t[i].join();
 	}
-
-	return 0;
-}
+}                                            
