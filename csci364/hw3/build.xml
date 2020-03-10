@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!--
+     build.xml
+     Ant script for CS364, Program #3
+
+     David Apostal
+-->
+<project name="Volunteer Computing" default="compile" basedir=".">
+    <!-- define properties to be used later -->
+    <property name="src.dir" location="src" />
+    <property name="build.dir" location="build" />
+	<property name="dist.dir" location="dist" />
+
+    <!-- delete existing directories (and contents) -->
+    <target name="clean" 
+    	description="delete build artifacts">
+        <delete dir="${build.dir}" />
+    	<delete dir="${dist.dir}" />
+    </target>
+
+    <!-- create output directory -->
+    <target name="init">
+        <mkdir dir="${build.dir}" />
+    	<mkdir dir="${dist.dir}" />
+    </target>
+
+    <target name="compile"
+    	   description="compile project source code"
+    	   depends="clean, init">
+           <javac 
+               srcdir="${src.dir}" destdir="${build.dir}" 
+               includeAntRuntime="false"
+               debug="on" />
+    </target>
+
+    <target name="run-solver" 
+    	description="run the solver" 
+    	depends="compile">
+        <java 
+            fork="true" 
+            failonerror="yes"
+            classpath="${build.dir}" 
+            classname="hw1.ThreadedMM">
+            <arg line="4444 10"/>
+        </java>
+    </target>
+	
+	<target name="build-jar" 
+		description="create a distribution" 
+		depends="compile">
+		<jar destfile="${dist.dir}/tmm.jar" 
+            basedir="${build.dir}">
+		</jar>
+	</target>
+</project>
