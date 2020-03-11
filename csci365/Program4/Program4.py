@@ -124,7 +124,12 @@ try:
 except EnvironmentError:
     print('Could not find file: {}'.format(sys.argv[1]))
     exit()
- 
+
+#check if file is empty
+if len(tokenList) == 0:
+    print('EmptyFileError: File {} contains no tokens'.format(sys.argv[1]))
+    exit()
+    
 #now begin analyzing list
 while len(tokenList) > 0:
     tokenList = analyze(tokenList)

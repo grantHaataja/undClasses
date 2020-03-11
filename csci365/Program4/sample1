@@ -6,6 +6,8 @@
 <input>, input
 <id>, b
 <if>, if
+<id>, b
+<if>, if
 <id>, a
 <rel_op>, <
 <id>, b
@@ -13,6 +15,11 @@
 <id>, min
 <assign>, =
 <id>, a
+<begin>, begin
+<id>, max
+<assign>, = 
+<number>, 1
+<end>, end
 <end>, end
 <else>, else
 <id>, min
