@@ -28,13 +28,17 @@ public class Program2
 					continue;
 				}
 				//split the file line into individual tokens
-				String[] splited = fileLine.split("\\s+");
+				String[] splited = fileLine.split("(\\s+)");
 				//now loop through the line to analyze tokens one at a time
 				for (int i = 0; i < splited.length; i++) {
 					//see if the token is an empty string
 					if (splited[i].isEmpty()) {
 						continue;
 					}					
+					//see if token is again a comment
+					if (splited[i].startsWith("#")) {
+						break;
+					}
 					//see if the token is a reserved word
 					if (splited[i].matches("\\b(input|print|begin|end|if|else)\\b")) {
 						System.out.println("<" + splited[i] + ">, " + splited[i]);
@@ -54,6 +58,51 @@ public class Program2
 					//see if token is an id
 					else if (splited[i].matches("([a-zA-Z])+([a-zA-Z0-9])*")) {
 						System.out.println("<id>, " + splited[i]);
+					}
+					//if none of these, perhaps the token is an assignent with no spaces
+					else if (splited[i].contains("=") && !splited[i].contains("==")
+							&& !splited[i].contains("!=")) {
+						String[] newSplited = splited[i].split("(\\=)");
+						System.out.println("<id>, " + newSplited[0]);
+						System.out.println("<assign>, =");
+						if (newSplited[1].matches("([+|-]?)(\\d+)(\\.\\d+)?")) {
+							System.out.println("<number>, " + newSplited[1]);
+						}
+						else {
+							System.out.println("<id>, " + newSplited[1]);
+						}
+					}
+					//if none of these, perhaps the token is an comparison with no spaces
+					else if (splited[i].contains("<") || splited[i].contains(">")
+							|| splited[i].contains("<=") || splited[i].contains(">=")
+							|| splited[i].contains("==") || splited[i].contains("!=")
+							|| splited[i].contains("=")) {
+						String s1, s2;
+						String rel = "";
+						for (int j = 0; j < splited[i].length(); j++) {
+							if (!(splited[i].charAt(j) == '<' || splited[i].charAt(j) == '>'
+								|| splited[i].charAt(j) == '=' || splited[i].charAt(j) == '!')) {
+								continue;	
+							}
+							else {
+								if (splited[i].charAt(j+1) == '=') {
+									s1 = Character.toString(splited[i].charAt(j));
+									s2 = Character.toString(splited[i].charAt(j+1));
+									rel = s1 + s2;						}
+								else {
+									rel = Character.toString(splited[i].charAt(j));
+								}
+							}
+						}
+						String[] newSplited = splited[i].split(rel);
+						System.out.println("<id>, " + newSplited[0]);
+						System.out.println("<rel_op>, " + rel);
+						if (newSplited[1].matches("([+|-]?)(\\d+)(\\.\\d+)?")) {
+							System.out.println("<number>, " + newSplited[1]);
+						}
+						else {
+							System.out.println("<id>, " + newSplited[1]);
+						}
 					}
 					//otherwise print an error
 					else {

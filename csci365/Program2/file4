@@ -1,0 +1,7 @@
+a = 10
+
+input x
+
+%
+
+we should not see this in the output

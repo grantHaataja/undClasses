@@ -1,0 +1,17 @@
+<id>, a
+<rel_op>, <
+<number>, 6
+<rel_op>, >
+<number>, 5
+<id>, c
+<rel_op>, !=
+<id>, d
+<rel_op>, >=
+<id>, min
+<rel_op>, <=
+<id>, max
+<number>, 0
+<rel_op>, !=
+<number>, 1
+<rel_op>, ==
+<id>, whatever

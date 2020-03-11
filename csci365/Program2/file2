@@ -1,0 +1,5 @@
+min=0
+
+input a input b #another comment
+
+if a<b begin min=a end else min=b print min
