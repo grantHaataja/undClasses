@@ -1,0 +1,25 @@
+Character   Frequency
+
+     w            15
+     a            9
+     g            9
+     l            9
+     f            5
+     j            5
+     z            5
+     k            4
+     m            4
+     s            4
+     c            3
+     d            3
+     o            3
+     u            3
+     h            2
+     q            2
+     t            2
+     v            2
+     y            2
+     e            1
+     i            1
+     p            1
+     x            1

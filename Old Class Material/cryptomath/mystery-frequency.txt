@@ -1,0 +1,28 @@
+Character   Frequency
+
+     i            96
+     m            90
+     t            87
+     r            83
+     v            81
+     g            76
+     l            76
+     a            75
+     w            75
+     s            72
+     b            70
+     n            69
+     u            69
+     e            67
+     q            62
+     h            61
+     k            59
+     p            59
+     c            58
+     f            57
+     o            57
+     x            51
+     z            51
+     y            48
+     d            44
+     j            33
