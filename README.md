@@ -7,5 +7,6 @@
 ## Links:
 
 * [Linux Command Line Tutorial](http://linuxcommand.org/lc3_learning_the_shell.php)
+* [StanfordOnline CSX0005 Automata Theory](https://courses.edx.org/courses/course-v1:StanfordOnline+CSX0005+1T2020/course/)
 
 ## YEET
