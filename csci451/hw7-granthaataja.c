@@ -31,7 +31,6 @@ void *vlad(void *arg) {
 				if (strncmp(line, "W", 1) == 0) {
 					pthread_mutex_lock(&locker);
 					temp = (float) updateBalance / 100.00f;
-					//printf("ADDING %f TO ACCOUNT BALANCE.\n", temp); //FIXME
 					accountBalance += (float) temp;
 					updateBalance = 0;
 					temp = 0.0f;
@@ -48,7 +47,7 @@ void *vlad(void *arg) {
 			}
 		}
 		else {
-			printf("This shouldn't happen\n");
+			printf("Unexpected Error in Input File Occurred\n");
 			fclose(inFile);
 			pthread_exit(NULL);
 		}	
@@ -73,7 +72,6 @@ void *frank(void *arg) {
 				if (strncmp(line, "W", 1) == 0) {
 					pthread_mutex_lock(&locker);
 					temp = (float) updateBalance / 100.00f;
-					//printf("ADDING %f TO ACCOUNT BALANCE.\n", temp); //FIXME
 					accountBalance += (float) temp;
 					updateBalance = 0;
 					temp = 0.0f;
@@ -90,7 +88,7 @@ void *frank(void *arg) {
 			}
 		}
 		else {
-			printf("This shouldn't happen\n");
+			printf("Unexpected Error in Input File Occurred\n");
 			fclose(inFile);
 			pthread_exit(NULL);
 		}	
@@ -115,7 +113,6 @@ void *bigfoot(void *arg) {
 				if (strncmp(line, "W", 1) == 0) {
 					pthread_mutex_lock(&locker);
 					temp = (float) updateBalance / 100.00f;
-					//printf("ADDING %f TO ACCOUNT BALANCE.\n", temp); //FIXME
 					accountBalance += (float) temp;
 					updateBalance = 0;
 					temp = 0.0f;
@@ -132,7 +129,7 @@ void *bigfoot(void *arg) {
 			}
 		}
 		else {
-			printf("This shouldn't happen\n");
+			printf("Unexpected Error in Input File Occurred\n");
 			fclose(inFile);
 			pthread_exit(NULL);
 		}	
@@ -157,7 +154,6 @@ void *casper(void *arg) {
 				if (strncmp(line, "W", 1) == 0) {
 					pthread_mutex_lock(&locker);
 					temp = (float) updateBalance / 100.00f;
-					//printf("ADDING %f TO ACCOUNT BALANCE.\n", temp); //FIXME
 					accountBalance += (float) temp;
 					updateBalance = 0;
 					temp = 0.0f;
@@ -174,7 +170,7 @@ void *casper(void *arg) {
 			}
 		}
 		else {
-			printf("This shouldn't happen\n");
+			printf("Unexpected Error in Input File Occurred\n");
 			fclose(inFile);
 			pthread_exit(NULL);
 		}	
@@ -199,7 +195,6 @@ void *gomez(void *arg) {
 				if (strncmp(line, "W", 1) == 0) {
 					pthread_mutex_lock(&locker);
 					temp = (float) updateBalance / 100.00f;
-					//printf("ADDING %f TO ACCOUNT BALANCE.\n", temp); //FIXME
 					accountBalance += (float) temp;
 					updateBalance = 0;
 					temp = 0.0f;
@@ -216,7 +211,7 @@ void *gomez(void *arg) {
 			}
 		}
 		else {
-			printf("This shouldn't happen\n");
+			printf("Unexpected Error in Input File Occurred\n");
 			fclose(inFile);
 			pthread_exit(NULL);
 		}	
@@ -245,11 +240,10 @@ int main() {
 	
 	//detach threads
 	for (int i = 0; i < 5; i++ ) {
-		//printf("Detaching thread number %d\n", i); //FIXME
 		pthread_detach(tid[i]);
 	}
 	
-	printf("Account balance finally is $%.2f\n", accountBalance);
+	printf("Final account balance is $%.2f\n", accountBalance);
 	
 	//clean up
 	pthread_mutex_destroy(&locker);
