@@ -14,8 +14,7 @@ Program 2
 #include <fcntl.h>
 
 //function to determine whether word is of type 1 or 2
-int wordCheck(char wrd)
-{
+int wordCheck(char wrd) {
 	if (wrd == 'a' || wrd == 'e' || wrd == 'i' || wrd == 'o' || wrd == 'u' ||
 		wrd == 'A' || wrd == 'E' || wrd == 'I' || wrd == 'O' || wrd == 'U') {
 		return 1;	
@@ -24,16 +23,14 @@ int wordCheck(char wrd)
 }
 
 //function to determine if given character is a letter
-int letter(char c)
-{
+int letter(char c) {
 	if (((c >= 'a') && (c <= 'z')) || ((c >= 'A') && (c <= 'Z'))) {
 		return 1;
 	}
 	return 0;
 }
 
-int main(int argc, char **argv)
-{
+int main(int argc, char **argv) {
 	int pipe1[2], pipe2[2];
 	int sid, readStatus;
 	int strLen, countType1 = 0, countType2 = 0;
@@ -71,9 +68,8 @@ int main(int argc, char **argv)
 			if (readStatus == 0) {
 				semop(sid, &sem_unlock, 1);
 				break;
-			}
-			//unlock semaphore and go back to start of loop
-			else {
+			} else {
+				//unlock semaphore and go back to start of loop
 				semop(sid, &sem_unlock, 1);
 				continue;
 			}
@@ -87,21 +83,18 @@ int main(int argc, char **argv)
 			//check if last character of word is a letter or punctuation
 			if (letter(buffer[strLen-1])) {
 				strcat(buffer, "ray ");
-			}
-			else {
+			} else {
 				//remove comma before adding "ray" to the word with a new comma
 				if (buffer[strLen-1] == ',') {
 					buffer[strLen-1] = '\0';
 					strcat(buffer, "ray, ");
-				}
-				//remove period before adding "ray" with a new period
-				else {
+				} else {
+					//remove period before adding "ray" with a new period
 					buffer[strLen-1] = '\0';
 					strcat(buffer, "ray. ");
 				}
 			}
-		}
-		else {
+		} else {
 			countType2++;
 			//check if last character of word is a letter or punctuation
 			if (letter(buffer[strLen-1])) {
@@ -113,8 +106,7 @@ int main(int argc, char **argv)
 				strcat(newBuffer, "ay ");
 				//copy the new buffer back into the original buffer
 				strcpy(buffer, newBuffer);				
-			}
-			else {
+			} else {
 				//copy all but the first letter into a new buffer
 				strcpy(newBuffer, buffer+1);
 				//replace the puct mark in the new buffer with the first letter
@@ -122,9 +114,8 @@ int main(int argc, char **argv)
 				//if it's a comma, add "ay," to the end of the new buffer
 				if (buffer[strLen-1] == ',') {
 					strcat(newBuffer, "ay, ");
-				}
-				//if it's a period, add "ay." to the end of the new buffer
-				else {
+				} else {
+					//if it's a period, add "ay." to the end of the new buffer
 					strcat(newBuffer, "ay. ");
 				}
 				//copy the new buffer back into the original buffer

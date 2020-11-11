@@ -2,6 +2,8 @@
 #Grant Haataja
 #
 #Makefile
+#
+#to run program please run "./program0" in the command line after compiling
 
 #define executable files
 EXEC = program0 program1 program2 program3
@@ -23,7 +25,7 @@ program3: program3.c
 
 #clean up the mess
 clean:
-	rm -f $(EXEC) *.o *.tar* *.so *.dat output.data
+	rm -f $(EXEC) *.o *.tar* *.dat *.so output.data
 
 #make a tarball of all the contents of the folder
 targz:

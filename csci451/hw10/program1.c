@@ -12,8 +12,7 @@ Program 1
 #include <sys/sem.h>
 #include <fcntl.h>
 
-int main(int argc, char **argv)
-{
+int main(int argc, char **argv) {
 	int pipe1[2];
 	int sid;
 	char buffer[111];
