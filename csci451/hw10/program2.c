@@ -34,7 +34,7 @@ int main(int argc, char **argv) {
 	int pipe1[2], pipe2[2];
 	int sid, readStatus;
 	int strLen, countType1 = 0, countType2 = 0;
-	char buffer[111], newBuffer[111];
+	char buffer[111] = {'\0'};
 	
 	//configure the semaphore for locking and unlocking
 	struct sembuf sem_lock, sem_unlock;
@@ -82,20 +82,21 @@ int main(int argc, char **argv) {
 			countType1++;
 			//check if last character of word is a letter or punctuation
 			if (letter(buffer[strLen-1])) {
-				strcat(buffer, "ray ");
+				strcat(buffer, "ray");
 			} else {
 				//remove comma before adding "ray" to the word with a new comma
 				if (buffer[strLen-1] == ',') {
 					buffer[strLen-1] = '\0';
-					strcat(buffer, "ray, ");
+					strcat(buffer, "ray," );
 				} else {
 					//remove period before adding "ray" with a new period
 					buffer[strLen-1] = '\0';
-					strcat(buffer, "ray. ");
+					strcat(buffer, "ray.");
 				}
 			}
 		} else {
 			countType2++;
+			char newBuffer[111] = {'\0'};
 			//check if last character of word is a letter or punctuation
 			if (letter(buffer[strLen-1])) {
 				//copy all but the first letter into a new buffer
@@ -103,7 +104,7 @@ int main(int argc, char **argv) {
 				//add the first letter to the end of the new buffer
 				newBuffer[strLen-1] = buffer[0];
 				//add "ay" to the end of the new buffer
-				strcat(newBuffer, "ay ");
+				strcat(newBuffer, "ay");
 				//copy the new buffer back into the original buffer
 				strcpy(buffer, newBuffer);				
 			} else {
@@ -113,16 +114,18 @@ int main(int argc, char **argv) {
 				newBuffer[strLen-2] = buffer[0];
 				//if it's a comma, add "ay," to the end of the new buffer
 				if (buffer[strLen-1] == ',') {
-					strcat(newBuffer, "ay, ");
+					strcat(newBuffer, "ay,");
 				} else {
 					//if it's a period, add "ay." to the end of the new buffer
-					strcat(newBuffer, "ay. ");
+					strcat(newBuffer, "ay.");
 				}
 				//copy the new buffer back into the original buffer
 				strcpy(buffer, newBuffer);
+				
 			}
 		}
 		//write result to pipe 2
+		strcat(buffer, " ");
 		write(pipe2[1], &buffer, 111);
 	}
 	
